@@ -1,36 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>320</x>
-      <y>144</y>
-      <w>80</w>
-      <h>96</h>
+      <x>572</x>
+      <y>297</y>
+      <w>110</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>Υπάλληλος
 υποδοχής</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>328</x>
-      <y>320</y>
-      <w>64</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>Πελάτης</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>456</x>
-      <y>240</y>
-      <w>120</w>
-      <h>32</h>
+      <x>748</x>
+      <y>429</y>
+      <w>165</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Προβολή στατιστικών</panel_attributes>
     <additional_attributes/>
@@ -38,21 +27,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>432</x>
-      <y>80</y>
-      <w>128</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>Διαχείριση ραντεβού</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>496</x>
-      <y>136</y>
-      <w>128</w>
-      <h>32</h>
+      <x>726</x>
+      <y>198</y>
+      <w>176</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Διαχείριση πελατών</panel_attributes>
     <additional_attributes/>
@@ -60,65 +38,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>456</x>
-      <y>328</y>
-      <w>152</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>Προγραμματισμός ραντεβού</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>376</x>
-      <y>336</y>
-      <w>96</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>100.0;17.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>376</x>
-      <y>96</y>
-      <w>80</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>80.0;10.0;10.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>376</x>
-      <y>192</y>
-      <w>96</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>100.0;80.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>376</x>
-      <y>144</y>
-      <w>136</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>150.0;10.0;10.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>512</x>
-      <y>192</y>
-      <w>128</w>
-      <h>32</h>
+      <x>803</x>
+      <y>275</y>
+      <w>176</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Διαχείριση καθαριστών</panel_attributes>
     <additional_attributes/>
@@ -126,21 +49,65 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>184</y>
-      <w>152</w>
-      <h>40</h>
+      <x>649</x>
+      <y>220</y>
+      <w>110</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>170.0;30.0;10.0;10.0</additional_attributes>
+    <additional_attributes>80.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>649</x>
+      <y>363</y>
+      <w>121</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>90.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>649</x>
+      <y>286</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>140.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>825</x>
+      <y>352</y>
+      <w>176</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>Διαχείριση ραντεβού</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>649</x>
+      <y>341</y>
+      <w>198</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>160.0;30.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>320</x>
-      <y>440</y>
-      <w>80</w>
-      <h>88</h>
+      <x>572</x>
+      <y>550</y>
+      <w>110</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>Καθαριστής</panel_attributes>
     <additional_attributes/>
@@ -148,21 +115,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>448</y>
-      <w>112</w>
-      <h>32</h>
+      <x>649</x>
+      <y>561</y>
+      <w>143</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>472</x>
-      <y>448</y>
-      <w>144</w>
-      <h>32</h>
+      <x>770</x>
+      <y>561</y>
+      <w>198</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Ολοκλήρωση καθαρισμού</panel_attributes>
     <additional_attributes/>
@@ -170,10 +137,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>152</x>
-      <y>320</y>
-      <w>64</w>
-      <h>88</h>
+      <x>341</x>
+      <y>418</y>
+      <w>88</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>Χρήστης</panel_attributes>
     <additional_attributes/>
@@ -181,21 +148,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>208</x>
-      <y>376</y>
-      <w>144</w>
-      <h>112</h>
+      <x>418</x>
+      <y>484</y>
+      <w>198</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;160.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>176</x>
-      <y>392</y>
-      <w>24</w>
-      <h>64</h>
+      <x>374</x>
+      <y>517</y>
+      <w>33</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -203,10 +170,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>128</x>
-      <y>440</y>
-      <w>112</w>
-      <h>32</h>
+      <x>308</x>
+      <y>583</y>
+      <w>154</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>Ταυτοποίηση</panel_attributes>
     <additional_attributes/>
@@ -214,23 +181,12 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>208</x>
-      <y>176</y>
-      <w>144</w>
-      <h>168</h>
+      <x>418</x>
+      <y>341</y>
+      <w>198</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;190.0;160.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>200</x>
-      <y>344</y>
-      <w>152</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;160.0;10.0</additional_attributes>
   </element>
 </diagram>
