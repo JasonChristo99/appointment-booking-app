@@ -12,7 +12,7 @@
 
 ## Επισκόπηση μοντέλου περιπτώσεων χρήσης
 
-![Διάγραμμα περιπτώσεων χρήσης](requirements/use-case-diagram.png)
+![Διάγραμμα περιπτώσεων χρήσης](requirements/diagrams/use-case-diagram.png)
 
 # Ειδικές Απαιτήσεις 
 
