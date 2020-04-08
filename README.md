@@ -141,9 +141,9 @@
 
 ![Διάγραμμα ακολουθίας - Δημιουργία ραντεβού](requirements/diagrams/sequence-schedule-appointment.png)
 
-#### Ολοκλήρωση καθαρισμού
+#### Υπολογισμός στατιστικών
 
-![Διάγραμμα ακολουθίας - Ολοκλήρωση καθαρισμού](diagrams/sequence-cleaning-completion.png)
+![Διάγραμμα ακολουθίας - Υπολογισμός στατιστικών](requirements/diagrams/sequence-statistics-calculation.png)
 
 ## <a id="business-rules"></a>Επιχειρησιακοί κανόνες
 
