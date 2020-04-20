@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
+      <x>390</x>
       <y>180</y>
       <w>210</w>
       <h>120</h>
@@ -21,7 +21,7 @@ id: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
+      <x>390</x>
       <y>390</y>
       <w>210</w>
       <h>100</h>
@@ -37,7 +37,7 @@ id: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>900</x>
+      <x>740</x>
       <y>220</y>
       <w>210</w>
       <h>70</h>
@@ -51,7 +51,7 @@ id: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
+      <x>50</x>
       <y>220</y>
       <w>210</w>
       <h>70</h>
@@ -65,7 +65,7 @@ id: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>900</x>
+      <x>740</x>
       <y>390</y>
       <w>210</w>
       <h>90</h>
@@ -80,21 +80,21 @@ id: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>550</x>
+      <x>390</x>
       <y>580</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Καθαριστής
 --
-πλήθοςΟλοκλΚαθαρισμών: int
-επίπεδοΙεραρχίας: int</panel_attributes>
+επίπεδοΙεραρχίας: int
+/πλήθοςΟλοκλΚαθαρισμών: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
+      <x>50</x>
       <y>370</y>
       <w>210</w>
       <h>100</h>
@@ -110,7 +110,7 @@ id: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
+      <x>250</x>
       <y>420</y>
       <w>160</w>
       <h>210</h>
@@ -121,7 +121,7 @@ id: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
+      <x>150</x>
       <y>280</y>
       <w>30</w>
       <h>110</h>
@@ -132,7 +132,7 @@ id: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>900</x>
+      <x>740</x>
       <y>570</y>
       <w>210</w>
       <h>80</h>
@@ -147,7 +147,7 @@ id: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
+      <x>590</x>
       <y>420</y>
       <w>170</w>
       <h>50</h>
@@ -161,7 +161,7 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>480</x>
       <y>290</y>
       <w>130</w>
       <h>120</h>
@@ -175,7 +175,7 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
+      <x>590</x>
       <y>240</y>
       <w>170</w>
       <h>50</h>
@@ -189,7 +189,7 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
+      <x>590</x>
       <y>600</y>
       <w>170</w>
       <h>50</h>
@@ -203,7 +203,7 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>480</x>
       <y>480</y>
       <w>90</w>
       <h>120</h>
@@ -217,7 +217,7 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
+      <x>250</x>
       <y>240</y>
       <w>160</w>
       <h>50</h>
@@ -231,7 +231,7 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>310</x>
+      <x>150</x>
       <y>460</y>
       <w>40</w>
       <h>110</h>
@@ -243,7 +243,7 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
+      <x>50</x>
       <y>550</y>
       <w>210</w>
       <h>100</h>
