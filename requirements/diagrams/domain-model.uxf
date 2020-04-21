@@ -13,10 +13,8 @@
 --
 id: int
 ώραΡαντεβού: Date
-εκτιμώμενηΔιάρκεια: int
 ώραΟλοκλήρωσης: Date
-σχόλια: String
-/κόστος: Money</panel_attributes>
+σχόλια: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -25,12 +23,13 @@ id: int
       <x>930</x>
       <y>330</y>
       <w>210</w>
-      <h>70</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>ΤύποςΚαθαρισμού
 --
 περιγραφή: String
-κόστος: Money</panel_attributes>
+κόστος: Money
+εκτιμώμενηΔιάρκεια: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -134,7 +133,7 @@ id: int</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>810</x>
-      <y>450</y>
+      <y>460</y>
       <w>140</w>
       <h>50</h>
     </coordinates>
