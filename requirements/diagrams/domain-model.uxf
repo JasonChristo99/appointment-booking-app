@@ -88,7 +88,7 @@ id: int
 --
 όνομα: String
 επώνυμο: String
-τηλέφωνο: int
+τηλέφωνο: TelephoneNumber
 email: Email
 id: int</panel_attributes>
     <additional_attributes/>
