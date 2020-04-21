@@ -1,5 +1,7 @@
 package com.example.carlaundry.domain;
 
+import com.example.carlaundry.util.Car;
+
 import java.time.LocalDateTime;
 
 public class Appointment {
@@ -9,6 +11,7 @@ public class Appointment {
     private Customer customer;
     private CleaningType cleaningType;
     private AppointmentState appointmentState;
+    private Car car;
     private String comments;
 
     public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningType cleaningType, String comments) {
@@ -58,6 +61,22 @@ public class Appointment {
 
     public void setCleaningType(CleaningType cleaningType) {
         this.cleaningType = cleaningType;
+    }
+
+    public AppointmentState getAppointmentState() {
+        return appointmentState;
+    }
+
+    public void setAppointmentState(AppointmentState appointmentState) {
+        this.appointmentState = appointmentState;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 
     public String getComments() {
