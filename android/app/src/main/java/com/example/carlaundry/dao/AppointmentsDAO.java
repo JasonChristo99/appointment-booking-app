@@ -5,10 +5,10 @@ import com.example.carlaundry.domain.Appointment;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ApointmentsDAO {
-    private Set<Appointment> appointments = new HashSet<>();
+public class AppointmentsDAO {
+    private static Set<Appointment> appointments = new HashSet<>();
 
-    public Set<Appointment> getAppointments() {
+    public static Set<Appointment> getAppointments() {
         return appointments;
     }
 

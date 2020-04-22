@@ -12,12 +12,12 @@ public class CleaningStuffDAO {
         return cleaningStuffMembers;
     }
 
-    //TODO
+    //TODO method
     public static boolean addStuffMember(CleaningStuffMember stuffMember) {
         return false;
     }
 
-    //TODO
+    //TODO method
     public static boolean removeStuffMember(int memberId) {
         return false;
     }

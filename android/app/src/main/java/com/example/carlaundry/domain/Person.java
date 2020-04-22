@@ -73,8 +73,18 @@ public class Person {
         this.address = address;
     }
 
-    @Override //TODO
-    public boolean equals(@Nullable Object obj) {
-        return super.equals(obj);
+    @Override
+    public boolean equals(@Nullable Object other) {
+        if (other == null) {
+            return false;
+        }
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof Person)) {
+            return false;
+        }
+        Person otherPerson = (Person) other;
+        return id == 0 ? otherPerson.getId() == 0 : id == (otherPerson.getId());
     }
 }

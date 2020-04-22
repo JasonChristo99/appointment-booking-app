@@ -1,22 +1,25 @@
 package com.example.carlaundry.util;
 
+import java.util.regex.Pattern;
+
 public class Address {
     private String street;
     private int streetNo;
     private int zipCode;
     private String city;
 
-    //TODO constructor
     public Address(String street, int streetNo, int zipCode, String city) {
         this.street = street;
         this.streetNo = streetNo;
         this.zipCode = zipCode;
         this.city = city;
+        if (!isValid()) {
+            throw new IllegalArgumentException();
+        }
     }
 
-    //TODO
     private boolean isValid() {
-        return false;
+        return street != null && String.valueOf(streetNo).length() > 0 && String.valueOf(zipCode).length() == 5 && city != null;
     }
 
 }

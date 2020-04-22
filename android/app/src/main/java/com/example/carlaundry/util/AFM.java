@@ -1,15 +1,22 @@
 package com.example.carlaundry.util;
 
-public class AFM {
-    private int afm;
+import java.util.regex.Pattern;
 
-    //TODO constructor
-    public AFM(int afm) {
+public class AFM {
+    private String afm;
+
+    public AFM(String afm) {
         this.afm = afm;
+        if (!isValid()) {
+            throw new IllegalArgumentException();
+        }
     }
 
-    //TODO
     private boolean isValid() {
-        return false;
+        return Pattern.matches("^\\d{9}$", afm);
+    }
+
+    public int getIntValue() {
+        return Integer.parseInt(afm);
     }
 }
