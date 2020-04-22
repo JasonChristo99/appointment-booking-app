@@ -12,13 +12,12 @@ public class AppointmentsDAO {
         return appointments;
     }
 
-    //TODO
-    public static boolean addAppointment(Appointment appointment) {
-        return false;
-    }
-
-    //TODO
-    public static boolean removeAppointment(int aptId) {
-        return false;
+    public static Appointment find(int id) {
+        for (Appointment appointment : appointments) {
+            if (appointment.getAptId() == id) {
+                return appointment;
+            }
+        }
+        return null;
     }
 }

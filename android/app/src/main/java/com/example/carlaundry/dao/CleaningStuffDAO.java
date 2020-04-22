@@ -6,19 +6,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CleaningStuffDAO {
-    private Set<CleaningStuffMember> cleaningStuffMembers = new HashSet<>();
+    private static Set<CleaningStuffMember> cleaningStuffMembers = new HashSet<>();
 
-    public Set<CleaningStuffMember> getCleaningStuffMembers() {
+    public static Set<CleaningStuffMember> getCleaningStuffMembers() {
         return cleaningStuffMembers;
     }
 
-    //TODO method
-    public static boolean addStuffMember(CleaningStuffMember stuffMember) {
-        return false;
-    }
-
-    //TODO method
-    public static boolean removeStuffMember(int memberId) {
-        return false;
+    public static CleaningStuffMember find(int id) {
+        for (CleaningStuffMember stuffMember : cleaningStuffMembers) {
+            if (stuffMember.getId() == id) {
+                return stuffMember;
+            }
+        }
+        return null;
     }
 }

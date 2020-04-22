@@ -1,6 +1,7 @@
 package com.example.carlaundry.domain;
 
 import com.example.carlaundry.dao.AppointmentsDAO;
+import com.example.carlaundry.dao.CleaningStuffDAO;
 import com.example.carlaundry.util.EmailAddress;
 import com.example.carlaundry.util.TelephoneNumber;
 
@@ -41,5 +42,17 @@ public class CleaningStuffMember extends Person {
             }
         }
         return aptSet;
+    }
+
+    public boolean addToCollection() {
+        return CleaningStuffDAO.getCleaningStuffMembers().add(this);
+    }
+
+    public boolean removeFromCollection(int id) {
+        CleaningStuffMember stuffMember = CleaningStuffDAO.find(id);
+        if (stuffMember == null) {
+            return false;
+        }
+        return CleaningStuffDAO.getCleaningStuffMembers().remove(stuffMember);
     }
 }

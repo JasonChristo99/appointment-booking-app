@@ -6,19 +6,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CleaningTypesDAO {
-    private Set<CleaningType> cleaningTypes = new HashSet<>();
+    private static Set<CleaningType> cleaningTypes = new HashSet<>();
 
-    public Set<CleaningType> getCleaningTypes() {
+    public static Set<CleaningType> getCleaningTypes() {
         return cleaningTypes;
     }
 
-    //TODO
-    public static boolean addCleaningType(CleaningType cleaningType) {
-        return false;
-    }
-
-    //TODO
-    public static boolean removeCleaningType(CleaningType cleaningType) {
-        return false;
+    public static CleaningType find(int id) {
+        for (CleaningType cleaningType : cleaningTypes) {
+            if (cleaningType.getId() == id) {
+                return cleaningType;
+            }
+        }
+        return null;
     }
 }

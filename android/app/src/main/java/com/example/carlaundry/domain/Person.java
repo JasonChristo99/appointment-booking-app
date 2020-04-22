@@ -87,4 +87,9 @@ public class Person {
         Person otherPerson = (Person) other;
         return id == 0 ? otherPerson.getId() == 0 : id == (otherPerson.getId());
     }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.carlaundry.domain;
 
+import com.example.carlaundry.dao.AppointmentsDAO;
+
 import java.time.LocalDateTime;
 
 public class Appointment {
@@ -98,5 +100,22 @@ public class Appointment {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public int hashCode() {
+        return aptId;
+    }
+
+    public boolean addToCollection() {
+        return AppointmentsDAO.getAppointments().add(this);
+    }
+
+    public boolean removeFromCollection(int id) {
+        Appointment appointment = AppointmentsDAO.find(id);
+        if (appointment == null) {
+            return false;
+        }
+        return AppointmentsDAO.getAppointments().remove(appointment);
     }
 }

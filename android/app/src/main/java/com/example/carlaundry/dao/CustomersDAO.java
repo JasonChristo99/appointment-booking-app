@@ -6,19 +6,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CustomersDAO {
-    private Set<Customer> customers = new HashSet<>();
+    private static Set<Customer> customers = new HashSet<>();
 
-    public Set<Customer> getCustomers() {
+    public static Set<Customer> getCustomers() {
         return customers;
     }
 
-    //TODO
-    public static boolean addCustomer(Customer customer) {
-        return false;
-    }
-
-    //TODO
-    public static boolean removeCustomer(int customerId) {
-        return false;
+    public static Customer find(int id) {
+        for (Customer customer : customers) {
+            if (customer.getId() == id) {
+                return customer;
+            }
+        }
+        return null;
     }
 }

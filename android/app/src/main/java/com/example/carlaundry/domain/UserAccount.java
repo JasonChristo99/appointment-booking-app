@@ -1,21 +1,20 @@
-package com.example.carlaundry.util;
+package com.example.carlaundry.domain;
 
 import androidx.annotation.Nullable;
 
-import com.example.carlaundry.dao.AccountsDAO;
-
-import java.util.regex.Pattern;
+import com.example.carlaundry.dao.UserAccountsDAO;
 
 public class UserAccount {
-    private enum AccountType {ADMIN, STUFF}
+    public enum AccountType {ADMIN, STUFF}
 
     private AccountType accountType;
     private String userId;
     private String password;
 
-    public UserAccount(String userId, String password) {
+    public UserAccount(String userId, String password, AccountType accountType) {
         this.userId = userId;
         this.password = password;
+        this.accountType = accountType;
         if (!isValid()) {
             throw new IllegalArgumentException();
         }
@@ -53,21 +52,23 @@ public class UserAccount {
     }
 
     private boolean isValid() {
-        if (this.userId == null || this.password == null) {
-            return false;
-        }
-        return isUnique();
+        return this.userId != null && this.password != null && this.accountType != null;
     }
 
-    private boolean isUnique() {
-        if (accountType.equals(AccountType.ADMIN)) {
-            return true;
+    @Override
+    public int hashCode() {
+        return userId.hashCode();
+    }
+
+    public boolean addToCollection() {
+        return UserAccountsDAO.getUserAccounts().add(this);
+    }
+
+    public boolean removeFromCollection(String id) {
+        UserAccount userAccount = UserAccountsDAO.find(id);
+        if (userAccount == null) {
+            return false;
         }
-        for (UserAccount acc : AccountsDAO.getUserAccounts()) {
-            if (this.equals(acc)) {
-                return true;
-            }
-        }
-        return false;
+        return UserAccountsDAO.getUserAccounts().remove(userAccount);
     }
 }
