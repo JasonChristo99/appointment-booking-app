@@ -18,9 +18,10 @@ public class CleaningStuffMember extends Person {
     private LocalDate dateHired;
     private WorkHours workHours;
 
-    public CleaningStuffMember(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, int id, LocalDate dateHired) {
+    public CleaningStuffMember(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, int id, LocalDate dateHired, WorkHours workHours) {
         super(firstName, lastName, telNumber, emailAddress, id);
         this.dateHired = dateHired;
+        this.workHours = workHours;
     }
 
     public LocalDate getDateHired() {

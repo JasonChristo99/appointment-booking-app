@@ -26,6 +26,16 @@ public class Appointment {
     private Car car;
     private String comments;
 
+    public Appointment(int aptId, LocalDateTime aptDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, Car car) {
+        this.aptId = aptId;
+        this.aptDate = aptDate;
+        this.customer = customer;
+        this.stuffMember = stuffMember;
+        this.cleaningType = cleaningType;
+        this.car = car;
+        this.appointmentState = AppointmentState.PENDING;
+    }
+
     public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, AppointmentState appointmentState, Car car, String comments) {
         this.aptId = aptId;
         this.aptDate = aptDate;
@@ -74,16 +84,26 @@ public class Appointment {
         return comments;
     }
 
+    public void setAptCompletionDate(LocalDateTime aptCompletionDate) {
+        this.aptCompletionDate = aptCompletionDate;
+    }
+
+    public void setAppointmentState(AppointmentState appointmentState) {
+        this.appointmentState = appointmentState;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
     @Override
     public int hashCode() {
         return aptId;
     }
 
     public boolean schedule() {
-        for (Appointment appointment : AppointmentsDAO.getAppointments()) {
-            if (appointment.getStuffMember().isAvailableOn(appointment.getAptDate())) {
-                return AppointmentsDAO.add(this);
-            }
+        if (this.getStuffMember().isAvailableOn(this.getAptDate())) {
+            return AppointmentsDAO.add(this);
         }
         return false;
     }

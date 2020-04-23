@@ -6,15 +6,21 @@ import com.example.carlaundry.domain.Car;
 import com.example.carlaundry.domain.CleaningStuffMember;
 import com.example.carlaundry.domain.CleaningType;
 import com.example.carlaundry.domain.Customer;
+import com.example.carlaundry.domain.WorkHours;
+import com.example.carlaundry.util.DailyTimePeriod;
 import com.example.carlaundry.util.EmailAddress;
 import com.example.carlaundry.util.Money;
 import com.example.carlaundry.util.TelephoneNumber;
 
 import java.math.BigDecimal;
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Currency;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Initializer {
     public static void resetAll() {
@@ -33,22 +39,19 @@ public class Initializer {
     public static Appointment getDummyAppointment() {
         return new Appointment(
                 1,
-                LocalDateTime.of(2020, 1, 1, 0, 0),
-                LocalDateTime.of(2020, 1, 2, 0, 0),
+                LocalDateTime.of(2020, 1, 1, 10, 0),
                 getDummyCustomer(),
                 getDummyCleaningStuffMember(),
                 getDummyCleaningType(),
-                AppointmentState.PENDING,
-                new Car("ABC123", "Manuf", "modelX"),
-                "none"
+                getDummyCar()
         );
     }
 
     public static Customer getDummyCustomer() {
         return new Customer("Dum",
                 "Cust",
-                new TelephoneNumber("6999999999"),
-                new EmailAddress("a@b.com"),
+                getDummyTelNo(),
+                getDummyEmail(),
                 1, LocalDate.of(2020, 1, 1)
         );
     }
@@ -57,17 +60,41 @@ public class Initializer {
         return new CleaningStuffMember(
                 "Dum",
                 "Stuf",
-                new TelephoneNumber("6999999999"),
-                new EmailAddress("a@b.com"), 1,
-                LocalDate.of(2020, 1, 1)
+                getDummyTelNo(),
+                getDummyEmail(),
+                1,
+                LocalDate.of(2020, 1, 1),
+                getDummyWorkHours()
         );
     }
 
     public static CleaningType getDummyCleaningType() {
         return new CleaningType(
                 "bio",
-                new Money(new BigDecimal(10), Currency.getInstance("EUR")),
+                getDummyMoney(),
                 Duration.ofHours(1),
                 1);
+    }
+
+    public static Car getDummyCar() {
+        return new Car("ABC123", "Manuf", "modelX");
+    }
+
+    public static EmailAddress getDummyEmail() {
+        return new EmailAddress("a@b.com");
+    }
+
+    public static TelephoneNumber getDummyTelNo() {
+        return new TelephoneNumber("6999999999");
+    }
+
+    public static Money getDummyMoney() {
+        return new Money(new BigDecimal(10), Currency.getInstance("EUR"));
+    }
+
+    public static WorkHours getDummyWorkHours() {
+        Map<DayOfWeek, DailyTimePeriod> map = new HashMap<>();
+        map.put(DayOfWeek.WEDNESDAY, new DailyTimePeriod(LocalTime.of(8, 0), LocalTime.of(16, 0)));
+        return new WorkHours(map);
     }
 }
