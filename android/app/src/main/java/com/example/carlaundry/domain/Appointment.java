@@ -107,4 +107,23 @@ public class Appointment {
         }
         return false;
     }
+
+    public boolean cancel() {
+        if (!this.getAppointmentState().equals(AppointmentState.PENDING)) {
+            return false;
+        }
+        if (AppointmentsDAO.remove(this)) {
+            this.setAppointmentState(AppointmentState.CANCELED);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean complete() {
+        if (appointmentState.equals(AppointmentState.PENDING)) {
+            appointmentState = AppointmentState.COMPLETE;
+            return true;
+        }
+        return false;
+    }
 }

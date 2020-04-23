@@ -1,7 +1,8 @@
 package com.example.carlaundry.util;
 
 public enum StatisticType {
-    SALES_TOTAL,
-    TOTAL_APPOINTMENTS_COMPLETE
-    //TODO add more statistic types
+    TOTAL_APPOINTMENTS_COMPLETE,
+    TOTAL_SALES,
+    CANCEL_RATE,
+//    MOST_POPULAR_CLEANING_TYPE
 }

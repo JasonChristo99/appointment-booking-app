@@ -1,22 +1,21 @@
 package com.example.carlaundry.util;
 
-import java.math.BigDecimal;
 import java.util.Currency;
 
 public class Money {
-    private BigDecimal value;
+    private double value;
     private Currency currency;
 
-    public Money(BigDecimal value, Currency currency) {
+    public Money(double value, Currency currency) {
         this.value = value;
         this.currency = currency;
     }
 
-    public BigDecimal getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(double value) {
         this.value = value;
     }
 }

@@ -10,11 +10,13 @@ public class UserAccount {
     private AccountType accountType;
     private String userId;
     private String password;
+    private int stuffId;
 
-    public UserAccount(String userId, String password, AccountType accountType) {
+    public UserAccount(String userId, String password, AccountType accountType, int stuffId) {
         this.userId = userId;
         this.password = password;
         this.accountType = accountType;
+        this.stuffId = stuffId; // stuffId must be negative for administrator accounts
         if (!isValid()) {
             throw new IllegalArgumentException();
         }
@@ -24,16 +26,16 @@ public class UserAccount {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public int getStuffId() {
+        return stuffId;
     }
 
     @Override
@@ -47,16 +49,34 @@ public class UserAccount {
         if (!(other instanceof UserAccount)) {
             return false;
         }
-        UserAccount otherPerson = (UserAccount) other;
-        return userId == null ? otherPerson.getUserId() == null : userId.equals(otherPerson.getUserId());
+        UserAccount otherAccount = (UserAccount) other;
+        return userId.equals(otherAccount.getUserId()) && password.equals(otherAccount.getPassword()) && accountType.equals(otherAccount.getAccountType());
     }
 
     private boolean isValid() {
+        if (accountType.equals(AccountType.STUFF) && stuffId <= 0) {
+            return false;
+        }
+        if (accountType.equals(AccountType.STUFF) && stuffId > 0) {
+            return false;
+        }
         return this.userId != null && this.password != null && this.accountType != null;
     }
 
     @Override
     public int hashCode() {
         return userId.hashCode();
+    }
+
+    public boolean register() {
+        return UserAccountsDAO.add(this);
+    }
+
+    public boolean verify() {
+        return UserAccountsDAO.verify(this);
+    }
+
+    public boolean delete() {
+        return UserAccountsDAO.remove(this);
     }
 }

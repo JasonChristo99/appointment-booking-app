@@ -21,6 +21,24 @@ public class UserAccountsDAO {
         return null;
     }
 
+    public static UserAccount findStuff(int stuffId) {
+        for (UserAccount userAccount : userAccounts) {
+            if (userAccount.getStuffId() == stuffId && userAccount.getAccountType().equals(UserAccount.AccountType.STUFF)) {
+                return userAccount;
+            }
+        }
+        return null;
+    }
+
+    public static boolean verify(UserAccount userAccount) {
+        for (UserAccount account : userAccounts) {
+            if (account.equals(userAccount)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean add(UserAccount userAccount) {
         return userAccounts.add(userAccount);
     }

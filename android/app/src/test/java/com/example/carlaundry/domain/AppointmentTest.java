@@ -1,6 +1,5 @@
 package com.example.carlaundry.domain;
 
-import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.dao.Initializer;
 
 import org.junit.Assert;
@@ -16,56 +15,55 @@ public class AppointmentTest {
     }
 
     @Test
-    public void testScheduleForAvailableStuff() {
-        // create available stuff
-        CleaningStuffMember stuff = Initializer.getDummyCleaningStuffMember();
+    public void scheduleAppointmentWhichStuffIsAvailableOnDate() {
+        // create available stuffMember
+        CleaningStuffMember stuffMember = Initializer.getDummyCleaningStuffMember();
         // create an appointment
         Appointment appointment = new Appointment(
                 1,
                 LocalDateTime.of(2020, 1, 1, 10, 0),
                 Initializer.getDummyCustomer(),
-                stuff,
+                stuffMember,
                 Initializer.getDummyCleaningType(),
                 Initializer.getDummyCar()
         );
         // schedule appointemnt
         boolean result = appointment.schedule();
-        Assert.assertEquals(result, true);
+        Assert.assertTrue(result);
     }
 
     @Test
-    public void testScheduleForNonAvailableStuff() {
-        // create available stuff
-        CleaningStuffMember stuff = Initializer.getDummyCleaningStuffMember();
+    public void scheduleAppointmentWhichStuffIsNotAvailableOnDate() {
+        // create available stuffMember
+        CleaningStuffMember stuffMember = Initializer.getDummyCleaningStuffMember();
         // create an appointment
         Appointment appointment = new Appointment(
                 1,
                 LocalDateTime.of(2020, 1, 1, 10, 0),
                 Initializer.getDummyCustomer(),
-                stuff,
+                stuffMember,
                 Initializer.getDummyCleaningType(),
                 Initializer.getDummyCar()
         );
         // schedule appointemnt
         boolean result = appointment.schedule();
-        Assert.assertEquals(result, true);
-
-        // create an overlapping appointment -same time and same stuff member
+        Assert.assertTrue(result);
+        // create an overlapping appointment -same time and same stuffMember member
         appointment = new Appointment(
                 1,
                 LocalDateTime.of(2020, 1, 1, 10, 30),
                 Initializer.getDummyCustomer(),
-                stuff,
+                stuffMember,
                 Initializer.getDummyCleaningType(),
                 Initializer.getDummyCar()
         );
         // schedule appointment -must fail
         result = appointment.schedule();
-        Assert.assertEquals(result, false);
+        Assert.assertFalse(result);
     }
 
     @Test
-    public void testScheduleForNonWorkingStuff() {
+    public void scheduleAppointmentWhichStuffIsNotWorkingOnDate() {
         // create available stuff
         CleaningStuffMember stuff = Initializer.getDummyCleaningStuffMember();
         // create an appointment
@@ -79,7 +77,62 @@ public class AppointmentTest {
         );
         // schedule appointemnt
         boolean result = appointment.schedule();
-        Assert.assertEquals(result, false);
+        Assert.assertFalse(result);
     }
+
+    @Test
+    public void cancelPendingAppointment() {
+        // create available stuffMember
+        CleaningStuffMember stuffMember = Initializer.getDummyCleaningStuffMember();
+        // create a pending appointment
+        Appointment appointment = new Appointment(
+                1,
+                LocalDateTime.of(2020, 1, 1, 10, 0),
+                Initializer.getDummyCustomer(),
+                stuffMember,
+                Initializer.getDummyCleaningType(),
+                Initializer.getDummyCar()
+        );
+        // schedule appointemnt
+        boolean result = appointment.schedule();
+        Assert.assertTrue(result);
+        // test cancel
+        Assert.assertEquals(appointment.getAppointmentState(), AppointmentState.PENDING);
+        result = appointment.cancel();
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void cancelNonPendingAppointment() {
+        // create available stuffMember
+        CleaningStuffMember stuffMember = Initializer.getDummyCleaningStuffMember();
+        // create a pending appointment
+        Appointment appointment = new Appointment(
+                1,
+                LocalDateTime.of(2020, 1, 1, 10, 0),
+                Initializer.getDummyCustomer(),
+                stuffMember,
+                Initializer.getDummyCleaningType(),
+                Initializer.getDummyCar()
+        );
+        // schedule appointemnt
+        boolean result = appointment.schedule();
+        Assert.assertTrue(result);
+        // complete appointment
+        appointment.setAppointmentState(AppointmentState.COMPLETE);
+        // test cancel
+        Assert.assertEquals(appointment.getAppointmentState(), AppointmentState.COMPLETE);
+        result = appointment.cancel();
+        Assert.assertFalse(result);
+    }
+
+    @Test //TODO
+    public void completePendingAppointment() {
+    }
+
+    @Test //TODO
+    public void completeNonPendingAppointment() {
+    }
+
 
 }

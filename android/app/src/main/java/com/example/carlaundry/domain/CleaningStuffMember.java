@@ -2,6 +2,7 @@ package com.example.carlaundry.domain;
 
 import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.dao.CleaningStuffDAO;
+import com.example.carlaundry.dao.UserAccountsDAO;
 import com.example.carlaundry.util.DailyTimePeriod;
 import com.example.carlaundry.util.EmailAddress;
 import com.example.carlaundry.util.TelephoneNumber;
@@ -52,7 +53,7 @@ public class CleaningStuffMember extends Person {
 
 
     public boolean isAvailableOn(LocalDateTime aptDate) {
-        // yparxei sto wrario
+        // works on date
         boolean worksOnDate = false;
         for (Map.Entry<DayOfWeek, DailyTimePeriod> entry : workHours.getWorkHoursMap().entrySet()) {
             if (aptDate.toLocalTime().isAfter(entry.getValue().getStartHour()) && aptDate.toLocalTime().isBefore(entry.getValue().getEndHour())) {
@@ -63,12 +64,19 @@ public class CleaningStuffMember extends Person {
         if (!worksOnDate) {
             return false;
         }
-        // einai diathesimos en mesw wrariou
+        // is available on date
         for (Appointment appointment : getPendingAppointments()) {
             if (aptDate.isAfter(appointment.getAptDate()) && aptDate.isBefore(appointment.getAptDate().plus(appointment.getCleaningType().getEstimatedDuration()))) {
                 return false;
             }
         }
         return true;
+    }
+
+    public boolean fire() {
+        if (CleaningStuffDAO.remove(this)) {
+            return UserAccountsDAO.findStuff(this.getId()).delete();
+        }
+        return false;
     }
 }

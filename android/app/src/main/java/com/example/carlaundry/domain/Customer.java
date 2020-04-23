@@ -35,4 +35,7 @@ public class Customer extends Person {
         return aptSet;
     }
 
+    public boolean delete() {
+        return CustomersDAO.remove(this);
+    }
 }
