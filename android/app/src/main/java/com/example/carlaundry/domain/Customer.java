@@ -40,10 +40,6 @@ public class Customer extends Person {
     }
 
     public boolean removeFromCollection(int id) {
-        Customer customer = CustomersDAO.find(id);
-        if (customer == null) {
-            return false;
-        }
-        return CustomersDAO.getCustomers().remove(customer);
+        return CustomersDAO.getCustomers().remove(this);
     }
 }

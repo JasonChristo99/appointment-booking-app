@@ -60,10 +60,6 @@ public class CleaningType {
     }
 
     public boolean removeFromCollection(int id) {
-        CleaningType cleaningType = CleaningTypesDAO.find(id);
-        if (cleaningType == null) {
-            return false;
-        }
-        return CleaningTypesDAO.getCleaningTypes().remove(cleaningType);
+        return CleaningTypesDAO.getCleaningTypes().remove(this);
     }
 }

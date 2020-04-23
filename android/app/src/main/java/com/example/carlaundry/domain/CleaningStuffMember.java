@@ -49,10 +49,7 @@ public class CleaningStuffMember extends Person {
     }
 
     public boolean removeFromCollection(int id) {
-        CleaningStuffMember stuffMember = CleaningStuffDAO.find(id);
-        if (stuffMember == null) {
-            return false;
-        }
-        return CleaningStuffDAO.getCleaningStuffMembers().remove(stuffMember);
+        return CleaningStuffDAO.getCleaningStuffMembers().remove(this);
     }
+
 }

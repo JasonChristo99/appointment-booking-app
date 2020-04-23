@@ -16,6 +16,6 @@ public class EmailAddress {
         if (this.address == null) {
             return false;
         }
-        return Pattern.matches("^[A-Z0-9._%+-][A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{3}$", address);
+        return Pattern.matches("^(.+)@(.+)$", address.toUpperCase());
     }
 }

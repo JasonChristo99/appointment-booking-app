@@ -20,4 +20,8 @@ public class CleaningTypesDAO {
         }
         return null;
     }
+
+    public static void reset() {
+        cleaningTypes = new HashSet<>();
+    }
 }

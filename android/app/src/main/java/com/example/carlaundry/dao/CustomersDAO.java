@@ -20,4 +20,8 @@ public class CustomersDAO {
         }
         return null;
     }
+
+    public static void reset() {
+        customers = new HashSet<>();
+    }
 }

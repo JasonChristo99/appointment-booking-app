@@ -1,8 +1,19 @@
 package com.example.carlaundry.domain;
 
 import com.example.carlaundry.dao.AppointmentsDAO;
+import com.example.carlaundry.dao.CleaningStuffDAO;
+import com.example.carlaundry.dao.CleaningTypesDAO;
+import com.example.carlaundry.dao.CustomersDAO;
+import com.example.carlaundry.util.EmailAddress;
+import com.example.carlaundry.util.Money;
+import com.example.carlaundry.util.TelephoneNumber;
 
+import java.math.BigDecimal;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Currency;
+import java.util.Locale;
 
 public class Appointment {
     private int aptId;
@@ -16,6 +27,15 @@ public class Appointment {
     private String comments;
 
     public Appointment() {
+        this.aptId = 1;
+        this.aptDate = LocalDateTime.of(2020, 1, 1, 0, 0);
+        this.aptCompletionDate = LocalDateTime.of(2020, 1, 2, 0, 0);
+        this.customer = new Customer("Dum", "Cust", new TelephoneNumber("6999999999"), new EmailAddress("a@b.com"), 1, LocalDate.of(2020, 1, 1));
+        this.stuffMember = new CleaningStuffMember("Dum", "Stuf", new TelephoneNumber("6999999999"), new EmailAddress("a@b.com"), 1, LocalDate.of(2020, 1, 1));
+        this.cleaningType = new CleaningType("bio", new Money(new BigDecimal(10), Currency.getInstance("EUR")), Duration.ofHours(1), 1);
+        this.appointmentState = AppointmentState.PENDING;
+        this.car = new Car("ABC", "Manuf", "model");
+        this.comments = "none";
     }
 
     public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, AppointmentState appointmentState, Car car, String comments) {
@@ -111,11 +131,7 @@ public class Appointment {
         return AppointmentsDAO.getAppointments().add(this);
     }
 
-    public boolean removeFromCollection(int id) {
-        Appointment appointment = AppointmentsDAO.find(id);
-        if (appointment == null) {
-            return false;
-        }
-        return AppointmentsDAO.getAppointments().remove(appointment);
+    public boolean removeFromCollection() {
+        return AppointmentsDAO.getAppointments().remove(this);
     }
 }

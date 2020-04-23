@@ -65,10 +65,6 @@ public class UserAccount {
     }
 
     public boolean removeFromCollection(String id) {
-        UserAccount userAccount = UserAccountsDAO.find(id);
-        if (userAccount == null) {
-            return false;
-        }
-        return UserAccountsDAO.getUserAccounts().remove(userAccount);
+        return UserAccountsDAO.getUserAccounts().remove(this);
     }
 }

@@ -20,4 +20,8 @@ public class AppointmentsDAO {
         }
         return null;
     }
+
+    public static void reset() {
+        appointments = new HashSet<>();
+    }
 }

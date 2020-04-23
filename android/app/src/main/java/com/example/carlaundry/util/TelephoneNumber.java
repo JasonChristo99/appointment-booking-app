@@ -1,23 +1,29 @@
 package com.example.carlaundry.util;
 
+import com.example.carlaundry.dao.Initializer;
+
 import java.util.regex.Pattern;
 
 public class TelephoneNumber {
-    private int telNo;
+    private String telNo;
 
-    public TelephoneNumber(int telNo) {
+    public TelephoneNumber(String telNo) {
         this.telNo = telNo;
         if (!isValid()) {
             throw new IllegalArgumentException();
         }
     }
 
-    public int getTelNo() {
+    public String getTelNo() {
         return telNo;
     }
 
     private boolean isValid() {
-        return Pattern.matches("^69\\d{8}$", String.valueOf(telNo)) || Pattern.matches("^210\\d{7}$", String.valueOf(telNo));
+        return Pattern.matches("^69\\d{8}$", telNo) || Pattern.matches("^210\\d{7}$", telNo);
+    }
+
+    public int intValue() {
+        return Integer.parseInt(telNo);
     }
 
 }
