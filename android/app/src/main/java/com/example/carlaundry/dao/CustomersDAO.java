@@ -21,6 +21,14 @@ public class CustomersDAO {
         return null;
     }
 
+    public static boolean add(Customer customer) {
+        return customers.add(customer);
+    }
+
+    public static boolean remove(Customer customer) {
+        return customers.remove(customer);
+    }
+
     public static void reset() {
         customers = new HashSet<>();
     }

@@ -54,12 +54,4 @@ public class CleaningType {
     public int hashCode() {
         return id;
     }
-
-    public boolean addToCollection() {
-        return CleaningTypesDAO.getCleaningTypes().add(this);
-    }
-
-    public boolean removeFromCollection(int id) {
-        return CleaningTypesDAO.getCleaningTypes().remove(this);
-    }
 }

@@ -21,6 +21,14 @@ public class CleaningStuffDAO {
         return null;
     }
 
+    public static boolean add(CleaningStuffMember cleaningStuffMember) {
+        return cleaningStuffMembers.add(cleaningStuffMember);
+    }
+
+    public static boolean remove(CleaningStuffMember cleaningStuffMember) {
+        return cleaningStuffMembers.remove(cleaningStuffMember);
+    }
+
     public static void reset() {
         cleaningStuffMembers = new HashSet<>();
     }

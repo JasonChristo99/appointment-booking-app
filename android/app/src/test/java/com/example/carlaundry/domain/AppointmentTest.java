@@ -14,32 +14,15 @@ public class AppointmentTest {
     }
 
     @Test
-    public void testAddNonExistingAppointmentToCollection() {
-        Appointment appointment = new Appointment();
-        boolean result = appointment.addToCollection();
-        Assert.assertEquals(result, true);
-        Assert.assertEquals(AppointmentsDAO.getAppointments().size(), 1);
-        Assert.assertSame(AppointmentsDAO.find(appointment.getAptId()), appointment);
-    }
-
-    @Test //TODO
-    public void testAddExistingAppointmentToCollection() {
+    public void testScheduleForAvailableStuff() {
     }
 
     @Test
-    public void testRemoveExistingFromCollection() {
-        Appointment appointment = new Appointment();
-        boolean result = appointment.addToCollection();
-        Assert.assertEquals(result, true);
-        Assert.assertEquals(AppointmentsDAO.getAppointments().size(), 1);
-        Assert.assertSame(AppointmentsDAO.find(appointment.getAptId()), appointment);
-        result = appointment.removeFromCollection();
-        Assert.assertEquals(result, true);
-        Assert.assertEquals(AppointmentsDAO.getAppointments().size(), 0);
-        Assert.assertNull(AppointmentsDAO.find(appointment.getAptId()));
+    public void testScheduleForNonAvailableStuff() {
     }
 
-    @Test //TODO
-    public void testRemoveNonExistingFromCollection() {
+    @Test
+    public void testScheduleForNonWorkingStuff() {
     }
+
 }

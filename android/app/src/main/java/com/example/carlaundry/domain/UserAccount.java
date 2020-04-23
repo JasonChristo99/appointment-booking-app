@@ -59,12 +59,4 @@ public class UserAccount {
     public int hashCode() {
         return userId.hashCode();
     }
-
-    public boolean addToCollection() {
-        return UserAccountsDAO.getUserAccounts().add(this);
-    }
-
-    public boolean removeFromCollection(String id) {
-        return UserAccountsDAO.getUserAccounts().remove(this);
-    }
 }

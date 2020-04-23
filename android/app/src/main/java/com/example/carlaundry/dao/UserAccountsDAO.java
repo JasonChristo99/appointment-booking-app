@@ -21,6 +21,14 @@ public class UserAccountsDAO {
         return null;
     }
 
+    public static boolean add(UserAccount userAccount) {
+        return userAccounts.add(userAccount);
+    }
+
+    public static boolean remove(UserAccount userAccount) {
+        return userAccounts.remove(userAccount);
+    }
+
     public static void reset() {
         userAccounts = new HashSet<>();
     }

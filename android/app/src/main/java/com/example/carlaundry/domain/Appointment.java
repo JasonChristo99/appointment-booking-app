@@ -26,18 +26,6 @@ public class Appointment {
     private Car car;
     private String comments;
 
-    public Appointment() {
-        this.aptId = 1;
-        this.aptDate = LocalDateTime.of(2020, 1, 1, 0, 0);
-        this.aptCompletionDate = LocalDateTime.of(2020, 1, 2, 0, 0);
-        this.customer = new Customer("Dum", "Cust", new TelephoneNumber("6999999999"), new EmailAddress("a@b.com"), 1, LocalDate.of(2020, 1, 1));
-        this.stuffMember = new CleaningStuffMember("Dum", "Stuf", new TelephoneNumber("6999999999"), new EmailAddress("a@b.com"), 1, LocalDate.of(2020, 1, 1));
-        this.cleaningType = new CleaningType("bio", new Money(new BigDecimal(10), Currency.getInstance("EUR")), Duration.ofHours(1), 1);
-        this.appointmentState = AppointmentState.PENDING;
-        this.car = new Car("ABC", "Manuf", "model");
-        this.comments = "none";
-    }
-
     public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, AppointmentState appointmentState, Car car, String comments) {
         this.aptId = aptId;
         this.aptDate = aptDate;
@@ -54,72 +42,36 @@ public class Appointment {
         return aptId;
     }
 
-    public void setAptId(int aptId) {
-        this.aptId = aptId;
-    }
-
     public LocalDateTime getAptDate() {
         return aptDate;
-    }
-
-    public void setAptDate(LocalDateTime aptDate) {
-        this.aptDate = aptDate;
     }
 
     public LocalDateTime getAptCompletionDate() {
         return aptCompletionDate;
     }
 
-    public void setAptCompletionDate(LocalDateTime aptCompletionDate) {
-        this.aptCompletionDate = aptCompletionDate;
-    }
-
     public Customer getCustomer() {
         return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public CleaningStuffMember getStuffMember() {
         return stuffMember;
     }
 
-    public void setStuffMember(CleaningStuffMember stuffMember) {
-        this.stuffMember = stuffMember;
-    }
-
     public CleaningType getCleaningType() {
         return cleaningType;
-    }
-
-    public void setCleaningType(CleaningType cleaningType) {
-        this.cleaningType = cleaningType;
     }
 
     public AppointmentState getAppointmentState() {
         return appointmentState;
     }
 
-    public void setAppointmentState(AppointmentState appointmentState) {
-        this.appointmentState = appointmentState;
-    }
-
     public Car getCar() {
         return car;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
-    }
-
     public String getComments() {
         return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
     }
 
     @Override
@@ -127,11 +79,12 @@ public class Appointment {
         return aptId;
     }
 
-    public boolean addToCollection() {
-        return AppointmentsDAO.getAppointments().add(this);
-    }
-
-    public boolean removeFromCollection() {
-        return AppointmentsDAO.getAppointments().remove(this);
+    public boolean schedule() {
+        for (Appointment appointment : AppointmentsDAO.getAppointments()) {
+            if (appointment.getStuffMember().isAvailableOn(appointment.getAptDate())) {
+                return AppointmentsDAO.add(this);
+            }
+        }
+        return false;
     }
 }

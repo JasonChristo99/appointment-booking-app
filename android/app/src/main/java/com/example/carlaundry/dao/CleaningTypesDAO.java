@@ -21,6 +21,14 @@ public class CleaningTypesDAO {
         return null;
     }
 
+    public static boolean add(CleaningType cleaningType) {
+        return cleaningTypes.add(cleaningType);
+    }
+
+    public static boolean remove(CleaningType cleaningType) {
+        return cleaningTypes.remove(cleaningType);
+    }
+
     public static void reset() {
         cleaningTypes = new HashSet<>();
     }

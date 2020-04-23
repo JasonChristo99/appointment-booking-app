@@ -21,6 +21,14 @@ public class AppointmentsDAO {
         return null;
     }
 
+    public static boolean add(Appointment appointment) {
+        return appointments.add(appointment);
+    }
+
+    public static boolean remove(Appointment appointment) {
+        return appointments.remove(appointment);
+    }
+
     public static void reset() {
         appointments = new HashSet<>();
     }
