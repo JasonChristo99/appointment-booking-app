@@ -128,11 +128,45 @@ public class AppointmentTest {
 
     @Test //TODO
     public void completePendingAppointment() {
+        // create an appointment
+        Appointment appointment = new Appointment(
+                1,
+                LocalDateTime.of(2020, 1, 1, 10, 0),
+                Initializer.getDummyCustomer(),
+                Initializer.getDummyCleaningStuffMember(),
+                Initializer.getDummyCleaningType(),
+                Initializer.getDummyCar()
+        );
+        // schedule appointemnt
+        boolean result = appointment.schedule();
+        Assert.assertTrue(result);
+        // assert pending
+        Assert.assertTrue(appointment.getAppointmentState().equals(AppointmentState.PENDING));
+        // complete appointment
+        result = appointment.complete();
+        Assert.assertTrue(result);
     }
 
-    @Test //TODO
-    public void completeNonPendingAppointment() {
+    @Test
+    public void completeCanceledAppointment() {
+        // create an appointment
+        Appointment appointment = new Appointment(
+                1,
+                LocalDateTime.of(2020, 1, 1, 10, 0),
+                Initializer.getDummyCustomer(),
+                Initializer.getDummyCleaningStuffMember(),
+                Initializer.getDummyCleaningType(),
+                Initializer.getDummyCar()
+        );
+        // schedule appointemnt
+        boolean result = appointment.schedule();
+        Assert.assertTrue(result);
+        // set state to canceled
+        appointment.setAppointmentState(AppointmentState.CANCELED);
+        Assert.assertTrue(appointment.getAppointmentState().equals(AppointmentState.CANCELED));
+        // complete appointment
+        result = appointment.complete();
+        Assert.assertFalse(result);
     }
-
 
 }

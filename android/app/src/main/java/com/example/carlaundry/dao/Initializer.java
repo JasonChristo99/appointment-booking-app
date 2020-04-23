@@ -12,7 +12,6 @@ import com.example.carlaundry.util.EmailAddress;
 import com.example.carlaundry.util.Money;
 import com.example.carlaundry.util.TelephoneNumber;
 
-import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -89,7 +88,7 @@ public class Initializer {
     }
 
     public static Money getDummyMoney() {
-        return new Money(new BigDecimal(10), Currency.getInstance("EUR"));
+        return new Money(10, Currency.getInstance("EUR"));
     }
 
     public static WorkHours getDummyWorkHours() {
