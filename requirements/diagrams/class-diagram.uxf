@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>77</x>
+      <y>420</y>
+      <w>189</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Appointment
+--
+- aptId: int {unique}
+- aptDate: LocalDateTime
+- aptCompletionDate: LocalDateTime
+- comments: String
+--
++ hashCode(): int
++ schedule(): boolean
++ cancel(): boolean
++ complete(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>280</y>
+      <w>217</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+- registrationDate: LocalDate
+--
++ getAppointmentsBooked(): Set&lt;Appointment&gt;
++ delete(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>511</y>
+      <w>119</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+AppointmentState
+--
+PENDING
+COMPLETE
+CANCELED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>259</x>
+      <y>497</y>
+      <w>91</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- aptState
+r2pos=-10,10</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>189</y>
+      <w>112</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>280</y>
+      <w>231</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>CleaningStuffMember
+--
+- dateHired: LocalDate
+--
++ getPendingAppointments(): Set&lt;Appointment&gt;
++ isAvailableOn(aptDate: LocalDateTime): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>322</x>
+      <y>189</y>
+      <w>98</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>98</y>
+      <w>175</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Person
+--
+- firstName: String
+- lastName: String
+- id: int {unique}
+--
++ equals(other: Object): boolean
++ hashCode(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>336</y>
+      <w>63</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- customer</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>259</x>
+      <y>343</y>
+      <w>147</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- stuffMember
+m2pos=10,10
+r2pos=-20,20</panel_attributes>
+    <additional_attributes>10.0;160.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>623</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>CleaningType
+--
+- description: String
+- estimatedDuration: Duration
+- id: int {unique}
+--
++ hashCode(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>217</x>
+      <y>623</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Car
+--
+- registrationNumber: String
+- manufacturer: String
+- model: String
+--
++ hashCode(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>539</y>
+      <w>70</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- car
+r2pos=-10,-10</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>98</x>
+      <y>539</y>
+      <w>98</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- cleaningType
+m2pos=10,10
+r2pos=10,0</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>77</y>
+      <w>112</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+EmailAddress
+--
+- address: String
+--
++ isValid(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>147</y>
+      <w>112</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+TelephoneNumber
+--
+- telNo: String
+--
++ isValid(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>98</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- emailAddress</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>161</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- telNumber</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>21</x>
+      <y>98</y>
+      <w>133</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+Address
+--
+- street: String
+- city: String
+- streetNo: int
+- zipCode: int
+--
++ isValid(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>147</x>
+      <y>133</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- telNo</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>602</x>
+      <y>280</y>
+      <w>105</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+AFM
+--
+- afm: String
+--
++ isValid(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>294</y>
+      <w>77</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- afm</panel_attributes>
+    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>434</x>
+      <y>413</y>
+      <w>252</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+AFM
+--
+- workHoursMap: Map&lt;DayOfWeek, DailyTimePeriod&gt;
+--
++ hashCode(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>343</y>
+      <w>175</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- workHoursMap
+m2pos=-10,-10
+r2pos=100,-10</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>469</y>
+      <w>35</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..*</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>518</y>
+      <w>126</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+DailyTimePeriod
+--
+- startHour: LocalTime
+- endHour: LocalTime
+--
++ hashCode(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>252</x>
+      <y>14</y>
+      <w>189</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Αποκρύψαμε τους κατασκευαστές, 
+τους getters και τους setters
+των κλάσεων ώστε το διάγραμμα
+να είναι πιο ευανάγνωστο!
+bg=orange
+fontsize=16</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>763</y>
+      <w>154</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value&gt;&gt;
+Money
+--
+- value: double
+- currency: Currency
+--
++ equals(other: Object): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>91</x>
+      <y>693</y>
+      <w>42</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- cost</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>658</y>
+      <w>154</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Statistic
+--
+- startDate: LocalDateTime
+- endDate: LocalDateTime
+- value: double
+--
++ calculate(): double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>728</y>
+      <w>42</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m2=1
+r2=- type</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>798</y>
+      <w>182</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+StatisticType
+--
+TOTAL_APPOINTMENTS_COMPLETE
+TOTAL_SALES
+CANCEL_RATE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>259</x>
+      <y>742</y>
+      <w>175</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>UserAccount
+--
+- accountType: AccountType
+- userId: String
+- passwordd: String
+- stuffId: int {unique}
+--
++ equals(other: Object): boolean
++ isValid(): boolean
++ hashCode(): int
++ register(): boolean
++ verify(): boolean
++ delete(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
