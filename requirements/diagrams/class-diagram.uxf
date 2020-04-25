@@ -270,7 +270,7 @@ r2=- emailAddress</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
 m2=1
-r2=- telNumber</panel_attributes>
+r2=- telNo</panel_attributes>
     <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
   </element>
   <element>
@@ -399,15 +399,14 @@ DailyTimePeriod
     <coordinates>
       <x>252</x>
       <y>14</y>
-      <w>189</w>
-      <h>63</h>
+      <w>168</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Αποκρύψαμε τους κατασκευαστές, 
 τους getters και τους setters
 των κλάσεων ώστε το διάγραμμα
 να είναι πιο ευανάγνωστο!
-bg=orange
-fontsize=16</panel_attributes>
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -498,7 +497,7 @@ CANCEL_RATE</panel_attributes>
 --
 - accountType: AccountType
 - userId: String
-- passwordd: String
+- password: String
 - stuffId: int {unique}
 --
 + equals(other: Object): boolean
