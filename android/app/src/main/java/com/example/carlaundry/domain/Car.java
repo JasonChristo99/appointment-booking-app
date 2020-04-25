@@ -22,4 +22,9 @@ public class Car {
     public String getModel() {
         return model;
     }
+
+    @Override
+    public int hashCode() {
+        return registrationNumber.hashCode();
+    }
 }

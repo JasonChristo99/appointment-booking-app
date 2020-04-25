@@ -1,19 +1,8 @@
 package com.example.carlaundry.domain;
 
 import com.example.carlaundry.dao.AppointmentsDAO;
-import com.example.carlaundry.dao.CleaningStuffDAO;
-import com.example.carlaundry.dao.CleaningTypesDAO;
-import com.example.carlaundry.dao.CustomersDAO;
-import com.example.carlaundry.util.EmailAddress;
-import com.example.carlaundry.util.Money;
-import com.example.carlaundry.util.TelephoneNumber;
 
-import java.math.BigDecimal;
-import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Currency;
-import java.util.Locale;
 
 public class Appointment {
     private int aptId;
@@ -22,7 +11,7 @@ public class Appointment {
     private Customer customer;
     private CleaningStuffMember stuffMember;
     private CleaningType cleaningType;
-    private AppointmentState appointmentState;
+    private AppointmentState aptState;
     private Car car;
     private String comments;
 
@@ -33,17 +22,17 @@ public class Appointment {
         this.stuffMember = stuffMember;
         this.cleaningType = cleaningType;
         this.car = car;
-        this.appointmentState = AppointmentState.PENDING;
+        this.aptState = AppointmentState.PENDING;
     }
 
-    public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, AppointmentState appointmentState, Car car, String comments) {
+    public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, AppointmentState aptState, Car car, String comments) {
         this.aptId = aptId;
         this.aptDate = aptDate;
         this.aptCompletionDate = aptCompletionDate;
         this.customer = customer;
         this.stuffMember = stuffMember;
         this.cleaningType = cleaningType;
-        this.appointmentState = appointmentState;
+        this.aptState = aptState;
         this.car = car;
         this.comments = comments;
     }
@@ -72,8 +61,8 @@ public class Appointment {
         return cleaningType;
     }
 
-    public AppointmentState getAppointmentState() {
-        return appointmentState;
+    public AppointmentState getAptState() {
+        return aptState;
     }
 
     public Car getCar() {
@@ -88,8 +77,8 @@ public class Appointment {
         this.aptCompletionDate = aptCompletionDate;
     }
 
-    public void setAppointmentState(AppointmentState appointmentState) {
-        this.appointmentState = appointmentState;
+    public void setAptState(AppointmentState aptState) {
+        this.aptState = aptState;
     }
 
     public void setComments(String comments) {
@@ -109,19 +98,19 @@ public class Appointment {
     }
 
     public boolean cancel() {
-        if (!this.getAppointmentState().equals(AppointmentState.PENDING)) {
+        if (!this.getAptState().equals(AppointmentState.PENDING)) {
             return false;
         }
         if (AppointmentsDAO.remove(this)) {
-            this.setAppointmentState(AppointmentState.CANCELED);
+            this.setAptState(AppointmentState.CANCELED);
             return true;
         }
         return false;
     }
 
     public boolean complete() {
-        if (appointmentState.equals(AppointmentState.PENDING)) {
-            appointmentState = AppointmentState.COMPLETE;
+        if (aptState.equals(AppointmentState.PENDING)) {
+            aptState = AppointmentState.COMPLETE;
             return true;
         }
         return false;

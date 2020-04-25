@@ -1,27 +1,20 @@
 package com.example.carlaundry.domain;
 
 import com.example.carlaundry.dao.AppointmentsDAO;
-import com.example.carlaundry.dao.CleaningTypesDAO;
 import com.example.carlaundry.util.StatisticType;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Statistic {
     private StatisticType type;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private double value;
 
-    public Statistic(StatisticType type, LocalDateTime start, LocalDateTime end) {
+    public Statistic(StatisticType type, LocalDateTime startDate, LocalDateTime endDate) {
         this.type = type;
-        this.start = start;
-        this.end = end;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public Statistic(StatisticType type, double value) {
@@ -37,12 +30,12 @@ public class Statistic {
         return value;
     }
 
-    public LocalDateTime getStart() {
-        return start;
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public LocalDateTime getEnd() {
-        return end;
+    public LocalDateTime getEndDate() {
+        return endDate;
     }
 
     public double calculate() {
@@ -50,14 +43,14 @@ public class Statistic {
         switch (type) {
             case TOTAL_APPOINTMENTS_COMPLETE:
                 for (Appointment appointment : AppointmentsDAO.getAppointments()) {
-                    if (appointment.getAppointmentState().equals(AppointmentState.COMPLETE)) {
+                    if (appointment.getAptState().equals(AppointmentState.COMPLETE)) {
                         value++;
                     }
                 }
                 break;
             case TOTAL_SALES:
                 for (Appointment appointment : AppointmentsDAO.getAppointments()) {
-                    if (appointment.getAppointmentState().equals(AppointmentState.COMPLETE)) {
+                    if (appointment.getAptState().equals(AppointmentState.COMPLETE)) {
                         value += appointment.getCleaningType().getCost().getValue();
                     }
                 }
@@ -66,9 +59,9 @@ public class Statistic {
                 int complete = 0;
                 int canceled = 0;
                 for (Appointment appointment : AppointmentsDAO.getAppointments()) {
-                    if (appointment.getAppointmentState().equals(AppointmentState.COMPLETE)) {
+                    if (appointment.getAptState().equals(AppointmentState.COMPLETE)) {
                         complete++;
-                    } else if (appointment.getAppointmentState().equals(AppointmentState.CANCELED)) {
+                    } else if (appointment.getAptState().equals(AppointmentState.CANCELED)) {
                         canceled++;
                     }
                 }

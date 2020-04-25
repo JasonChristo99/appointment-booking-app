@@ -19,4 +19,9 @@ public class DailyTimePeriod {
     public LocalTime getEndHour() {
         return endHour;
     }
+
+    @Override
+    public int hashCode() {
+        return getStartHour().toString().concat(getEndHour().toString()).hashCode();
+    }
 }

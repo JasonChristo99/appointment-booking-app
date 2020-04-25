@@ -97,7 +97,7 @@ public class AppointmentTest {
         boolean result = appointment.schedule();
         Assert.assertTrue(result);
         // test cancel
-        Assert.assertEquals(appointment.getAppointmentState(), AppointmentState.PENDING);
+        Assert.assertEquals(appointment.getAptState(), AppointmentState.PENDING);
         result = appointment.cancel();
         Assert.assertTrue(result);
     }
@@ -119,9 +119,9 @@ public class AppointmentTest {
         boolean result = appointment.schedule();
         Assert.assertTrue(result);
         // complete appointment
-        appointment.setAppointmentState(AppointmentState.COMPLETE);
+        appointment.setAptState(AppointmentState.COMPLETE);
         // test cancel
-        Assert.assertEquals(appointment.getAppointmentState(), AppointmentState.COMPLETE);
+        Assert.assertEquals(appointment.getAptState(), AppointmentState.COMPLETE);
         result = appointment.cancel();
         Assert.assertFalse(result);
     }
@@ -141,7 +141,7 @@ public class AppointmentTest {
         boolean result = appointment.schedule();
         Assert.assertTrue(result);
         // assert pending
-        Assert.assertTrue(appointment.getAppointmentState().equals(AppointmentState.PENDING));
+        Assert.assertTrue(appointment.getAptState().equals(AppointmentState.PENDING));
         // complete appointment
         result = appointment.complete();
         Assert.assertTrue(result);
@@ -162,8 +162,8 @@ public class AppointmentTest {
         boolean result = appointment.schedule();
         Assert.assertTrue(result);
         // set state to canceled
-        appointment.setAppointmentState(AppointmentState.CANCELED);
-        Assert.assertTrue(appointment.getAppointmentState().equals(AppointmentState.CANCELED));
+        appointment.setAptState(AppointmentState.CANCELED);
+        Assert.assertTrue(appointment.getAptState().equals(AppointmentState.CANCELED));
         // complete appointment
         result = appointment.complete();
         Assert.assertFalse(result);

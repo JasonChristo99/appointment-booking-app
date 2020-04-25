@@ -9,7 +9,7 @@ import com.example.carlaundry.util.TelephoneNumber;
 public class Person {
     private String firstName;
     private String lastName;
-    private TelephoneNumber telNumber;
+    private TelephoneNumber telNo;
     private EmailAddress emailAddress;
     private Address address;
     private int id;
@@ -17,10 +17,10 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, int id) {
+    public Person(String firstName, String lastName, TelephoneNumber telNo, EmailAddress emailAddress, int id) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.telNumber = telNumber;
+        this.telNo = telNo;
         this.emailAddress = emailAddress;
         this.id = id;
     }
@@ -41,12 +41,12 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public TelephoneNumber getTelNumber() {
-        return telNumber;
+    public TelephoneNumber getTelNo() {
+        return telNo;
     }
 
-    public void setTelNumber(TelephoneNumber telNumber) {
-        this.telNumber = telNumber;
+    public void setTelNo(TelephoneNumber telNo) {
+        this.telNo = telNo;
     }
 
     public EmailAddress getEmailAddress() {

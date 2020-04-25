@@ -7,6 +7,7 @@ import com.example.carlaundry.domain.CleaningStuffMember;
 import com.example.carlaundry.domain.CleaningType;
 import com.example.carlaundry.domain.Customer;
 import com.example.carlaundry.domain.WorkHours;
+import com.example.carlaundry.util.AFM;
 import com.example.carlaundry.util.DailyTimePeriod;
 import com.example.carlaundry.util.EmailAddress;
 import com.example.carlaundry.util.Money;
@@ -62,9 +63,14 @@ public class Initializer {
                 getDummyTelNo(),
                 getDummyEmail(),
                 1,
+                getDummyAFM(),
                 LocalDate.of(2020, 1, 1),
                 getDummyWorkHours()
         );
+    }
+
+    private static AFM getDummyAFM() {
+        return new AFM("123456789");
     }
 
     public static CleaningType getDummyCleaningType() {

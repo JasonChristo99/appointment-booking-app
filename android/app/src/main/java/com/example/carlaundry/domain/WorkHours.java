@@ -20,4 +20,9 @@ public class WorkHours {
     public void setWorkHoursMap(Map<DayOfWeek, DailyTimePeriod> workHoursMap) {
         this.workHoursMap = workHoursMap;
     }
+
+    @Override
+    public int hashCode() {
+        return workHoursMap.hashCode();
+    }
 }
