@@ -24,7 +24,7 @@ public class UserAccount {
 
     public String getUserId() {
         return userId;
-    }
+    }   
 
     public String getPassword() {
         return password;
