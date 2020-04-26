@@ -57,7 +57,7 @@ public class UserAccount {
         if (accountType.equals(AccountType.STUFF) && stuffId <= 0) {
             return false;
         }
-        if (accountType.equals(AccountType.STUFF) && stuffId > 0) {
+        if (accountType.equals(AccountType.ADMIN) && stuffId > 0) {
             return false;
         }
         return this.userId != null && this.password != null && this.accountType != null;
