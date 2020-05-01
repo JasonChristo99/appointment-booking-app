@@ -1,5 +1,10 @@
 package com.example.carlaundry.domain;
 
+import android.os.Build;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
 import com.example.carlaundry.dao.AppointmentsDAO;
 
 import java.time.LocalDateTime;
@@ -90,6 +95,13 @@ public class Appointment {
         return aptId;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "Appointment on " + getAptDate().toString() + " served by " + getStuffMember().toString();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean schedule() {
         if (this.getStuffMember().isAvailableOn(this.getAptDate())) {
             return AppointmentsDAO.add(this);

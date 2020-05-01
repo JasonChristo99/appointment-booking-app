@@ -1,5 +1,10 @@
 package com.example.carlaundry.domain;
 
+import android.os.Build;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
 import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.dao.CleaningStuffDAO;
 import com.example.carlaundry.dao.UserAccountsDAO;
@@ -39,7 +44,13 @@ public class CleaningStuffMember extends Person {
         return workHours;
     }
 
-    public Set<Appointment> getPendingAppointments() {
+    @NonNull
+    @Override
+    public String toString() {
+        return "Cleaner " + getId() + "(" + getWorkHours().getWorkHoursMap() + ")";
+    }
+
+    public Set<Appointment> getAssignedPendingAppointments() {
         Set<Appointment> aptSet = new HashSet<>();
         for (Appointment apt : AppointmentsDAO.getAppointments()) {
             if (this.equals(apt.getStuffMember()) && apt.getAptState().equals(AppointmentState.PENDING)) {
@@ -49,25 +60,35 @@ public class CleaningStuffMember extends Person {
         return aptSet;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean isAvailableOn(LocalDateTime aptDate) {
         // works on date
         boolean worksOnDate = false;
         for (Map.Entry<DayOfWeek, DailyTimePeriod> entry : workHours.getWorkHoursMap().entrySet()) {
-            if (aptDate.toLocalTime().isAfter(entry.getValue().getStartHour()) && aptDate.toLocalTime().isBefore(entry.getValue().getEndHour())) {
-                worksOnDate = true;
-                break;
+            if (aptDate.getDayOfWeek().equals(entry.getKey())) {
+                if (aptDate.toLocalTime().isAfter(entry.getValue().getStartHour()) && aptDate.toLocalTime().isBefore(entry.getValue().getEndHour())) {
+                    worksOnDate = true;
+                    break;
+                }
             }
         }
         if (!worksOnDate) {
             return false;
         }
         // is available on date
-        for (Appointment appointment : getPendingAppointments()) {
+        for (Appointment appointment : getAssignedPendingAppointments()) {
             if (aptDate.isAfter(appointment.getAptDate()) && aptDate.isBefore(appointment.getAptDate().plus(appointment.getCleaningType().getEstimatedDuration()))) {
                 return false;
             }
         }
         return true;
+    }
+
+    public boolean hire() {
+        if (CleaningStuffDAO.find(this.getId()) == null) {
+            return CleaningStuffDAO.add(this);
+        }
+        return false;
     }
 
     public boolean fire() {

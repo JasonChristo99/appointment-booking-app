@@ -126,7 +126,7 @@ public class AppointmentTest {
         Assert.assertFalse(result);
     }
 
-    @Test //TODO
+    @Test
     public void completePendingAppointment() {
         // create an appointment
         Appointment appointment = new Appointment(
@@ -141,7 +141,7 @@ public class AppointmentTest {
         boolean result = appointment.schedule();
         Assert.assertTrue(result);
         // assert pending
-        Assert.assertTrue(appointment.getAptState().equals(AppointmentState.PENDING));
+        Assert.assertEquals(appointment.getAptState(), AppointmentState.PENDING);
         // complete appointment
         result = appointment.complete();
         Assert.assertTrue(result);
@@ -163,7 +163,7 @@ public class AppointmentTest {
         Assert.assertTrue(result);
         // set state to canceled
         appointment.setAptState(AppointmentState.CANCELED);
-        Assert.assertTrue(appointment.getAptState().equals(AppointmentState.CANCELED));
+        Assert.assertEquals(appointment.getAptState(), AppointmentState.CANCELED);
         // complete appointment
         result = appointment.complete();
         Assert.assertFalse(result);

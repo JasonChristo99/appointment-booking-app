@@ -7,13 +7,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CustomerTest {
-    @Test //TODO
+    @Test
     public void delete() {
         //create a customer
         Customer customer = Initializer.getDummyCustomer();
-        CustomersDAO.add(customer);
+        boolean result = customer.add();
+        Assert.assertTrue(result);
         // remove customer
-        boolean result = customer.delete();
+        result = customer.delete();
         //test the removal process
         Assert.assertTrue(result);
     }

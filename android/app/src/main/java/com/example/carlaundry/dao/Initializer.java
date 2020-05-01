@@ -1,5 +1,9 @@
 package com.example.carlaundry.dao;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.carlaundry.domain.Appointment;
 import com.example.carlaundry.domain.AppointmentState;
 import com.example.carlaundry.domain.Car;
@@ -36,6 +40,7 @@ public class Initializer {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static Appointment getDummyAppointment() {
         return new Appointment(
                 1,
@@ -47,6 +52,7 @@ public class Initializer {
         );
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static Customer getDummyCustomer() {
         return new Customer("Dum",
                 "Cust",
@@ -56,6 +62,7 @@ public class Initializer {
         );
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static CleaningStuffMember getDummyCleaningStuffMember() {
         return new CleaningStuffMember(
                 "Dum",
@@ -73,6 +80,7 @@ public class Initializer {
         return new AFM("123456789");
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static CleaningType getDummyCleaningType() {
         return new CleaningType(
                 "bio",
@@ -97,6 +105,7 @@ public class Initializer {
         return new Money(10, Currency.getInstance("EUR"));
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static WorkHours getDummyWorkHours() {
         Map<DayOfWeek, DailyTimePeriod> map = new HashMap<>();
         map.put(DayOfWeek.WEDNESDAY, new DailyTimePeriod(LocalTime.of(8, 0), LocalTime.of(16, 0)));

@@ -67,30 +67,6 @@ public class Statistic {
                 }
                 value = 1.0 * canceled / (complete + canceled);
                 break;
-//            case MOST_POPULAR_CLEANING_TYPE:
-//                List<Integer> cleaningTypes = new ArrayList<>();
-//                for (Appointment appointment : AppointmentsDAO.getAppointments()) {
-//                    cleaningTypes.add(appointment.getCleaningType().getId());
-//                }
-//                Collections.sort(cleaningTypes);
-//
-//                int count = 1, tempCount;
-//                int popular = cleaningTypes.get(0);
-//                int temp = 0;
-//                for (int i = 0; i < (cleaningTypes.size() - 1); i++) {
-//                    temp = cleaningTypes.get(i);
-//                    tempCount = 0;
-//                    for (int j = 1; j < cleaningTypes.size(); j++) {
-//                        if (temp == cleaningTypes.get(j))
-//                            tempCount++;
-//                    }
-//                    if (tempCount > count) {
-//                        popular = temp;
-//                        count = tempCount;
-//                    }
-//                }
-//                value = popular;
-//                break;
         }
         return value;
     }
