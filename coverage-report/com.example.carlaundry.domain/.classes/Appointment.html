@@ -1,0 +1,213 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Appointment</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.carlaundry.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Appointment (com.example.carlaundry.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Appointment</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    52.6%
+  </span>
+  <span class="absValue">
+    (10/ 19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    56%
+  </span>
+  <span class="absValue">
+    (28/ 50)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.carlaundry.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.NonNull;
+<i>6</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import com.example.carlaundry.dao.AppointmentsDAO;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import java.time.LocalDateTime;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;public class Appointment {
+<i>13</i>&nbsp;    private int aptId;
+<i>14</i>&nbsp;    private LocalDateTime aptDate;
+<i>15</i>&nbsp;    private LocalDateTime aptCompletionDate;
+<i>16</i>&nbsp;    private Customer customer;
+<i>17</i>&nbsp;    private CleaningStuffMember stuffMember;
+<i>18</i>&nbsp;    private CleaningType cleaningType;
+<i>19</i>&nbsp;    private AppointmentState aptState;
+<i>20</i>&nbsp;    private Car car;
+<i>21</i>&nbsp;    private String comments;
+<i>22</i>&nbsp;
+<b class="fc"><i>23</i>&nbsp;    public Appointment(int aptId, LocalDateTime aptDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, Car car) {</b>
+<b class="fc"><i>24</i>&nbsp;        this.aptId = aptId;</b>
+<b class="fc"><i>25</i>&nbsp;        this.aptDate = aptDate;</b>
+<b class="fc"><i>26</i>&nbsp;        this.customer = customer;</b>
+<b class="fc"><i>27</i>&nbsp;        this.stuffMember = stuffMember;</b>
+<b class="fc"><i>28</i>&nbsp;        this.cleaningType = cleaningType;</b>
+<b class="fc"><i>29</i>&nbsp;        this.car = car;</b>
+<b class="fc"><i>30</i>&nbsp;        this.aptState = AppointmentState.PENDING;</b>
+<b class="fc"><i>31</i>&nbsp;    }</b>
+<i>32</i>&nbsp;
+<b class="nc"><i>33</i>&nbsp;    public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, AppointmentState aptState, Car car, String comments) {</b>
+<b class="nc"><i>34</i>&nbsp;        this.aptId = aptId;</b>
+<b class="nc"><i>35</i>&nbsp;        this.aptDate = aptDate;</b>
+<b class="nc"><i>36</i>&nbsp;        this.aptCompletionDate = aptCompletionDate;</b>
+<b class="nc"><i>37</i>&nbsp;        this.customer = customer;</b>
+<b class="nc"><i>38</i>&nbsp;        this.stuffMember = stuffMember;</b>
+<b class="nc"><i>39</i>&nbsp;        this.cleaningType = cleaningType;</b>
+<b class="nc"><i>40</i>&nbsp;        this.aptState = aptState;</b>
+<b class="nc"><i>41</i>&nbsp;        this.car = car;</b>
+<b class="nc"><i>42</i>&nbsp;        this.comments = comments;</b>
+<b class="nc"><i>43</i>&nbsp;    }</b>
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public int getAptId() {
+<b class="nc"><i>46</i>&nbsp;        return aptId;</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public LocalDateTime getAptDate() {
+<b class="fc"><i>50</i>&nbsp;        return aptDate;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public LocalDateTime getAptCompletionDate() {
+<b class="nc"><i>54</i>&nbsp;        return aptCompletionDate;</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    public Customer getCustomer() {
+<b class="nc"><i>58</i>&nbsp;        return customer;</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    public CleaningStuffMember getStuffMember() {
+<b class="fc"><i>62</i>&nbsp;        return stuffMember;</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    public CleaningType getCleaningType() {
+<b class="fc"><i>66</i>&nbsp;        return cleaningType;</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    public AppointmentState getAptState() {
+<b class="fc"><i>70</i>&nbsp;        return aptState;</b>
+<i>71</i>&nbsp;    }
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    public Car getCar() {
+<b class="nc"><i>74</i>&nbsp;        return car;</b>
+<i>75</i>&nbsp;    }
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    public String getComments() {
+<b class="nc"><i>78</i>&nbsp;        return comments;</b>
+<i>79</i>&nbsp;    }
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;    public void setAptCompletionDate(LocalDateTime aptCompletionDate) {
+<b class="nc"><i>82</i>&nbsp;        this.aptCompletionDate = aptCompletionDate;</b>
+<b class="nc"><i>83</i>&nbsp;    }</b>
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    public void setAptState(AppointmentState aptState) {
+<b class="fc"><i>86</i>&nbsp;        this.aptState = aptState;</b>
+<b class="fc"><i>87</i>&nbsp;    }</b>
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    public void setComments(String comments) {
+<b class="nc"><i>90</i>&nbsp;        this.comments = comments;</b>
+<b class="nc"><i>91</i>&nbsp;    }</b>
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    @Override
+<i>94</i>&nbsp;    public int hashCode() {
+<b class="fc"><i>95</i>&nbsp;        return aptId;</b>
+<i>96</i>&nbsp;    }
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    @NonNull
+<i>99</i>&nbsp;    @Override
+<i>100</i>&nbsp;    public String toString() {
+<b class="nc"><i>101</i>&nbsp;        return &quot;Appointment on &quot; + getAptDate().toString() + &quot; served by &quot; + getStuffMember().toString();</b>
+<i>102</i>&nbsp;    }
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>105</i>&nbsp;    public boolean schedule() {
+<b class="fc"><i>106</i>&nbsp;        if (this.getStuffMember().isAvailableOn(this.getAptDate())) {</b>
+<b class="fc"><i>107</i>&nbsp;            return AppointmentsDAO.add(this);</b>
+<i>108</i>&nbsp;        }
+<b class="fc"><i>109</i>&nbsp;        return false;</b>
+<i>110</i>&nbsp;    }
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;    public boolean cancel() {
+<b class="fc"><i>113</i>&nbsp;        if (!this.getAptState().equals(AppointmentState.PENDING)) {</b>
+<b class="fc"><i>114</i>&nbsp;            return false;</b>
+<i>115</i>&nbsp;        }
+<b class="fc"><i>116</i>&nbsp;        if (AppointmentsDAO.remove(this)) {</b>
+<b class="fc"><i>117</i>&nbsp;            this.setAptState(AppointmentState.CANCELED);</b>
+<b class="fc"><i>118</i>&nbsp;            return true;</b>
+<i>119</i>&nbsp;        }
+<b class="nc"><i>120</i>&nbsp;        return false;</b>
+<i>121</i>&nbsp;    }
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;    public boolean complete() {
+<b class="fc"><i>124</i>&nbsp;        if (aptState.equals(AppointmentState.PENDING)) {</b>
+<b class="fc"><i>125</i>&nbsp;            aptState = AppointmentState.COMPLETE;</b>
+<b class="fc"><i>126</i>&nbsp;            return true;</b>
+<i>127</i>&nbsp;        }
+<b class="fc"><i>128</i>&nbsp;        return false;</b>
+<i>129</i>&nbsp;    }
+<i>130</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-05-02 15:59</div>
+</div>
+</body>
+</html>

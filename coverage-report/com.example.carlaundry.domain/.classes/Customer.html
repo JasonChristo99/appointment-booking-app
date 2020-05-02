@@ -1,0 +1,128 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Customer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.carlaundry.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Customer (com.example.carlaundry.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Customer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (3/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    35.7%
+  </span>
+  <span class="absValue">
+    (5/ 14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.carlaundry.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.carlaundry.dao.AppointmentsDAO;
+<i>4</i>&nbsp;import com.example.carlaundry.dao.CustomersDAO;
+<i>5</i>&nbsp;import com.example.carlaundry.util.EmailAddress;
+<i>6</i>&nbsp;import com.example.carlaundry.util.TelephoneNumber;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.time.LocalDate;
+<i>9</i>&nbsp;import java.util.HashSet;
+<i>10</i>&nbsp;import java.util.Set;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;public class Customer extends Person {
+<i>13</i>&nbsp;    private LocalDate registrationDate;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    public Customer(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, int id, LocalDate registrationDate) {
+<b class="fc"><i>16</i>&nbsp;        super(firstName, lastName, telNumber, emailAddress, id);</b>
+<b class="fc"><i>17</i>&nbsp;        this.registrationDate = registrationDate;</b>
+<b class="fc"><i>18</i>&nbsp;    }</b>
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    public LocalDate getRegistrationDate() {
+<b class="nc"><i>21</i>&nbsp;        return registrationDate;</b>
+<i>22</i>&nbsp;    }
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public void setRegistrationDate(LocalDate registrationDate) {
+<b class="nc"><i>25</i>&nbsp;        this.registrationDate = registrationDate;</b>
+<b class="nc"><i>26</i>&nbsp;    }</b>
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    public Set&lt;Appointment&gt; getAppointmentsBooked() {
+<b class="nc"><i>29</i>&nbsp;        Set&lt;Appointment&gt; aptSet = new HashSet&lt;&gt;();</b>
+<b class="nc"><i>30</i>&nbsp;        for (Appointment apt : AppointmentsDAO.getAppointments()) {</b>
+<b class="nc"><i>31</i>&nbsp;            if (this.equals(apt.getCustomer())) {</b>
+<b class="nc"><i>32</i>&nbsp;                aptSet.add(apt);</b>
+<i>33</i>&nbsp;            }
+<b class="nc"><i>34</i>&nbsp;        }</b>
+<b class="nc"><i>35</i>&nbsp;        return aptSet;</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    public boolean add() {
+<b class="fc"><i>39</i>&nbsp;        return CustomersDAO.add(this);</b>
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    public boolean delete() {
+<b class="fc"><i>43</i>&nbsp;        return CustomersDAO.remove(this);</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-05-02 15:59</div>
+</div>
+</body>
+</html>
