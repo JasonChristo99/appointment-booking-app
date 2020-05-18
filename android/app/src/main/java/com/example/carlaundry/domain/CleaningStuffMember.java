@@ -24,12 +24,14 @@ public class CleaningStuffMember extends Person {
     private AFM afm;
     private LocalDate dateHired;
     private WorkHours workHours;
+    private UserAccount userAccount;
 
-    public CleaningStuffMember(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, int id, AFM afm, LocalDate dateHired, WorkHours workHours) {
-        super(firstName, lastName, telNumber, emailAddress, id);
+    public CleaningStuffMember(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, AFM afm, LocalDate dateHired, WorkHours workHours) {
+        super(firstName, lastName, telNumber, emailAddress);
         this.afm = afm;
         this.dateHired = dateHired;
         this.workHours = workHours;
+        userAccount = new UserAccount(emailAddress, UserAccount.AccountType.STUFF);
     }
 
     public AFM getAfm() {
@@ -44,10 +46,14 @@ public class CleaningStuffMember extends Person {
         return workHours;
     }
 
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
     @NonNull
     @Override
     public String toString() {
-        return "Cleaner " + getId() + "(" + getWorkHours().getWorkHoursMap() + ")";
+        return "Cleaner " + getEmailAddress() + "(" + getWorkHours().getWorkHoursMap() + ")";
     }
 
     public Set<Appointment> getAssignedPendingAppointments() {
@@ -85,16 +91,22 @@ public class CleaningStuffMember extends Person {
     }
 
     public boolean hire() {
-        if (CleaningStuffDAO.find(this.getId()) == null) {
-            return CleaningStuffDAO.add(this);
-        }
-        return false;
+        return CleaningStuffDAO.add(this);
     }
 
     public boolean fire() {
         if (CleaningStuffDAO.remove(this)) {
-            return UserAccountsDAO.findStuff(this.getId()).delete();
+            return userAccount.delete();
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return getEmailAddress().hashCode();
+    }
+
+    public boolean isHired() {
+        return CleaningStuffDAO.find(getEmailAddress()) != null;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.carlaundry.dao;
 
 import com.example.carlaundry.domain.UserAccount;
+import com.example.carlaundry.util.EmailAddress;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,18 +13,9 @@ public class UserAccountsDAO {
         return userAccounts;
     }
 
-    public static UserAccount find(String userId) {
+    public static UserAccount find(EmailAddress emailAddress) {
         for (UserAccount userAccount : userAccounts) {
-            if (userAccount.getUserId().equals(userId)) {
-                return userAccount;
-            }
-        }
-        return null;
-    }
-
-    public static UserAccount findStuff(int stuffId) {
-        for (UserAccount userAccount : userAccounts) {
-            if (userAccount.getStuffId() == stuffId && userAccount.getAccountType().equals(UserAccount.AccountType.STUFF)) {
+            if (userAccount.getEmailAddress().equals(emailAddress)) {
                 return userAccount;
             }
         }

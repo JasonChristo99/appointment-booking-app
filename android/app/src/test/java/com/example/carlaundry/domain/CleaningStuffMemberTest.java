@@ -23,13 +23,20 @@ public class CleaningStuffMemberTest {
     }
 
     @Test
+    public void hireStuffMember() {
+        // create stuff member and add him to the list of cleaners
+        CleaningStuffMember stuffMember = Initializer.getDummyCleaningStuffMember();
+        // create an account for the cleaner
+        boolean result = stuffMember.hire();
+        Assert.assertTrue(result);
+    }
+
+    @Test
     public void fireStuffMember() {
         // create stuff member and add him to the list of cleaners
         CleaningStuffMember stuffMember = Initializer.getDummyCleaningStuffMember();
         // create an account for the cleaner
-        UserAccount cleanerAcc = new UserAccount("cleaner1", "cleaner1", UserAccount.AccountType.STUFF, stuffMember.getId());
         stuffMember.hire();
-        cleanerAcc.register();
         //remove the cleaning stuff member from the list
         boolean result = stuffMember.fire();
         Assert.assertTrue(result);

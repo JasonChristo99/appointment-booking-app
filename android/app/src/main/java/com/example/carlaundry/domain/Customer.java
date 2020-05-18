@@ -12,8 +12,8 @@ import java.util.Set;
 public class Customer extends Person {
     private LocalDate registrationDate;
 
-    public Customer(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, int id, LocalDate registrationDate) {
-        super(firstName, lastName, telNumber, emailAddress, id);
+    public Customer(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, LocalDate registrationDate) {
+        super(firstName, lastName, telNumber, emailAddress);
         this.registrationDate = registrationDate;
     }
 

@@ -10,6 +10,7 @@ import com.example.carlaundry.domain.Car;
 import com.example.carlaundry.domain.CleaningStuffMember;
 import com.example.carlaundry.domain.CleaningType;
 import com.example.carlaundry.domain.Customer;
+import com.example.carlaundry.domain.UserAccount;
 import com.example.carlaundry.domain.WorkHours;
 import com.example.carlaundry.util.AFM;
 import com.example.carlaundry.util.DailyTimePeriod;
@@ -37,6 +38,8 @@ public class Initializer {
 
     //TODO create mock data
     void prepareData() {
+        // create admin account
+        UserAccount adminAcc = getDummyAdminAccount();
 
     }
 
@@ -58,7 +61,7 @@ public class Initializer {
                 "Cust",
                 getDummyTelNo(),
                 getDummyEmail(),
-                1, LocalDate.of(2020, 1, 1)
+                LocalDate.of(2020, 1, 1)
         );
     }
 
@@ -66,10 +69,9 @@ public class Initializer {
     public static CleaningStuffMember getDummyCleaningStuffMember() {
         return new CleaningStuffMember(
                 "Dum",
-                "Stuf",
+                "Stuff",
                 getDummyTelNo(),
                 getDummyEmail(),
-                1,
                 getDummyAFM(),
                 LocalDate.of(2020, 1, 1),
                 getDummyWorkHours()
@@ -110,5 +112,9 @@ public class Initializer {
         Map<DayOfWeek, DailyTimePeriod> map = new HashMap<>();
         map.put(DayOfWeek.WEDNESDAY, new DailyTimePeriod(LocalTime.of(8, 0), LocalTime.of(16, 0)));
         return new WorkHours(map);
+    }
+
+    public static UserAccount getDummyAdminAccount() {
+        return new UserAccount(new EmailAddress("admin@x.com"), UserAccount.AccountType.ADMIN);
     }
 }

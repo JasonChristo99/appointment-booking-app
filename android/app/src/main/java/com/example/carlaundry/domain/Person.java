@@ -12,17 +12,15 @@ public class Person {
     private TelephoneNumber telNo;
     private EmailAddress emailAddress;
     private Address address;
-    private int id;
 
     public Person() {
     }
 
-    public Person(String firstName, String lastName, TelephoneNumber telNo, EmailAddress emailAddress, int id) {
+    public Person(String firstName, String lastName, TelephoneNumber telNo, EmailAddress emailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telNo = telNo;
         this.emailAddress = emailAddress;
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -57,14 +55,6 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Address getAddress() {
         return address;
     }
@@ -85,11 +75,11 @@ public class Person {
             return false;
         }
         Person otherPerson = (Person) other;
-        return id == 0 ? otherPerson.getId() == 0 : id == (otherPerson.getId());
+        return emailAddress == null ? otherPerson.getEmailAddress() == null : emailAddress == (otherPerson.getEmailAddress());
     }
 
     @Override
     public int hashCode() {
-        return id;
+        return emailAddress.hashCode();
     }
 }

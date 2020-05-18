@@ -18,4 +18,13 @@ public class EmailAddress {
         }
         return Pattern.matches("^(.+)@(.+)$", address.toUpperCase());
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    @Override
+    public int hashCode() {
+        return address.hashCode();
+    }
 }

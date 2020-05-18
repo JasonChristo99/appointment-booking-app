@@ -3,39 +3,29 @@ package com.example.carlaundry.domain;
 import androidx.annotation.Nullable;
 
 import com.example.carlaundry.dao.UserAccountsDAO;
+import com.example.carlaundry.util.EmailAddress;
 
 public class UserAccount {
     public enum AccountType {ADMIN, STUFF}
 
     private AccountType accountType;
-    private String userId;
-    private String password;
-    private int stuffId;
+    private EmailAddress emailAddress;
 
-    public UserAccount(String userId, String password, AccountType accountType, int stuffId) {
-        this.userId = userId;
-        this.password = password;
+    public UserAccount(EmailAddress emailAddress, AccountType accountType) {
+        this.emailAddress = emailAddress;
         this.accountType = accountType;
-        this.stuffId = stuffId; // stuffId must be negative for administrator accounts
         if (!isValid()) {
             throw new IllegalArgumentException();
         }
-    }
-
-    public String getUserId() {
-        return userId;
-    }   
-
-    public String getPassword() {
-        return password;
+        register();
     }
 
     public AccountType getAccountType() {
         return accountType;
     }
 
-    public int getStuffId() {
-        return stuffId;
+    public EmailAddress getEmailAddress() {
+        return emailAddress;
     }
 
     @Override
@@ -50,22 +40,16 @@ public class UserAccount {
             return false;
         }
         UserAccount otherAccount = (UserAccount) other;
-        return userId.equals(otherAccount.getUserId()) && password.equals(otherAccount.getPassword()) && accountType.equals(otherAccount.getAccountType());
+        return emailAddress.equals(otherAccount.getEmailAddress());
     }
 
     private boolean isValid() {
-        if (accountType.equals(AccountType.STUFF) && stuffId <= 0) {
-            return false;
-        }
-        if (accountType.equals(AccountType.ADMIN) && stuffId > 0) {
-            return false;
-        }
-        return this.userId != null && this.password != null && this.accountType != null;
+        return UserAccountsDAO.find(emailAddress) == null;
     }
 
     @Override
     public int hashCode() {
-        return userId.hashCode();
+        return emailAddress.hashCode();
     }
 
     public boolean register() {

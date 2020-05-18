@@ -3,7 +3,7 @@ package com.example.carlaundry.services;
 import java.time.LocalDateTime;
 
 public class StatisticsCalculatorService {
-    StatisticCalculator statisticCalculator;
+    private StatisticCalculator statisticCalculator;
 
     public StatisticsCalculatorService(StatisticCalculator statisticCalculator) {
         this.statisticCalculator = statisticCalculator;
