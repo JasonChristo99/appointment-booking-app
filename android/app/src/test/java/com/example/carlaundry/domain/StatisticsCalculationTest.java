@@ -1,9 +1,10 @@
 package com.example.carlaundry.domain;
 
-import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.dao.Initializer;
-import com.example.carlaundry.util.StatisticType;
-import com.example.carlaundry.domain.Statistic;
+import com.example.carlaundry.services.CancelRateCalculator;
+import com.example.carlaundry.services.StatisticsCalculatorService;
+import com.example.carlaundry.services.TotalAppointmentsCalculator;
+import com.example.carlaundry.services.TotalSalesCalculator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import org.junit.Assert;
 
 import java.time.LocalDateTime;
 
-public class StatisticTest {
+public class StatisticsCalculationTest {
 
     @Before
     public void setup() {
@@ -20,14 +21,7 @@ public class StatisticTest {
 
     @Test
     public void calculateTotalAppointmentsComplete() {
-        //create some statistics of type 'total_appointments_complete to calculate
-
-        Statistic stat1date = new Statistic(StatisticType.TOTAL_APPOINTMENTS_COMPLETE,
-                LocalDateTime.of(2020, 1, 1, 8, 0),
-                LocalDateTime.of(2020, 1, 1, 23, 0));
-        Statistic stat1value = new Statistic(StatisticType.TOTAL_APPOINTMENTS_COMPLETE, 10);
-
-        //create 5 dummy appointments
+        // create 5 appointments
         for (int i = 0; i < 5; i++) {
             Appointment appointment = new Appointment(
                     1,
@@ -39,19 +33,19 @@ public class StatisticTest {
             appointment.schedule();
             appointment.complete();
         }
-        Assert.assertEquals((int) stat1value.calculate(), 5);
+
+        // calculate statistics for above appointments
+        StatisticsCalculatorService statisticsCalculatorService = new StatisticsCalculatorService(new TotalAppointmentsCalculator());
+        double statValue = statisticsCalculatorService.calculateStatistic(
+                LocalDateTime.of(2020, 1, 1, 8, 0),
+                LocalDateTime.of(2020, 1, 1, 23, 0));
+
+        Assert.assertEquals(statValue, 5, 0.00001);
     }
 
     @Test
     public void calculateTotalSales() {
-        //create some statistics of type 'total_sales' to calculate
-
-        Statistic stat1date = new Statistic(StatisticType.TOTAL_SALES,
-                LocalDateTime.of(2020, 1, 1, 8, 0),
-                LocalDateTime.of(2020, 1, 1, 23, 0));
-        Statistic stat1value = new Statistic(StatisticType.TOTAL_SALES, 10);
-
-        //create 5 dummy appointments
+        // create 5 dummy appointments
         for (int i = 0; i < 5; i++) {
             Appointment appointment = new Appointment(
                     1,
@@ -63,19 +57,20 @@ public class StatisticTest {
             appointment.schedule();
             appointment.complete();
         }
-        Assert.assertSame((int) stat1value.calculate(), 50);
+
+        // calculate statistic for above appointments
+        StatisticsCalculatorService statisticsCalculatorService = new StatisticsCalculatorService(new TotalSalesCalculator());
+        double statValue = statisticsCalculatorService.calculateStatistic(
+                LocalDateTime.of(2020, 1, 1, 8, 0),
+                LocalDateTime.of(2020, 1, 1, 23, 0));
+
+        Assert.assertEquals(statValue, 50, 0.00001);
 
     }
 
     @Test
     public void calculateCancelRate() {
-        //create some statistics
-        Statistic stat1date = new Statistic(StatisticType.CANCEL_RATE,
-                LocalDateTime.of(2020, 1, 1, 8, 0),
-                LocalDateTime.of(2020, 1, 1, 23, 0));
-
-
-        //create 3 dummy appointments of type complete
+        // create 3 appointments of type complete
         for (int i = 0; i < 3; i++) {
             Appointment appointment = new Appointment(
                     1,
@@ -88,7 +83,7 @@ public class StatisticTest {
             appointment.complete();
         }
 
-        //create 3 dummy appointments of type cancelled
+        // create 3 appointments of type cancelled
         for (int i = 0; i < 3; i++) {
             Appointment appointment = new Appointment(
                     1,
@@ -101,7 +96,13 @@ public class StatisticTest {
             appointment.setAptState(AppointmentState.CANCELED);
         }
 
-        Assert.assertEquals(stat1date.calculate(), 0.5, 0.0);
+        // calculate statistic for above appointments
+        StatisticsCalculatorService statisticsCalculatorService = new StatisticsCalculatorService(new CancelRateCalculator());
+        double statValue = statisticsCalculatorService.calculateStatistic(
+                LocalDateTime.of(2020, 1, 1, 8, 0),
+                LocalDateTime.of(2020, 1, 1, 23, 0));
+
+        Assert.assertEquals(statValue, 0.5, 0.00001);
 
     }
 }
