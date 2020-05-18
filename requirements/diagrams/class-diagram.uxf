@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>371</x>
-      <y>434</y>
+      <x>350</x>
+      <y>427</y>
       <w>189</w>
       <h>126</h>
     </coordinates>
@@ -25,7 +25,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>357</x>
+      <x>343</x>
       <y>294</y>
       <w>217</w>
       <h>63</h>
@@ -57,32 +57,32 @@ CANCELED</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>553</x>
-      <y>511</y>
-      <w>91</w>
-      <h>63</h>
+      <x>532</x>
+      <y>504</y>
+      <w>112</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- aptState
 r2pos=-10,10</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;140.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>483</x>
+      <x>469</x>
       <y>203</y>
-      <w>112</w>
+      <w>126</w>
       <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>160.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>609</x>
+      <x>595</x>
       <y>294</y>
       <w>231</w>
       <h>70</h>
@@ -100,11 +100,11 @@ r2pos=-10,10</panel_attributes>
     <coordinates>
       <x>616</x>
       <y>203</y>
-      <w>98</w>
+      <w>84</w>
       <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -118,7 +118,6 @@ r2pos=-10,10</panel_attributes>
 --
 - firstName: String
 - lastName: String
-- id: int {unique}
 --
 + equals(other: Object): boolean
 + hashCode(): int</panel_attributes>
@@ -127,30 +126,30 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
+      <x>441</x>
       <y>350</y>
-      <w>63</w>
-      <h>98</h>
+      <w>70</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- customer</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;20.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>553</x>
+      <x>532</x>
       <y>357</y>
-      <w>147</w>
-      <h>126</h>
+      <w>154</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- stuffMember
 m2pos=10,10
 r2pos=-20,20</panel_attributes>
-    <additional_attributes>10.0;160.0;190.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;200.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -189,31 +188,31 @@ r2pos=-20,20</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>483</x>
-      <y>553</y>
-      <w>70</w>
-      <h>98</h>
+      <x>462</x>
+      <y>546</y>
+      <w>91</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- car
 r2pos=-10,-10</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>392</x>
-      <y>553</y>
-      <w>98</w>
-      <h>98</h>
+      <y>546</y>
+      <w>91</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- cleaningType
 m2pos=10,10
 r2pos=10,0</panel_attributes>
-    <additional_attributes>70.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>40.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -308,7 +307,7 @@ r2=- telNo</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>896</x>
+      <x>875</x>
       <y>294</y>
       <w>105</w>
       <h>63</h>
@@ -324,28 +323,28 @@ AFM
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>833</x>
+      <x>819</x>
       <y>308</y>
-      <w>77</w>
+      <w>70</w>
       <h>35</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- afm</panel_attributes>
-    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;80.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
+      <x>616</x>
       <y>427</y>
-      <w>252</w>
+      <w>189</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>&lt;&lt;value&gt;&gt;
-AFM
+WorkHours
 --
-- workHoursMap: Map&lt;DayOfWeek, DailyTimePeriod&gt;
+- workHoursMap: Map&lt;Day, imePeriod&gt;
 --
 + hashCode(): int</panel_attributes>
     <additional_attributes/>
@@ -353,46 +352,17 @@ AFM
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>742</x>
+      <x>700</x>
       <y>357</y>
-      <w>175</w>
+      <w>98</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- workHoursMap
 m2pos=-10,-10
-r2pos=100,-10</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>868</x>
-      <y>483</y>
-      <w>35</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1..*</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>812</x>
-      <y>532</y>
-      <w>126</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;value&gt;&gt;
-DailyTimePeriod
---
-- startHour: LocalTime
-- endHour: LocalTime
---
-+ hashCode(): int</panel_attributes>
-    <additional_attributes/>
+r2pos=5,20</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -413,7 +383,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>322</x>
-      <y>777</y>
+      <y>763</y>
       <w>154</w>
       <h>77</h>
     </coordinates>
@@ -432,27 +402,25 @@ Money
       <x>385</x>
       <y>707</y>
       <w>42</w>
-      <h>84</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- cost</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>805</x>
-      <y>665</y>
+      <x>826</x>
+      <y>427</y>
       <w>175</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>UserAccount
 --
 - accountType: AccountType
-- userId: String
-- password: String
-- stuffId: int {unique}
+- emailAddress: EmailAddress {unique}
 --
 + equals(other: Object): boolean
 + isValid(): boolean
@@ -461,5 +429,20 @@ r2=- cost</panel_attributes>
 + verify(): boolean
 + delete(): boolean</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>763</x>
+      <y>357</y>
+      <w>189</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=1
+r2=- workHoursMap
+m2pos=-20,-10
+r2pos=60,-20</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;100.0</additional_attributes>
   </element>
 </diagram>
