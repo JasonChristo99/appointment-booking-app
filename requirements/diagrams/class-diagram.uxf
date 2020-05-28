@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>427</y>
+      <x>329</x>
+      <y>399</y>
       <w>189</w>
       <h>126</h>
     </coordinates>
@@ -25,8 +25,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>343</x>
-      <y>294</y>
+      <x>322</x>
+      <y>266</y>
       <w>217</w>
       <h>63</h>
     </coordinates>
@@ -41,8 +41,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>525</y>
+      <x>609</x>
+      <y>497</y>
       <w>119</w>
       <h>70</h>
     </coordinates>
@@ -57,8 +57,8 @@ CANCELED</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>532</x>
-      <y>504</y>
+      <x>511</x>
+      <y>476</y>
       <w>112</w>
       <h>70</h>
     </coordinates>
@@ -71,19 +71,19 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>469</x>
-      <y>203</y>
-      <w>126</w>
-      <h>105</h>
+      <x>448</x>
+      <y>196</y>
+      <w>147</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>160.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>190.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>595</x>
-      <y>294</y>
+      <x>574</x>
+      <y>266</y>
       <w>231</w>
       <h>70</h>
     </coordinates>
@@ -99,12 +99,12 @@ r2pos=-10,10</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>616</x>
-      <y>203</y>
-      <w>84</w>
-      <h>105</h>
+      <y>196</y>
+      <w>63</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -112,7 +112,7 @@ r2pos=-10,10</panel_attributes>
       <x>518</x>
       <y>112</y>
       <w>175</w>
-      <h>98</h>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Person
 --
@@ -126,8 +126,8 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>441</x>
-      <y>350</y>
+      <x>420</x>
+      <y>322</y>
       <w>70</w>
       <h>91</h>
     </coordinates>
@@ -139,8 +139,8 @@ r2=- customer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>532</x>
-      <y>357</y>
+      <x>511</x>
+      <y>329</y>
       <w>154</w>
       <h>119</h>
     </coordinates>
@@ -154,8 +154,8 @@ r2pos=-20,20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>322</x>
-      <y>637</y>
+      <x>315</x>
+      <y>602</y>
       <w>147</w>
       <h>77</h>
     </coordinates>
@@ -171,8 +171,8 @@ r2pos=-20,20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>511</x>
-      <y>637</y>
+      <x>504</x>
+      <y>602</y>
       <w>147</w>
       <h>77</h>
     </coordinates>
@@ -188,31 +188,31 @@ r2pos=-20,20</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
-      <y>546</y>
-      <w>91</w>
-      <h>105</h>
+      <x>441</x>
+      <y>518</y>
+      <w>105</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- car
 r2pos=-10,-10</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
-      <y>546</y>
+      <x>385</x>
+      <y>518</y>
       <w>91</w>
-      <h>105</h>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- cleaningType
 m2pos=10,10
 r2pos=10,0</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>20.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -307,8 +307,8 @@ r2=- telNo</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>875</x>
-      <y>294</y>
+      <x>854</x>
+      <y>266</y>
       <w>105</w>
       <h>63</h>
     </coordinates>
@@ -323,8 +323,8 @@ AFM
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>819</x>
-      <y>308</y>
+      <x>798</x>
+      <y>280</y>
       <w>70</w>
       <h>35</h>
     </coordinates>
@@ -336,15 +336,15 @@ r2=- afm</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>616</x>
-      <y>427</y>
+      <x>595</x>
+      <y>399</y>
       <w>189</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>&lt;&lt;value&gt;&gt;
 WorkHours
 --
-- workHoursMap: Map&lt;Day, imePeriod&gt;
+- workHoursMap: Map&lt;Day, ΤimePeriod&gt;
 --
 + hashCode(): int</panel_attributes>
     <additional_attributes/>
@@ -352,8 +352,8 @@ WorkHours
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>357</y>
+      <x>679</x>
+      <y>329</y>
       <w>98</w>
       <h>84</h>
     </coordinates>
@@ -367,23 +367,23 @@ r2pos=5,20</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>546</x>
-      <y>28</y>
-      <w>168</w>
-      <h>56</h>
+      <x>763</x>
+      <y>721</y>
+      <w>182</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Αποκρύψαμε τους κατασκευαστές, 
 τους getters και τους setters
 των κλάσεων ώστε το διάγραμμα
-να είναι πιο ευανάγνωστο!
+να είναι πιο ευανάγνωστο.
 bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>322</x>
-      <y>763</y>
+      <x>315</x>
+      <y>735</y>
       <w>154</w>
       <h>77</h>
     </coordinates>
@@ -399,21 +399,21 @@ Money
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>385</x>
-      <y>707</y>
+      <x>378</x>
+      <y>672</y>
       <w>42</w>
-      <h>70</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
 r2=- cost</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>826</x>
-      <y>427</y>
+      <x>805</x>
+      <y>399</y>
       <w>175</w>
       <h>140</h>
     </coordinates>
@@ -433,14 +433,14 @@ r2=- cost</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>357</y>
+      <x>742</x>
+      <y>329</y>
       <w>189</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1
-r2=- workHoursMap
+r2=- userAccount
 m2pos=-20,-10
 r2pos=60,-20</panel_attributes>
     <additional_attributes>10.0;10.0;210.0;100.0</additional_attributes>

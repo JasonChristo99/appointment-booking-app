@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Initializer {
+    private static int sequence_id = 1;
+
     public static void resetAll() {
         AppointmentsDAO.reset();
         CleaningStuffDAO.reset();
@@ -37,7 +39,7 @@ public class Initializer {
     }
 
     //TODO create mock data
-    void prepareData() {
+    public static void prepareData() {
         // create admin account
         UserAccount adminAcc = getDummyAdminAccount();
 
@@ -96,7 +98,12 @@ public class Initializer {
     }
 
     public static EmailAddress getDummyEmail() {
-        return new EmailAddress("a@b.com");
+        return new EmailAddress("acc" + getNextId() + "@mail.com");
+    }
+
+    private static int getNextId() {
+        sequence_id++;
+        return sequence_id - 1;
     }
 
     public static TelephoneNumber getDummyTelNo() {
@@ -115,6 +122,6 @@ public class Initializer {
     }
 
     public static UserAccount getDummyAdminAccount() {
-        return new UserAccount(new EmailAddress("admin@x.com"), UserAccount.AccountType.ADMIN);
+        return new UserAccount(new EmailAddress("admin@mail.com"), UserAccount.AccountType.ADMIN);
     }
 }

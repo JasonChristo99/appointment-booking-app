@@ -1,5 +1,7 @@
 package com.example.carlaundry.util;
 
+import androidx.annotation.Nullable;
+
 import java.util.regex.Pattern;
 
 public class EmailAddress {
@@ -21,6 +23,14 @@ public class EmailAddress {
 
     public String getAddress() {
         return address;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (!(obj instanceof EmailAddress)) {
+            return false;
+        }
+        return address.equals(((EmailAddress) obj).getAddress());
     }
 
     @Override

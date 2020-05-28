@@ -22,9 +22,9 @@ public class UserAccountsDAO {
         return null;
     }
 
-    public static boolean verify(UserAccount userAccount) {
+    public static boolean verify(EmailAddress emailAddress) {
         for (UserAccount account : userAccounts) {
-            if (account.equals(userAccount)) {
+            if (account.getEmailAddress().equals(emailAddress)) {
                 return true;
             }
         }

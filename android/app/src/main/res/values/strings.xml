@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Car laundry</string>
+    <string name="login_prompt">Συνδεθείτε</string>
+    <string name="hint_login">Εισάγετε το email σας</string>
+    <string name="login_btn_txt">Σύνδεση</string>
+    <string name="apt_btn_txt">Ραντεβού</string>
+    <string name="customers_btn_txt">Πελάτες</string>
+    <string name="cleaners_btn_txt">Καθαριστές</string>
+    <string name="stats_btn_txt">Στατιστικά</string>
+    <string name="admin_home_title">Επιλέξτε πού θέλετε να μεταφερθείτε</string>
 </resources>

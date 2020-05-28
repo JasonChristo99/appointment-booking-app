@@ -57,7 +57,7 @@ public class UserAccount {
     }
 
     public boolean verify() {
-        return UserAccountsDAO.verify(this);
+        return UserAccountsDAO.verify(this.emailAddress);
     }
 
     public boolean delete() {
