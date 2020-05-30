@@ -37,4 +37,9 @@ public class EmailAddress {
     public int hashCode() {
         return address.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return address;
+    }
 }

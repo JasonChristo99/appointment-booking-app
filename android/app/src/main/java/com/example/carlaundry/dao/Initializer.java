@@ -1,6 +1,7 @@
 package com.example.carlaundry.dao;
 
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -28,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Initializer {
-    private static int sequence_id = 1;
+    private static int sequence_id = 1, curr_hour = 1;
 
     public static void resetAll() {
         AppointmentsDAO.reset();
@@ -39,17 +40,24 @@ public class Initializer {
     }
 
     //TODO create mock data
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void prepareData() {
         // create admin account
         UserAccount adminAcc = getDummyAdminAccount();
+        Appointment apt1 = getDummyAppointment();
+        apt1.schedule();
+        Appointment apt2 = getDummyAppointment();
+        apt2.schedule();
+        Appointment apt3 = getDummyAppointment();
+        apt3.schedule();
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static Appointment getDummyAppointment() {
         return new Appointment(
-                1,
-                LocalDateTime.of(2020, 1, 1, 10, 0),
+                getNextId(),
+                LocalDateTime.of(2020, 1, 1, 10 + getNextHour(), 0),
                 getDummyCustomer(),
                 getDummyCleaningStuffMember(),
                 getDummyCleaningType(),
@@ -57,10 +65,15 @@ public class Initializer {
         );
     }
 
+    private static int getNextHour() {
+        curr_hour++;
+        return curr_hour - 1;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static Customer getDummyCustomer() {
-        return new Customer("Dum",
-                "Cust",
+        return new Customer("Customer",
+                "Client",
                 getDummyTelNo(),
                 getDummyEmail(),
                 LocalDate.of(2020, 1, 1)
@@ -70,7 +83,7 @@ public class Initializer {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static CleaningStuffMember getDummyCleaningStuffMember() {
         return new CleaningStuffMember(
-                "Dum",
+                "Cleaner",
                 "Stuff",
                 getDummyTelNo(),
                 getDummyEmail(),
@@ -87,7 +100,7 @@ public class Initializer {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static CleaningType getDummyCleaningType() {
         return new CleaningType(
-                "bio",
+                "Biological",
                 getDummyMoney(),
                 Duration.ofHours(1),
                 1);

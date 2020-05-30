@@ -1,5 +1,6 @@
 package com.example.carlaundry.domain;
 
+import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.dao.Initializer;
 
 import org.junit.Assert;
@@ -30,6 +31,39 @@ public class AppointmentTest {
         // schedule appointemnt
         boolean result = appointment.schedule();
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void scheduleConsecutiveAppointmentsInSameDay() {
+        // create available stuffMember
+        CleaningStuffMember stuffMember = Initializer.getDummyCleaningStuffMember();
+        // create an appointment
+        Appointment appointment = new Appointment(
+                1,
+                LocalDateTime.of(2020, 1, 1, 10, 0),
+                Initializer.getDummyCustomer(),
+                stuffMember,
+                Initializer.getDummyCleaningType(),
+                Initializer.getDummyCar()
+        );
+        // schedule appointment
+        boolean result = appointment.schedule();
+        Assert.assertTrue(result);
+
+        // create an appointment
+        Appointment appointment2 = new Appointment(
+                1,
+                LocalDateTime.of(2020, 1, 1, 11, 0),
+                Initializer.getDummyCustomer(),
+                stuffMember,
+                Initializer.getDummyCleaningType(),
+                Initializer.getDummyCar()
+        );
+        // schedule appointemnt
+        result = appointment2.schedule();
+        Assert.assertTrue(result);
+
+        System.out.println(AppointmentsDAO.getAppointments());
     }
 
     @Test

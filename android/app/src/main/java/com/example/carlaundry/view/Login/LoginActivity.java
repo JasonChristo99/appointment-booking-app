@@ -35,6 +35,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 loginPresenter.verifyUser(edtEmail.getText().toString());
             }
         });
+
+        // testing
+        edtEmail.setText("admin@mail.com");
     }
 
 
