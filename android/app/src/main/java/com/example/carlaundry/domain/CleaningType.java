@@ -1,5 +1,7 @@
 package com.example.carlaundry.domain;
 
+import androidx.annotation.NonNull;
+
 import com.example.carlaundry.dao.CleaningTypesDAO;
 import com.example.carlaundry.util.Money;
 
@@ -9,13 +11,11 @@ public class CleaningType {
     private String description;
     private Money cost;
     private Duration estimatedDuration;
-    private int id;
 
-    public CleaningType(String description, Money cost, Duration estimatedDuration, int id) {
+    public CleaningType(String description, Money cost, Duration estimatedDuration) {
         this.description = description;
         this.cost = cost;
         this.estimatedDuration = estimatedDuration;
-        this.id = id;
     }
 
     public String getDescription() {
@@ -42,16 +42,18 @@ public class CleaningType {
         this.estimatedDuration = estimatedDuration;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
     public int hashCode() {
-        return id;
+        return description.hashCode();
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return description;
+    }
+
+    public boolean add() {
+        return CleaningTypesDAO.add(this);
     }
 }

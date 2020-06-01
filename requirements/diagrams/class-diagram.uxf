@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>329</x>
+      <x>280</x>
       <y>399</y>
       <w>189</w>
       <h>126</h>
@@ -25,7 +25,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>322</x>
+      <x>273</x>
       <y>266</y>
       <w>217</w>
       <h>63</h>
@@ -41,7 +41,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>609</x>
+      <x>560</x>
       <y>497</y>
       <w>119</w>
       <h>70</h>
@@ -57,7 +57,7 @@ CANCELED</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>511</x>
+      <x>462</x>
       <y>476</y>
       <w>112</w>
       <h>70</h>
@@ -71,7 +71,7 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
+      <x>399</x>
       <y>196</y>
       <w>147</w>
       <h>84</h>
@@ -82,7 +82,7 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>574</x>
+      <x>525</x>
       <y>266</y>
       <w>231</w>
       <h>70</h>
@@ -98,7 +98,7 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
+      <x>567</x>
       <y>196</y>
       <w>63</w>
       <h>84</h>
@@ -109,7 +109,7 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>518</x>
+      <x>469</x>
       <y>112</y>
       <w>175</w>
       <h>91</h>
@@ -126,7 +126,7 @@ r2pos=-10,10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
+      <x>371</x>
       <y>322</y>
       <w>70</w>
       <h>91</h>
@@ -139,7 +139,7 @@ r2=- customer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>511</x>
+      <x>462</x>
       <y>329</y>
       <w>154</w>
       <h>119</h>
@@ -154,7 +154,7 @@ r2pos=-20,20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
+      <x>266</x>
       <y>602</y>
       <w>147</w>
       <h>77</h>
@@ -171,16 +171,15 @@ r2pos=-20,20</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
+      <x>455</x>
       <y>602</y>
       <w>147</w>
-      <h>77</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Car
 --
 - registrationNumber: String
 - manufacturer: String
-- model: String
 --
 + hashCode(): int</panel_attributes>
     <additional_attributes/>
@@ -188,7 +187,7 @@ r2pos=-20,20</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>441</x>
+      <x>392</x>
       <y>518</y>
       <w>105</w>
       <h>98</h>
@@ -202,7 +201,7 @@ r2pos=-10,-10</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>385</x>
+      <x>336</x>
       <y>518</y>
       <w>91</w>
       <h>98</h>
@@ -217,7 +216,7 @@ r2pos=10,0</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>812</x>
+      <x>763</x>
       <y>91</y>
       <w>112</w>
       <h>63</h>
@@ -233,7 +232,7 @@ EmailAddress
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>812</x>
+      <x>763</x>
       <y>161</y>
       <w>112</w>
       <h>63</h>
@@ -249,7 +248,7 @@ TelephoneNumber
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>686</x>
+      <x>637</x>
       <y>112</y>
       <w>140</w>
       <h>35</h>
@@ -262,7 +261,7 @@ r2=- emailAddress</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>686</x>
+      <x>637</x>
       <y>175</y>
       <w>140</w>
       <h>35</h>
@@ -275,7 +274,7 @@ r2=- telNo</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
+      <x>266</x>
       <y>112</y>
       <w>133</w>
       <h>98</h>
@@ -294,7 +293,7 @@ Address
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>441</x>
+      <x>392</x>
       <y>147</y>
       <w>91</w>
       <h>35</h>
@@ -307,7 +306,7 @@ r2=- telNo</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>854</x>
+      <x>805</x>
       <y>266</y>
       <w>105</w>
       <h>63</h>
@@ -323,7 +322,7 @@ AFM
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>798</x>
+      <x>749</x>
       <y>280</y>
       <w>70</w>
       <h>35</h>
@@ -336,7 +335,7 @@ r2=- afm</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>595</x>
+      <x>546</x>
       <y>399</y>
       <w>189</w>
       <h>63</h>
@@ -352,7 +351,7 @@ WorkHours
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>679</x>
+      <x>630</x>
       <y>329</y>
       <w>98</w>
       <h>84</h>
@@ -367,7 +366,7 @@ r2pos=5,20</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>763</x>
+      <x>714</x>
       <y>721</y>
       <w>182</w>
       <h>70</h>
@@ -382,7 +381,7 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
+      <x>266</x>
       <y>735</y>
       <w>154</w>
       <h>77</h>
@@ -399,7 +398,7 @@ Money
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
+      <x>329</x>
       <y>672</y>
       <w>42</w>
       <h>77</h>
@@ -412,7 +411,7 @@ r2=- cost</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>805</x>
+      <x>756</x>
       <y>399</y>
       <w>175</w>
       <h>140</h>
@@ -433,7 +432,7 @@ r2=- cost</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>742</x>
+      <x>693</x>
       <y>329</y>
       <w>189</w>
       <h>84</h>

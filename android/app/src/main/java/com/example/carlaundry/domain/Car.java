@@ -3,12 +3,10 @@ package com.example.carlaundry.domain;
 public class Car {
     private String registrationNumber;
     private String manufacturer;
-    private String model;
 
-    public Car(String registrationNumber, String manufacturer, String model) {
+    public Car(String registrationNumber, String manufacturer) {
         this.registrationNumber = registrationNumber;
         this.manufacturer = manufacturer;
-        this.model = model;
     }
 
     public String getRegistrationNumber() {
@@ -17,10 +15,6 @@ public class Car {
 
     public String getManufacturer() {
         return manufacturer;
-    }
-
-    public String getModel() {
-        return model;
     }
 
     @Override

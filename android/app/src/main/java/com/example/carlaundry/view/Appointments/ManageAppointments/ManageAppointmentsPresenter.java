@@ -1,17 +1,16 @@
-package com.example.carlaundry.view.Appointments;
+package com.example.carlaundry.view.Appointments.ManageAppointments;
 
 import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.domain.Appointment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-public class AppointmentsPresenter {
-    private AppointmentsView appointmentsView;
+public class ManageAppointmentsPresenter {
+    private ManageAppointmentsView manageAppointmentsView;
 
-    public AppointmentsPresenter(AppointmentsView appointmentsView) {
-        this.appointmentsView = appointmentsView;
+    public ManageAppointmentsPresenter(ManageAppointmentsView manageAppointmentsView) {
+        this.manageAppointmentsView = manageAppointmentsView;
     }
 
     public List<Appointment> getPendingAppointments() {
@@ -22,9 +21,9 @@ public class AppointmentsPresenter {
         Appointment apt = AppointmentsDAO.find(aptId);
         if (apt != null) {
             apt.cancel();
-            appointmentsView.showCancelSuccess();
+            manageAppointmentsView.showCancelSuccess();
         } else {
-            appointmentsView.showCancelFailed();
+            manageAppointmentsView.showCancelFailed();
         }
 
 

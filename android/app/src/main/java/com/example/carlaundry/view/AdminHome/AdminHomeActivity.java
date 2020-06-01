@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.carlaundry.R;
-import com.example.carlaundry.view.Appointments.AppointmentsActivity;
+import com.example.carlaundry.view.Appointments.ManageAppointments.ManageAppointmentsActivity;
 import com.example.carlaundry.view.CleaningStuff.CleaningStuffActivity;
 import com.example.carlaundry.view.Customers.CustomersActivity;
 import com.example.carlaundry.view.Statistics.StatisticsActivity;
@@ -58,7 +58,7 @@ public class AdminHomeActivity extends AppCompatActivity implements AdminHomeVie
 
     @Override
     public void navigateToAppointments() {
-        Intent intent = new Intent(this, AppointmentsActivity.class);
+        Intent intent = new Intent(this, ManageAppointmentsActivity.class);
         startActivity(intent);
     }
 

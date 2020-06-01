@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.CleaningStuffHome.CleaningStuffHomeActivity"></activity>
+        <activity android:name=".view.Appointments.AddEditAppointment.AddEditAppointmentActivity"></activity>
+        <activity android:name=".view.CleaningStuffHome.CleaningStuffHomeActivity" />
         <activity android:name=".view.Statistics.StatisticsActivity" />
         <activity android:name=".view.Customers.CustomersActivity" />
         <activity android:name=".view.CleaningStuff.CleaningStuffActivity" />
-        <activity android:name=".view.Appointments.AppointmentsActivity" />
+        <activity android:name=".view.Appointments.ManageAppointments.ManageAppointmentsActivity" />
         <activity android:name=".view.AdminHome.AdminHomeActivity" />
         <activity android:name=".view.Login.LoginActivity">
             <intent-filter>
