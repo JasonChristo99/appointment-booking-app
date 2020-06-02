@@ -13,9 +13,13 @@ package="com.example.carlaundry">
     <activity android:name=".view.Appointments.AddEditAppointment.AddEditAppointmentActivity"></activity>
     <activity android:name=".view.CleaningStuffHome.CleaningStuffHomeActivity" />
     <activity android:name=".view.Statistics.StatisticsActivity" />
-    <activity android:name=".view.Customers.CustomersAdd"/>
-    <activity android:name=".view.Customers.CustomersViewEdit" />
-    <activity android:name=".view.Customers.CustomersActivity" />
+    <activity android:name=".view.Customers.CustomersAdd"
+        android:noHistory="true"
+        />
+    <activity android:name=".view.Customers.CustomersViewEdit"
+        android:noHistory="true"/>
+    <activity android:name=".view.Customers.CustomersActivity"
+        android:noHistory="true"/>
     <activity android:name=".view.CleaningStuff.CleaningStuffActivity" />
     <activity android:name=".view.Appointments.ManageAppointments.ManageAppointmentsActivity" />
     <activity android:name=".view.AdminHome.AdminHomeActivity" />
