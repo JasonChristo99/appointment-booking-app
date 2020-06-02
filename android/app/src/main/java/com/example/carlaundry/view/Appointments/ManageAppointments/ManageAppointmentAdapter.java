@@ -1,4 +1,4 @@
-package com.example.carlaundry.view.Appointments;
+package com.example.carlaundry.view.Appointments.ManageAppointments;
 
 import android.os.Build;
 import android.util.Log;
@@ -18,15 +18,15 @@ import com.example.carlaundry.domain.Appointment;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.AppointmentViewHolder> {
+public class ManageAppointmentAdapter extends RecyclerView.Adapter<ManageAppointmentAdapter.AppointmentViewHolder> {
     private List<Appointment> appointmentSet;
 
-    private AppointmentCanceledListener appointmentCanceledListener;
+    private ManageAppointmentListener manageAppointmentListener;
 
     public static class AppointmentViewHolder extends RecyclerView.ViewHolder {
         public ViewGroup listItem;
         public TextView txtAptDate, txtAptHour, txtAptCustomer, txtAptCleaner, txtAptType;
-        public ImageButton btnCancelApt;
+        public ImageButton btnCancelApt, btnEditApt;
 
         public AppointmentViewHolder(ViewGroup v) {
             super(v);
@@ -37,12 +37,13 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             txtAptCleaner = listItem.findViewById(R.id.aptCleaner);
             txtAptType = listItem.findViewById(R.id.aptType);
             btnCancelApt = listItem.findViewById(R.id.delApt);
+            btnEditApt = listItem.findViewById(R.id.editApt);
         }
     }
 
-    public AppointmentAdapter(List<Appointment> appointmentSet, AppointmentCanceledListener appointmentCanceledListener) {
+    public ManageAppointmentAdapter(List<Appointment> appointmentSet, ManageAppointmentListener manageAppointmentListener) {
         this.appointmentSet = appointmentSet;
-        this.appointmentCanceledListener = appointmentCanceledListener;
+        this.manageAppointmentListener = manageAppointmentListener;
     }
 
     @NonNull
@@ -63,17 +64,23 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         // - replace the contents of the view with data from the dataset item at this position
         holder.txtAptDate.setText(aptAtPosition.getAptDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         holder.txtAptHour.setText(aptAtPosition.getAptDate().format(DateTimeFormatter.ofPattern("HH:mm")));
-        holder.txtAptCustomer.setText(aptAtPosition.getCustomer().getFirstName());
-        holder.txtAptCleaner.setText(aptAtPosition.getStuffMember().getFirstName());
+        holder.txtAptCustomer.setText(aptAtPosition.getCustomer().getEmailAddress().toString());
+        holder.txtAptCleaner.setText(aptAtPosition.getStuffMember().getEmailAddress().toString());
         holder.txtAptType.setText(aptAtPosition.getCleaningType().getDescription());
         Log.d("AptAdapter", "Apt set: " + appointmentSet); //debug
         holder.btnCancelApt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // notify the Activity of the cancel
-                appointmentCanceledListener.onAppointmentCanceled(aptAtPosition.getAptId());
+                manageAppointmentListener.onAppointmentCanceled(aptAtPosition.getAptId());
                 appointmentSet.remove(aptAtPosition);
-                Log.d("AptAdapter", "Apt set: " + appointmentSet); //debug
+            }
+        });
+        holder.btnEditApt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // notify Activity of the edit
+                manageAppointmentListener.onAppointmentEditPressed(aptAtPosition.getAptId());
             }
         });
     }

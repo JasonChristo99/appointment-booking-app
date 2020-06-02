@@ -9,7 +9,7 @@ public class LoginPresenter {
     private LoginView loginView;
 
     public LoginPresenter(LoginView loginView) {
-        Initializer.prepareData();
+        Initializer.prepareDataAlt();
         this.loginView = loginView;
     }
 

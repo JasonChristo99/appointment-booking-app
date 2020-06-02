@@ -20,6 +20,8 @@ public class Appointment {
     private Car car;
     private String comments;
 
+    private static int next_id = 1;
+
     public Appointment(int aptId, LocalDateTime aptDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, Car car) {
         this.aptId = aptId;
         this.aptDate = aptDate;
@@ -30,16 +32,19 @@ public class Appointment {
         this.aptState = AppointmentState.PENDING;
     }
 
-    public Appointment(int aptId, LocalDateTime aptDate, LocalDateTime aptCompletionDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, AppointmentState aptState, Car car, String comments) {
-        this.aptId = aptId;
+    public Appointment(LocalDateTime aptDate, Customer customer, CleaningStuffMember stuffMember, CleaningType cleaningType, Car car) {
+        this.aptId = nextId();
         this.aptDate = aptDate;
-        this.aptCompletionDate = aptCompletionDate;
         this.customer = customer;
         this.stuffMember = stuffMember;
         this.cleaningType = cleaningType;
-        this.aptState = aptState;
+        this.aptState = AppointmentState.INVALID;
         this.car = car;
-        this.comments = comments;
+    }
+
+    private static int nextId() {
+        next_id++;
+        return next_id - 1;
     }
 
     public int getAptId() {
@@ -82,6 +87,18 @@ public class Appointment {
         this.aptCompletionDate = aptCompletionDate;
     }
 
+    public void setAptDate(LocalDateTime aptDate) {
+        this.aptDate = aptDate;
+    }
+
+    public void setCleaningType(CleaningType cleaningType) {
+        this.cleaningType = cleaningType;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
     public void setAptState(AppointmentState aptState) {
         this.aptState = aptState;
     }
@@ -104,8 +121,22 @@ public class Appointment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean schedule() {
         if (this.getStuffMember().isAvailableOn(this.getAptDate())) {
-            return AppointmentsDAO.add(this);
+            if (AppointmentsDAO.add(this)) {
+                aptState = AppointmentState.PENDING;
+                return true;
+            }
         }
+        aptState = AppointmentState.INVALID;
+        return false;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public boolean reschedule() {
+        if (this.getStuffMember().isAvailableOn(this.getAptDate())) {
+            aptState = AppointmentState.PENDING;
+            return true;
+        }
+        aptState = AppointmentState.INVALID;
         return false;
     }
 

@@ -1,5 +1,7 @@
 package com.example.carlaundry.domain;
 
+import androidx.annotation.NonNull;
+
 import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.dao.CustomersDAO;
 import com.example.carlaundry.util.EmailAddress;
@@ -43,5 +45,11 @@ public class Customer extends Person implements Serializable {
 
     public boolean delete() {
         return CustomersDAO.remove(this);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Customer " + getEmailAddress().toString();
     }
 }

@@ -8,50 +8,59 @@
 
     <ImageButton
         android:id="@+id/aptsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="220dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="224dp"
         android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/appointments_icon" />
+        app:srcCompat="@drawable/clock_icon" />
 
     <ImageButton
         android:id="@+id/cleanersBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="92dp"
         android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aptsBtn"
-        app:srcCompat="@drawable/cleaners_icon" />
+        app:srcCompat="@drawable/paint_icon" />
 
     <ImageButton
         android:id="@+id/custmersBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
         android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/aptsBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/customerrs_icon" />
+        app:srcCompat="@drawable/contacts_icon" />
 
     <ImageButton
         android:id="@+id/statsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
         android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toEndOf="@+id/cleanersBtn"
         app:layout_constraintTop_toBottomOf="@+id/custmersBtn"
-        app:srcCompat="@drawable/statistics_icon" />
+        app:srcCompat="@drawable/calculator_icon" />
 
     <TextView
         android:id="@+id/edtApts"
@@ -63,7 +72,7 @@
         android:text="@string/apt_btn_txt"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/aptsBtn"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="@+id/aptsBtn"
         app:layout_constraintTop_toBottomOf="@+id/aptsBtn" />
 

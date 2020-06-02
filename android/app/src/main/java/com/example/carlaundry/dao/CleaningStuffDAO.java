@@ -3,7 +3,10 @@ package com.example.carlaundry.dao;
 import com.example.carlaundry.domain.CleaningStuffMember;
 import com.example.carlaundry.util.EmailAddress;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class CleaningStuffDAO {
@@ -32,5 +35,14 @@ public class CleaningStuffDAO {
 
     public static void reset() {
         cleaningStuffMembers = new HashSet<>();
+    }
+
+    public static List<String> getCleaningStuffStringsList() {
+        List<String> strings = new ArrayList<>();
+        for (CleaningStuffMember stuffMember: cleaningStuffMembers) {
+            strings.add(stuffMember.getEmailAddress().toString());
+        }
+        Collections.sort(strings);
+        return strings;
     }
 }
