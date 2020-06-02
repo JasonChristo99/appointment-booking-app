@@ -6,4 +6,167 @@
     android:layout_height="match_parent"
     tools:context=".view.Statistics.StatisticsActivity">
 
+    <ImageButton
+        android:id="@+id/imgStatEndDate"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChooseEnd"
+        app:srcCompat="@drawable/calendar_day_icon" />
+
+    <TextView
+        android:id="@+id/txtChooseEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Επιλέξτε ημερομηνία λήξης"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStatStartHour" />
+
+    <TextView
+        android:id="@+id/txtStatEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="24dp"
+        android:text="Ημερομηνία"
+        app:layout_constraintEnd_toEndOf="@+id/imgStatEndDate"
+        app:layout_constraintStart_toStartOf="@+id/imgStatEndDate"
+        app:layout_constraintTop_toBottomOf="@+id/imgStatEndDate" />
+
+    <TextView
+        android:id="@+id/txtStatEndHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Ώρα"
+        app:layout_constraintEnd_toEndOf="@+id/imgStatEndHour"
+        app:layout_constraintStart_toStartOf="@+id/imgStatEndHour"
+        app:layout_constraintTop_toBottomOf="@+id/imgStatEndHour" />
+
+    <ImageButton
+        android:id="@+id/imgStatEndHour"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChooseEnd"
+        app:srcCompat="@drawable/clock_icon" />
+
+    <TextView
+        android:id="@+id/txtTitleStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Υπολογισμός στατιστικού"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtChooseType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Επιλέξτε τύπο στατιστικού"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitleStat" />
+
+    <Spinner
+        android:id="@+id/spinnerStatType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChooseType" />
+
+    <TextView
+        android:id="@+id/txtChooseStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Επιλέξτε ημερομηνία έναρξης"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerStatType" />
+
+    <ImageButton
+        android:id="@+id/imgStatStartDate"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChooseStart"
+        app:srcCompat="@drawable/calendar_day_icon" />
+
+    <ImageButton
+        android:id="@+id/imgStatStartHour"
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:tint="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChooseStart"
+        app:srcCompat="@drawable/clock_icon" />
+
+    <TextView
+        android:id="@+id/txtStatStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Ημερομηνία"
+        app:layout_constraintEnd_toEndOf="@+id/imgStatStartDate"
+        app:layout_constraintStart_toStartOf="@+id/imgStatStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/imgStatStartDate" />
+
+    <TextView
+        android:id="@+id/txtStatStartHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Ώρα"
+        app:layout_constraintEnd_toEndOf="@+id/imgStatStartHour"
+        app:layout_constraintStart_toStartOf="@+id/imgStatStartHour"
+        app:layout_constraintTop_toBottomOf="@+id/imgStatStartHour" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Υπολογισμός"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
