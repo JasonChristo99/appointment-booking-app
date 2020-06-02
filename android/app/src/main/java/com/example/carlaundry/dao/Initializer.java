@@ -39,7 +39,7 @@ public class Initializer {
 
     //TODO create mock data
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void prepareDataAlt() {
+    public static void prepareData() {
 
         // create admin account
         UserAccount adminAcc = getDummyAdminAccount();
@@ -80,15 +80,13 @@ public class Initializer {
         apt5.schedule();
         Appointment apt6 = getDummyAppointment(cust3, stuff3, type3);
         apt6.schedule();
-
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static Appointment getDummyAppointment(Customer cust, CleaningStuffMember stuff, CleaningType type) {
         return new Appointment(
                 getNextId(),
-                LocalDateTime.of(2020, 1, 1, 10 + getNextHour(), 0),
+                LocalDateTime.of(2020, 1, 1, 8 + getNextHour(), 0),
                 cust,
                 stuff,
                 type,

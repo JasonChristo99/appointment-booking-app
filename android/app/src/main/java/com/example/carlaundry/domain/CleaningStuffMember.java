@@ -79,13 +79,13 @@ public class CleaningStuffMember extends Person {
             }
         }
         if (!worksOnDate) {
-            System.out.println("Customer unavailable 1");
+            System.out.println("Cleaner unavailable 1");
             return false;
         }
         // is available on date
         for (Appointment appointment : getAssignedPendingAppointments()) {
             if (aptDate.isAfter(appointment.getAptDate()) && aptDate.isBefore(appointment.getAptDate().plus(appointment.getCleaningType().getEstimatedDuration()))) {
-                System.out.println("Customer unavailable 2");
+                System.out.println("Cleaner unavailable 2");
                 return false;
             }
         }

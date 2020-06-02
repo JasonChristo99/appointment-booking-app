@@ -1,13 +1,15 @@
 package com.example.carlaundry.view.Login;
 
-public interface LoginView {
-    void showSuccess();
+import com.example.carlaundry.util.EmailAddress;
 
-    void showFailure();
+public interface LoginView {
+    void showSuccessMessage();
+
+    void showFailureMessage();
 
     void showIllegalEmailError();
 
     void navigateToAdminHome();
 
-    void navigateToStuffHome();
+    void navigateToStuffHome(EmailAddress emailAddress);
 }

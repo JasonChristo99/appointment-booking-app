@@ -6,7 +6,7 @@
     android:layout_height="132dp">
 
     <TextView
-        android:id="@+id/aptDate"
+        android:id="@+id/aptDateStuff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/aptHour"
+        android:id="@+id/aptHourStuff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -26,32 +26,32 @@
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aptDate" />
+        app:layout_constraintTop_toBottomOf="@+id/aptDateStuff" />
 
     <TextView
-        android:id="@+id/aptCustomer"
+        android:id="@+id/aptCustomerStuff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/aptType"
-        app:layout_constraintTop_toBottomOf="@+id/aptDate" />
+        app:layout_constraintStart_toEndOf="@+id/aptTypeStuff"
+        app:layout_constraintTop_toBottomOf="@+id/aptDateStuff" />
 
     <TextView
-        android:id="@+id/aptCleaner"
+        android:id="@+id/aptCleanerStuff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
         android:layout_marginTop="12dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/aptType"
-        app:layout_constraintTop_toBottomOf="@+id/aptHour" />
+        app:layout_constraintStart_toEndOf="@+id/aptTypeStuff"
+        app:layout_constraintTop_toBottomOf="@+id/aptHourStuff" />
 
     <ImageButton
-        android:id="@+id/cancelApt"
+        android:id="@+id/completeAptStuff"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="76dp"
@@ -62,24 +62,10 @@
         android:tint="#979797"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cancel_icon" />
-
-    <ImageButton
-        android:id="@+id/editApt"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerInside"
-        android:tint="#979797"
-        app:layout_constraintEnd_toStartOf="@+id/cancelApt"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit_icon" />
+        app:srcCompat="@drawable/check_icon" />
 
     <TextView
-        android:id="@+id/aptType"
+        android:id="@+id/aptTypeStuff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -87,30 +73,30 @@
         android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aptHour" />
+        app:layout_constraintTop_toBottomOf="@+id/aptHourStuff" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewStuff"
         android:layout_width="13dp"
         android:layout_height="15dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:tint="#979797"
-        app:layout_constraintEnd_toStartOf="@+id/aptCustomer"
-        app:layout_constraintTop_toBottomOf="@+id/aptDate"
+        app:layout_constraintEnd_toStartOf="@+id/aptCustomerStuff"
+        app:layout_constraintTop_toBottomOf="@+id/aptDateStuff"
         app:srcCompat="@drawable/contacts_icon" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView2Stuff"
         android:layout_width="12dp"
         android:layout_height="15dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:tint="#979797"
-        app:layout_constraintEnd_toStartOf="@+id/aptCleaner"
-        app:layout_constraintTop_toBottomOf="@+id/aptHour"
+        app:layout_constraintEnd_toStartOf="@+id/aptCleanerStuff"
+        app:layout_constraintTop_toBottomOf="@+id/aptHourStuff"
         app:srcCompat="@drawable/paint_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

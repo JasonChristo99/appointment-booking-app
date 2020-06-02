@@ -14,7 +14,7 @@ public class ManageAppointmentsPresenter {
     }
 
     public List<Appointment> getPendingAppointments() {
-        return new ArrayList<Appointment>(AppointmentsDAO.getPendingAppointments());
+        return new ArrayList<>(AppointmentsDAO.getPendingAppointments());
     }
 
     public void onAppointmentCanceled(int aptId) {
@@ -25,7 +25,5 @@ public class ManageAppointmentsPresenter {
         } else {
             manageAppointmentsView.showCancelFailed();
         }
-
-
     }
 }

@@ -29,6 +29,7 @@ import com.example.carlaundry.domain.CleaningStuffMember;
 import com.example.carlaundry.domain.CleaningType;
 import com.example.carlaundry.domain.Customer;
 import com.example.carlaundry.util.EmailAddress;
+import com.example.carlaundry.view.Customers.CustomersAdd;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.time.LocalDate;
@@ -160,6 +161,15 @@ public class AddEditAppointmentActivity extends AppCompatActivity implements Add
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 customer = null;
+            }
+        });
+
+        // set new customer button listener
+        btnNewCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CustomersAdd.class);
+                getApplicationContext().startActivity(intent);
             }
         });
 

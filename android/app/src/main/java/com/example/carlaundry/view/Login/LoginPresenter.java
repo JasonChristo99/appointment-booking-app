@@ -9,7 +9,7 @@ public class LoginPresenter {
     private LoginView loginView;
 
     public LoginPresenter(LoginView loginView) {
-        Initializer.prepareDataAlt();
+        Initializer.prepareData();
         this.loginView = loginView;
     }
 
@@ -18,15 +18,15 @@ public class LoginPresenter {
             EmailAddress emailAddress = new EmailAddress(stringEmail);
             boolean success = UserAccountsDAO.verify(emailAddress);
             if (success) {
-                loginView.showSuccess();
+                loginView.showSuccessMessage();
                 UserAccount userAccount = UserAccountsDAO.find(emailAddress);
                 if (userAccount.getAccountType().equals(UserAccount.AccountType.ADMIN)) {
                     loginView.navigateToAdminHome();
                 } else {
-                    loginView.navigateToStuffHome();
+                    loginView.navigateToStuffHome(emailAddress);
                 }
             } else {
-                loginView.showFailure();
+                loginView.showFailureMessage();
             }
         } catch (IllegalArgumentException e) {
             loginView.showIllegalEmailError();
