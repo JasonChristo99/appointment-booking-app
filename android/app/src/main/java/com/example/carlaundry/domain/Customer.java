@@ -5,16 +5,18 @@ import com.example.carlaundry.dao.CustomersDAO;
 import com.example.carlaundry.util.EmailAddress;
 import com.example.carlaundry.util.TelephoneNumber;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Customer extends Person {
+public class Customer extends Person implements Serializable {
     private LocalDate registrationDate;
 
     public Customer(String firstName, String lastName, TelephoneNumber telNumber, EmailAddress emailAddress, LocalDate registrationDate) {
         super(firstName, lastName, telNumber, emailAddress);
         this.registrationDate = registrationDate;
+
     }
 
     public LocalDate getRegistrationDate() {

@@ -14,4 +14,5 @@
     <string name="apt_item_customer">Πελάτης</string>
     <string name="apt_item_cleaner">Καθαριστής</string>
     <string name="apt_delete_desc">Ακύρωση</string>
+
 </resources>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.carlaundry.R;
@@ -25,7 +26,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         setContentView(R.layout.activity_login);
 
         loginPresenter = new LoginPresenter(this);
-
         edtEmail = findViewById(R.id.edtEmail);
         btnLogin = findViewById(R.id.btnLogin);
 

@@ -15,7 +15,7 @@ public class CustomersDAO {
 
     public static Customer find(EmailAddress emailAddress) {
         for (Customer customer : customers) {
-            if (customer.getEmailAddress() == emailAddress) {
+            if (customer.getEmailAddress().equals(emailAddress)) {
                 return customer;
             }
         }

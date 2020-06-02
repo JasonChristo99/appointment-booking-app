@@ -43,6 +43,12 @@ public class Person {
         return telNo;
     }
 
+    public String getTelNoAsString() {
+        return telNo.stringTelephone();
+    }
+
+
+
     public void setTelNo(TelephoneNumber telNo) {
         this.telNo = telNo;
     }
