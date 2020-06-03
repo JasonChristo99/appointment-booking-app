@@ -3,7 +3,7 @@ package com.example.carlaundry.services;
 import java.time.LocalDateTime;
 
 public class StatisticsCalculatorService {
-    public static String[] statisticTypes = {"Ποσοστό ακυρώσεων", "Συνολικά ραντεβού", "Συνολικά έσοδα"};
+    public static String[] statisticTypes = {"Συνολικά έσοδα", "Συνολικά ραντεβού", "Ποσοστό ακυρώσεων"};
 
     private StatisticCalculator statisticCalculator;
 

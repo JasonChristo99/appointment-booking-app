@@ -140,10 +140,10 @@
 
     <Button
         android:id="@+id/cancelButton"
-        android:layout_width="190dp"
+        android:layout_width="150dp"
         android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginBottom="10dp"
         android:background="#B32196F3"
         android:text="Άκυρο"
@@ -152,10 +152,10 @@
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="190dp"
+        android:layout_width="150dp"
         android:layout_height="54dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:layout_marginBottom="10dp"
         android:background="#B32196F3"
         android:text="Προσθήκη"

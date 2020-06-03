@@ -18,13 +18,13 @@ public class StatisticsPresenter {
         double result = -1;
         switch (spinnerPosition) {
             case 0:
-                result = new StatisticsCalculatorService(new CancelRateCalculator()).calculateStatistic(start, end);
+                result = new StatisticsCalculatorService(new TotalSalesCalculator()).calculateStatistic(start, end);
                 break;
             case 1:
                 result = new StatisticsCalculatorService(new TotalAppointmentsCalculator()).calculateStatistic(start, end);
                 break;
             case 2:
-                result = new StatisticsCalculatorService(new TotalSalesCalculator()).calculateStatistic(start, end);
+                result = new StatisticsCalculatorService(new CancelRateCalculator()).calculateStatistic(start, end);
                 break;
         }
         statisticsView.showStatisticResult(result);

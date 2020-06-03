@@ -138,10 +138,10 @@
 
     <Button
         android:id="@+id/cancelButton"
-        android:layout_width="185dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginBottom="30dp"
         android:background="@color/colorAccent"
         android:text="ΑΚΥΡΟ"
@@ -150,18 +150,16 @@
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="185dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:layout_marginBottom="30dp"
         android:alpha="40"
         android:background="@color/colorAccent"
         android:text="ΑΠΟΘΗΚΕΥΣΗ"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
-        app:layout_constraintStart_toEndOf="@+id/cancelButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/deleteButton"
