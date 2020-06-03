@@ -12,11 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
         android:text="Όλοι οι εγγεγραμμένοι καθαριστές"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
@@ -58,11 +57,10 @@
         android:layout_width="85dp"
         android:layout_height="64dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginRight="160dp"
         android:background="#FAFAFA"
         android:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/paint_icon" />
 

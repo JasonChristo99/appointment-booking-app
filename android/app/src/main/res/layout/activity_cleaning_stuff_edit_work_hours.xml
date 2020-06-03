@@ -172,7 +172,7 @@
 
     <ImageButton
         android:id="@+id/editMonday"
-        android:layout_width="144dp"
+        android:layout_width="wrap_content"
         android:layout_height="47dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
@@ -186,14 +186,14 @@
 
     <ImageButton
         android:id="@+id/editTuesday"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:background="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.0"
@@ -201,12 +201,12 @@
 
     <ImageButton
         android:id="@+id/editWednesday"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:background="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6"
         app:layout_constraintVertical_bias="0.0"
@@ -214,12 +214,12 @@
 
     <ImageButton
         android:id="@+id/editThursday"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:background="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="@+id/textView8"
         app:layout_constraintVertical_bias="0.0"
@@ -227,25 +227,24 @@
 
     <ImageButton
         android:id="@+id/editFriday"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:background="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <ImageButton
         android:id="@+id/editSaturday"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:background="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView15"
         app:layout_constraintVertical_bias="0.0"
@@ -253,12 +252,12 @@
 
     <ImageButton
         android:id="@+id/editSunday"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:background="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="@+id/textView16"
         app:layout_constraintVertical_bias="0.0"
