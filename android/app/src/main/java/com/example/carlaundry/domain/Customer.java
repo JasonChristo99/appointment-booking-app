@@ -25,10 +25,6 @@ public class Customer extends Person implements Serializable {
         return registrationDate;
     }
 
-    public void setRegistrationDate(LocalDate registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
     /**
      * Gathers the pending appointments for this customer and returns it as a set.
      * @return the appointment set

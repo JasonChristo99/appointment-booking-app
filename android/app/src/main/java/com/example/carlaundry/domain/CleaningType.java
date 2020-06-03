@@ -22,24 +22,12 @@ public class CleaningType {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Money getCost() {
         return cost;
     }
 
-    public void setCost(Money cost) {
-        this.cost = cost;
-    }
-
     public Duration getEstimatedDuration() {
         return estimatedDuration;
-    }
-
-    public void setEstimatedDuration(Duration estimatedDuration) {
-        this.estimatedDuration = estimatedDuration;
     }
 
     @Override

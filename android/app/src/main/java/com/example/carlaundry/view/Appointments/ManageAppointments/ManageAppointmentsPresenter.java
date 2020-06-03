@@ -17,13 +17,13 @@ public class ManageAppointmentsPresenter {
         return new ArrayList<>(AppointmentsDAO.getPendingAppointments());
     }
 
-    public void onAppointmentCanceled(int aptId) {
+    public void cancelAppointment(int aptId) {
         Appointment apt = AppointmentsDAO.find(aptId);
         if (apt != null) {
             apt.cancel();
-            manageAppointmentsView.showCancelSuccess();
+            manageAppointmentsView.showMessage("Το ραντεβού διαγράφτηκε επιτυχώς");
         } else {
-            manageAppointmentsView.showCancelFailed();
+            manageAppointmentsView.showMessage("Το ραντεβού δεν μπόρεσε να διαγραφεί!");
         }
     }
 }

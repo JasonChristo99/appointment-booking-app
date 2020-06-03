@@ -9,8 +9,13 @@ public class LoginPresenter {
     private LoginView loginView;
 
     public LoginPresenter(LoginView loginView) {
-        Initializer.prepareData();
+        prepareData();
         this.loginView = loginView;
+    }
+
+    private void prepareData() {
+        Initializer.resetAll();
+        Initializer.prepareData();
     }
 
     public void verifyUser(String stringEmail) {
@@ -18,18 +23,19 @@ public class LoginPresenter {
             EmailAddress emailAddress = new EmailAddress(stringEmail);
             boolean success = UserAccountsDAO.verify(emailAddress);
             if (success) {
-                loginView.showSuccessMessage();
                 UserAccount userAccount = UserAccountsDAO.find(emailAddress);
                 if (userAccount.getAccountType().equals(UserAccount.AccountType.ADMIN)) {
+                    loginView.showMessage("Επιτυχημένη είσοδος ως διαχειριστής");
                     loginView.navigateToAdminHome();
-                } else {
+                } else if (userAccount.getAccountType().equals(UserAccount.AccountType.STUFF)) {
+                    loginView.showMessage("Επιτυχημένη είσοδος ως καθαριστής");
                     loginView.navigateToStuffHome(emailAddress);
                 }
             } else {
-                loginView.showFailureMessage();
+                loginView.showMessage("H είσοδος απέτυχε");
             }
         } catch (IllegalArgumentException e) {
-            loginView.showIllegalEmailError();
+            loginView.showMessage("Παρακαλώ εισάγετε μία έγκυρη διεύθυνση email");
         }
 
     }

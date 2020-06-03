@@ -210,6 +210,4 @@ public class CleaningStuffViewEdit extends AppCompatActivity implements Serializ
     public void wrongData() {
         Toast.makeText(this, "Μη Αποδεκτά Στοιχεία", Toast.LENGTH_SHORT).show();
     }
-
-
 }

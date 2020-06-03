@@ -52,7 +52,7 @@ public class CleaningStuffHomeActivity extends AppCompatActivity implements Clea
     }
 
     private void initRecyclerAdapter() {
-        List<Appointment> aptsList = cleaningStuffHomePresenter.getStuffPendingAppointments();
+        List<Appointment> aptsList = cleaningStuffHomePresenter.getStuffPendingAppointments(loggedInStuffMember);
         Log.d("AptAdapter", "Apt set: " + aptsList); //debug
         manageAppointmentAdapter = new StuffManageAppointmentAdapter(aptsList, this);
         recyclerView.setAdapter(manageAppointmentAdapter);

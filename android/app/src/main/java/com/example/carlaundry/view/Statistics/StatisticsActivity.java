@@ -105,8 +105,8 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
     }
 
     @Override
-    public void showStatisticResult(double result) {
-        Toast.makeText(this, "Αποτέλεσμα: " + result, Toast.LENGTH_LONG).show();
+    public void showMessage(String message) {
+        Toast.makeText(this, "Αποτέλεσμα: " + message, Toast.LENGTH_LONG).show();
     }
 
     private void onStartDateBtnPressed() {

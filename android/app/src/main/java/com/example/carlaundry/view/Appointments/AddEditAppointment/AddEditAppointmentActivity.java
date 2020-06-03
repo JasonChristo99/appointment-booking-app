@@ -144,7 +144,10 @@ public class AddEditAppointmentActivity extends AppCompatActivity implements Add
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                addEditAppointmentPresenter.onSubmit();
+                addEditAppointmentPresenter.onSubmit(mode, customer, cleanType,
+                        date, stuffMember, time, editedAppointment,
+                        txtInputCarNo.getEditText().getText().toString(),
+                        txtInputCarManu.getEditText().getText().toString());
             }
         });
     }

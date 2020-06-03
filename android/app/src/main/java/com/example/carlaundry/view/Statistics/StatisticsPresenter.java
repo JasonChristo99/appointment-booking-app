@@ -27,6 +27,6 @@ public class StatisticsPresenter {
                 result = new StatisticsCalculatorService(new CancelRateCalculator()).calculateStatistic(start, end);
                 break;
         }
-        statisticsView.showStatisticResult(result);
+        statisticsView.showMessage(StatisticsCalculatorService.statisticTypes[spinnerPosition] + ": " + result);
     }
 }

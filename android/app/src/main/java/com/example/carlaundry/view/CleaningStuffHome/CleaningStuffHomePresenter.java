@@ -2,6 +2,7 @@ package com.example.carlaundry.view.CleaningStuffHome;
 
 import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.domain.Appointment;
+import com.example.carlaundry.domain.CleaningStuffMember;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +14,8 @@ public class CleaningStuffHomePresenter {
         this.cleaningStuffHomeView = cleaningStuffHomeView;
     }
 
-    public List<Appointment> getStuffPendingAppointments() {
-        CleaningStuffHomeActivity view = (CleaningStuffHomeActivity) cleaningStuffHomeView;
-        List<Appointment> aptsList = new ArrayList<>(view.loggedInStuffMember.getAssignedPendingAppointments());
+    public List<Appointment> getStuffPendingAppointments(CleaningStuffMember loggedInStuffMember) {
+        List<Appointment> aptsList = new ArrayList<>(loggedInStuffMember.getAssignedPendingAppointments());
         return aptsList;
     }
 

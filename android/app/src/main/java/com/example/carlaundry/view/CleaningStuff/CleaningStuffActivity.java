@@ -52,7 +52,7 @@ public class CleaningStuffActivity extends AppCompatActivity implements Cleaning
 
         for (final CleaningStuffMember cleaner : cleaningStuff) {
             Button cleaningStuffButton = new Button(this);
-            cleaningStuffButton.setText(String.format("%s  %s",cleaner.getFirstName(), cleaner.getLastName()));
+            cleaningStuffButton.setText(String.format("%s  %s", cleaner.getFirstName(), cleaner.getLastName()));
             cleaningStuffButton.setBackgroundColor(Color.TRANSPARENT);
             cleaningStuffButton.setTextColor(Color.BLUE);
             LinearLayout ll = findViewById(R.id.linearlayout);
@@ -62,7 +62,7 @@ public class CleaningStuffActivity extends AppCompatActivity implements Cleaning
             cleaningStuffButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String emailAddress=cleaner.getEmailAddress().toString();
+                    String emailAddress = cleaner.getEmailAddress().toString();
                     navigateToCleaningStuffDetails(emailAddress);
                 }
             });
@@ -71,7 +71,7 @@ public class CleaningStuffActivity extends AppCompatActivity implements Cleaning
 
     private void navigateToCleaningStuffDetails(String emailAddress) {
         Intent intent = new Intent(this, CleaningStuffViewEdit.class);
-        intent.putExtra("email",emailAddress);
+        intent.putExtra("email", emailAddress);
         startActivity(intent);
     }
 
@@ -89,6 +89,7 @@ public class CleaningStuffActivity extends AppCompatActivity implements Cleaning
     public void nagivateToCleaningStuffViewEdit() {
 
     }
+
     @Override
     public void nagivateToCleaningStuffAdd() {
         Intent intent = new Intent(this, CleaningStuffAdd.class);
@@ -104,4 +105,5 @@ public class CleaningStuffActivity extends AppCompatActivity implements Cleaning
     public void wrongData() {
 
     }
+
 }

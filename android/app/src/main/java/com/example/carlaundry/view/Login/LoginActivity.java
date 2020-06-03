@@ -46,18 +46,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
 
     @Override
-    public void showSuccessMessage() {
-        Toast.makeText(this, "Επιτυχημένη είσοδος", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showFailureMessage() {
-        Toast.makeText(this, "Ανεπιτυχής είσοδος", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showIllegalEmailError() {
-        Toast.makeText(this, "Παρακαλώ εισάγετε μία έγκυρη διεύθυνση email", Toast.LENGTH_SHORT).show();
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

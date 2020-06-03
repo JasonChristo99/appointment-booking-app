@@ -7,6 +7,7 @@ import java.util.Map;
 
 public interface CleaningStuffView {
     void createWorkHours(Map<DayOfWeek, DailyTimePeriod> workHours);
+
     void navigateToCleaningStuffActivity();
 
     void nagivateToCleaningStuffViewEdit();
@@ -16,6 +17,4 @@ public interface CleaningStuffView {
     void navigateToCleaningStuffEditWorkHours(String stringmail);
 
     void wrongData();
-
-
 }

@@ -25,35 +25,38 @@ import java.util.HashSet;
 public class CustomersPresenter implements Serializable {
     private CustomersView customersView;
     private CustomersViewEdit customersViewEdit;
+
     public CustomersPresenter(CustomersView customersView) {
         this.customersView = customersView;
     }
 
 
-    public void deleteCustomer(String stringmail){
+    public void deleteCustomer(String stringmail) {
         EmailAddress email = new EmailAddress(stringmail);
         Customer customer = CustomersDAO.find(email);
         customer.delete();
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void addCustomer(String name, String sirname, String stringmail, String stringtelephone){
+    public void addCustomer(String name, String sirname, String stringmail, String stringtelephone) {
         try {
             EmailAddress email = new EmailAddress(stringmail);
             TelephoneNumber telephoneNumber = new TelephoneNumber(stringtelephone);
-            Customer customer = new Customer(name, sirname, telephoneNumber, email , LocalDate.now());
+            Customer customer = new Customer(name, sirname, telephoneNumber, email, LocalDate.now());
             customer.setFirstName(name);
             customer.setLastName(sirname);
             customer.setEmailAddress(email);
             customer.setTelNo(telephoneNumber);
             CustomersDAO.add(customer);
             customersView.navigateToCustomer();
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             customersView.wrongTypeOfData();
 
         }
 
     }
-    public void updateCustomer(Customer customer, String name, String sirname, String stringmail, String oldTelephone){
+
+    public void updateCustomer(Customer customer, String name, String sirname, String stringmail, String oldTelephone) {
         customersViewEdit = new CustomersViewEdit();
         try {
             EmailAddress email = new EmailAddress(stringmail);
@@ -64,7 +67,7 @@ public class CustomersPresenter implements Serializable {
             customer.setTelNo(telephoneNumber);
             customersView.navigateToCustomer();
 
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             customersView.wrongTypeOfData();
 
         }

@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.carlaundry.R;
-import com.example.carlaundry.dao.AppointmentsDAO;
 import com.example.carlaundry.domain.Appointment;
 import com.example.carlaundry.view.Appointments.AddEditAppointment.AddEditAppointmentActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -63,7 +62,7 @@ public class ManageAppointmentsActivity extends AppCompatActivity implements Man
 
     @Override
     public void onAppointmentCanceled(int aptId) {
-        manageAppointmentsPresenter.onAppointmentCanceled(aptId);
+        manageAppointmentsPresenter.cancelAppointment(aptId);
         initRecyclerAdapter();
     }
 
@@ -75,18 +74,13 @@ public class ManageAppointmentsActivity extends AppCompatActivity implements Man
     }
 
     @Override
-    public void showCancelSuccess() {
-        Toast.makeText(this, "Appointment canceled successfully", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showCancelFailed() {
-        Toast.makeText(this, "Appointment cancel failed", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         initRecyclerAdapter();
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

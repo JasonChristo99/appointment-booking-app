@@ -165,4 +165,19 @@ public class Initializer {
     public static UserAccount getDummyAdminAccount() {
         return new UserAccount(new EmailAddress("admin@mail.com"), UserAccount.AccountType.ADMIN);
     }
+
+    public static LocalDate getDummyDate() {
+        return LocalDate.of(2020, 1, 1);
+    }
+
+    public static LocalTime getDummyTime() {
+        return LocalTime.of(8, 30);
+    }
+
+    public static void printDAOState() {
+        System.out.println(CleaningStuffDAO.getCleaningStuffMembers());
+        System.out.println(CustomersDAO.getCustomers());
+        System.out.println(UserAccountsDAO.getUserAccounts());
+        System.out.println(AppointmentsDAO.getAppointments());
+    }
 }

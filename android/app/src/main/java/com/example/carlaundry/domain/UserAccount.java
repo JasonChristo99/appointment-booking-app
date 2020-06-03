@@ -1,5 +1,6 @@
 package com.example.carlaundry.domain;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.carlaundry.dao.UserAccountsDAO;
@@ -17,7 +18,8 @@ public class UserAccount {
         if (!isValid()) {
             throw new IllegalArgumentException();
         }
-        register();
+        boolean result = register();
+//        System.out.println(result);
     }
 
     public AccountType getAccountType() {
@@ -50,6 +52,12 @@ public class UserAccount {
     @Override
     public int hashCode() {
         return emailAddress.hashCode();
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return emailAddress.toString();
     }
 
     /**
