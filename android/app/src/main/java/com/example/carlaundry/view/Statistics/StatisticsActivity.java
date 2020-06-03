@@ -60,13 +60,6 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
         typeAdapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStatType.setAdapter(typeAdapt);
 
-        btnCalculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                statisticsPresenter.calculate(LocalDateTime.of(startDate, startTime), LocalDateTime.of(endDate, endTime), spinnerStatType.getSelectedItemPosition());
-            }
-        });
-
         btnStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +87,21 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
                 onEndTimeBtnPressed();
             }
         });
+
+        btnCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (startDate == null || startTime == null || endDate == null || endTime == null) {
+                    showErrorMessage("Πρέπει να συμπληρώσετε όλες τις ημερομηνίες και ώρες!");
+                    return;
+                }
+                statisticsPresenter.calculate(LocalDateTime.of(startDate, startTime), LocalDateTime.of(endDate, endTime), spinnerStatType.getSelectedItemPosition());
+            }
+        });
+    }
+
+    private void showErrorMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
