@@ -1,0 +1,117 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CleaningStuffHomePresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.carlaundry.view.CleaningStuffHome</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CleaningStuffHomePresenter (com.example.carlaundry.view.CleaningStuffHome)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CleaningStuffHomePresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    23.1%
+  </span>
+  <span class="absValue">
+    (3/ 13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.carlaundry.view.CleaningStuffHome;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.carlaundry.dao.AppointmentsDAO;
+<i>4</i>&nbsp;import com.example.carlaundry.domain.Appointment;
+<i>5</i>&nbsp;import com.example.carlaundry.domain.CleaningStuffMember;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.ArrayList;
+<i>8</i>&nbsp;import java.util.List;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;public class CleaningStuffHomePresenter {
+<i>11</i>&nbsp;    private CleaningStuffHomeView cleaningStuffHomeView;
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;    public CleaningStuffHomePresenter(CleaningStuffHomeView cleaningStuffHomeView) {</b>
+<b class="fc"><i>14</i>&nbsp;        this.cleaningStuffHomeView = cleaningStuffHomeView;</b>
+<b class="fc"><i>15</i>&nbsp;    }</b>
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    public List&lt;Appointment&gt; getStuffPendingAppointments(CleaningStuffMember loggedInStuffMember) {
+<b class="nc"><i>18</i>&nbsp;        List&lt;Appointment&gt; aptsList = new ArrayList&lt;&gt;(loggedInStuffMember.getAssignedPendingAppointments());</b>
+<b class="nc"><i>19</i>&nbsp;        return aptsList;</b>
+<i>20</i>&nbsp;    }
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    public void completeAppointment(int aptId, String comments) {
+<b class="nc"><i>23</i>&nbsp;        Appointment apt = AppointmentsDAO.find(aptId);</b>
+<b class="nc"><i>24</i>&nbsp;        if (apt != null) {</b>
+<b class="nc"><i>25</i>&nbsp;            apt.complete();</b>
+<b class="nc"><i>26</i>&nbsp;            if (comments != null) {</b>
+<b class="nc"><i>27</i>&nbsp;                apt.setComments(comments);</b>
+<i>28</i>&nbsp;            }
+<b class="nc"><i>29</i>&nbsp;            cleaningStuffHomeView.showMessage(&quot;Ο καθαρισμός πραγματοποιήθηκε επιτυχώς&quot;);</b>
+<i>30</i>&nbsp;        } else {
+<b class="nc"><i>31</i>&nbsp;            cleaningStuffHomeView.showMessage(&quot;Ο καθαρισμός δεν μπόρεσε να ολοκληρωθεί&quot;);</b>
+<i>32</i>&nbsp;        }
+<b class="nc"><i>33</i>&nbsp;    }</b>
+<i>34</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:45</div>
+</div>
+</body>
+</html>

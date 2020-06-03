@@ -1,0 +1,230 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CleaningStuffHomeActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.carlaundry.view.CleaningStuffHome</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CleaningStuffHomeActivity (com.example.carlaundry.view.CleaningStuffHome)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CleaningStuffHomeActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 25)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CleaningStuffHomeActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CleaningStuffHomeActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 33)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.carlaundry.view.CleaningStuffHome;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import androidx.appcompat.app.AlertDialog;
+<i>4</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>5</i>&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+<i>6</i>&nbsp;import androidx.recyclerview.widget.RecyclerView;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import android.content.DialogInterface;
+<i>9</i>&nbsp;import android.content.Intent;
+<i>10</i>&nbsp;import android.os.Bundle;
+<i>11</i>&nbsp;import android.text.InputType;
+<i>12</i>&nbsp;import android.util.Log;
+<i>13</i>&nbsp;import android.widget.EditText;
+<i>14</i>&nbsp;import android.widget.Toast;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;import com.example.carlaundry.R;
+<i>17</i>&nbsp;import com.example.carlaundry.dao.CleaningStuffDAO;
+<i>18</i>&nbsp;import com.example.carlaundry.domain.Appointment;
+<i>19</i>&nbsp;import com.example.carlaundry.domain.CleaningStuffMember;
+<i>20</i>&nbsp;import com.example.carlaundry.util.EmailAddress;
+<i>21</i>&nbsp;import com.example.carlaundry.view.Appointments.ManageAppointments.ManageAppointmentAdapter;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;import java.util.List;
+<i>24</i>&nbsp;
+<b class="nc"><i>25</i>&nbsp;public class CleaningStuffHomeActivity extends AppCompatActivity implements CleaningStuffHomeView, StuffManageAppointmentListener {</b>
+<i>26</i>&nbsp;    private CleaningStuffHomePresenter cleaningStuffHomePresenter;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    CleaningStuffMember loggedInStuffMember;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    private RecyclerView recyclerView;
+<i>31</i>&nbsp;    private RecyclerView.LayoutManager layoutManager;
+<i>32</i>&nbsp;    private StuffManageAppointmentAdapter manageAppointmentAdapter;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    String comments;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    @Override
+<i>37</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>38</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>39</i>&nbsp;        setContentView(R.layout.activity_cleaning_stuff_home);</b>
+<i>40</i>&nbsp;
+<b class="nc"><i>41</i>&nbsp;        cleaningStuffHomePresenter = new CleaningStuffHomePresenter(this);</b>
+<i>42</i>&nbsp;
+<b class="nc"><i>43</i>&nbsp;        Intent intent = getIntent();</b>
+<b class="nc"><i>44</i>&nbsp;        String extra = intent.getStringExtra(&quot;stuff_email&quot;);</b>
+<b class="nc"><i>45</i>&nbsp;        loggedInStuffMember = CleaningStuffDAO.find(new EmailAddress(extra));</b>
+<i>46</i>&nbsp;
+<b class="nc"><i>47</i>&nbsp;        recyclerView = findViewById(R.id.recyclerViewStuff);</b>
+<b class="nc"><i>48</i>&nbsp;        recyclerView.setHasFixedSize(true);</b>
+<b class="nc"><i>49</i>&nbsp;        layoutManager = new LinearLayoutManager(this);</b>
+<b class="nc"><i>50</i>&nbsp;        recyclerView.setLayoutManager(layoutManager);</b>
+<b class="nc"><i>51</i>&nbsp;        initRecyclerAdapter();</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    private void initRecyclerAdapter() {
+<b class="nc"><i>55</i>&nbsp;        List&lt;Appointment&gt; aptsList = cleaningStuffHomePresenter.getStuffPendingAppointments(loggedInStuffMember);</b>
+<b class="nc"><i>56</i>&nbsp;        Log.d(&quot;AptAdapter&quot;, &quot;Apt set: &quot; + aptsList); //debug</b>
+<b class="nc"><i>57</i>&nbsp;        manageAppointmentAdapter = new StuffManageAppointmentAdapter(aptsList, this);</b>
+<b class="nc"><i>58</i>&nbsp;        recyclerView.setAdapter(manageAppointmentAdapter);</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    @Override
+<i>62</i>&nbsp;    public void onAppointmentCompleted(final int aptId) {
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;        // show comments dialog
+<b class="nc"><i>65</i>&nbsp;        AlertDialog.Builder builder = new AlertDialog.Builder(this);</b>
+<b class="nc"><i>66</i>&nbsp;        builder.setTitle(&quot;Θα θέλατε να προσθέσετε κάποιο σχόλιο;&quot;);</b>
+<i>67</i>&nbsp;
+<b class="nc"><i>68</i>&nbsp;        final EditText input = new EditText(this);</b>
+<i>69</i>&nbsp;
+<b class="nc"><i>70</i>&nbsp;        input.setInputType(InputType.TYPE_CLASS_TEXT);</b>
+<b class="nc"><i>71</i>&nbsp;        builder.setView(input);</b>
+<i>72</i>&nbsp;
+<b class="nc"><i>73</i>&nbsp;        builder.setPositiveButton(&quot;OK&quot;, new DialogInterface.OnClickListener() {</b>
+<i>74</i>&nbsp;            @Override
+<i>75</i>&nbsp;            public void onClick(DialogInterface dialog, int which) {
+<b class="nc"><i>76</i>&nbsp;                comments = input.getText().toString();</b>
+<i>77</i>&nbsp;//                Toast.makeText(CleaningStuffHomeActivity.this, &quot;Το σχόλιο καταχωρήθηκε&quot;, Toast.LENGTH_SHORT).show();
+<b class="nc"><i>78</i>&nbsp;                cleaningStuffHomePresenter.completeAppointment(aptId, comments);</b>
+<b class="nc"><i>79</i>&nbsp;                initRecyclerAdapter();</b>
+<i>80</i>&nbsp;            }
+<i>81</i>&nbsp;        });
+<b class="nc"><i>82</i>&nbsp;        builder.setNegativeButton(&quot;Ακύρωση&quot;, new DialogInterface.OnClickListener() {</b>
+<i>83</i>&nbsp;            @Override
+<i>84</i>&nbsp;            public void onClick(DialogInterface dialog, int which) {
+<b class="nc"><i>85</i>&nbsp;                dialog.cancel();</b>
+<b class="nc"><i>86</i>&nbsp;                cleaningStuffHomePresenter.completeAppointment(aptId, comments);</b>
+<b class="nc"><i>87</i>&nbsp;                initRecyclerAdapter();</b>
+<i>88</i>&nbsp;            }
+<i>89</i>&nbsp;        });
+<i>90</i>&nbsp;
+<b class="nc"><i>91</i>&nbsp;        builder.show();</b>
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;        // call presenter
+<i>94</i>&nbsp;//        cleaningStuffHomePresenter.completeAppointment(aptId, comments);
+<i>95</i>&nbsp;//        initRecyclerAdapter();
+<i>96</i>&nbsp;    }
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    @Override
+<i>99</i>&nbsp;    public void showMessage(String message) {
+<b class="nc"><i>100</i>&nbsp;        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();</b>
+<i>101</i>&nbsp;    }
+<i>102</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:45</div>
+</div>
+</body>
+</html>

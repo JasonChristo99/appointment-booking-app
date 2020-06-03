@@ -1,0 +1,174 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CleaningStuffPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.carlaundry.view.CleaningStuff</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CleaningStuffPresenter (com.example.carlaundry.view.CleaningStuff)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CleaningStuffPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    67.4%
+  </span>
+  <span class="absValue">
+    (29/ 43)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.carlaundry.view.CleaningStuff;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;import android.provider.ContactsContract;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import com.example.carlaundry.dao.CleaningStuffDAO;
+<i>9</i>&nbsp;import com.example.carlaundry.dao.UserAccountsDAO;
+<i>10</i>&nbsp;import com.example.carlaundry.domain.CleaningStuffMember;
+<i>11</i>&nbsp;import com.example.carlaundry.domain.UserAccount;
+<i>12</i>&nbsp;import com.example.carlaundry.domain.WorkHours;
+<i>13</i>&nbsp;import com.example.carlaundry.util.AFM;
+<i>14</i>&nbsp;import com.example.carlaundry.util.DailyTimePeriod;
+<i>15</i>&nbsp;import com.example.carlaundry.util.EmailAddress;
+<i>16</i>&nbsp;import com.example.carlaundry.util.TelephoneNumber;
+<i>17</i>&nbsp;import com.example.carlaundry.view.Customers.CustomersViewEdit;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;import java.time.DayOfWeek;
+<i>20</i>&nbsp;import java.time.LocalDate;
+<i>21</i>&nbsp;import java.time.LocalTime;
+<i>22</i>&nbsp;import java.util.Collections;
+<i>23</i>&nbsp;import java.util.HashMap;
+<i>24</i>&nbsp;import java.util.Map;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;public class CleaningStuffPresenter {
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    private CleaningStuffView cleaningStuffView;
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;    public CleaningStuffPresenter(CleaningStuffView cleaningStuffView) {</b>
+<b class="fc"><i>31</i>&nbsp;        this.cleaningStuffView = cleaningStuffView;</b>
+<b class="fc"><i>32</i>&nbsp;    }</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>35</i>&nbsp;    public void addCleaningStuff(String firstName, String lastName, String stringtelephone, String stringmail, String stringafm) {
+<i>36</i>&nbsp;        try {
+<b class="fc"><i>37</i>&nbsp;            EmailAddress emailAddress = new EmailAddress(stringmail);</b>
+<b class="fc"><i>38</i>&nbsp;            TelephoneNumber telephoneNumber = new TelephoneNumber(stringtelephone);</b>
+<b class="fc"><i>39</i>&nbsp;            AFM afm = new AFM(stringafm);</b>
+<b class="fc"><i>40</i>&nbsp;            Map&lt;DayOfWeek,DailyTimePeriod&gt; map = new HashMap&lt;&gt;();</b>
+<b class="fc"><i>41</i>&nbsp;            CleaningStuffDAO.add(new CleaningStuffMember(firstName, lastName, telephoneNumber, emailAddress, afm, LocalDate.now(), new WorkHours(map)));</b>
+<b class="fc"><i>42</i>&nbsp;            cleaningStuffView.navigateToCleaningStuffActivity();</b>
+<b class="nc"><i>43</i>&nbsp;        }catch(IllegalArgumentException e){</b>
+<b class="nc"><i>44</i>&nbsp;            cleaningStuffView.wrongData();</b>
+<b class="fc"><i>45</i>&nbsp;        }</b>
+<b class="fc"><i>46</i>&nbsp;    }</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    public void updateCleaningStuff(CleaningStuffMember cleaner, String firstName, String lastName, String telephone, String stringmail, String oldStringEmail, String stringafm) {
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;        try {
+<b class="fc"><i>51</i>&nbsp;            EmailAddress email = new EmailAddress(stringmail);</b>
+<b class="fc"><i>52</i>&nbsp;            AFM afm = new AFM(stringafm);</b>
+<b class="fc"><i>53</i>&nbsp;            TelephoneNumber telNo = new TelephoneNumber(telephone);</b>
+<b class="fc"><i>54</i>&nbsp;            cleaner.setFirstName(firstName);</b>
+<b class="fc"><i>55</i>&nbsp;            cleaner.setLastName(lastName);</b>
+<b class="fc"><i>56</i>&nbsp;            cleaner.setTelNo(telNo);</b>
+<b class="fc"><i>57</i>&nbsp;            cleaner.setEmailAddress(email);</b>
+<b class="fc"><i>58</i>&nbsp;            cleaner.setAfm(afm);</b>
+<b class="fc"><i>59</i>&nbsp;            EmailAddress oldEmail = new EmailAddress(oldStringEmail);</b>
+<b class="fc"><i>60</i>&nbsp;            UserAccountsDAO.remove(UserAccountsDAO.find(oldEmail));</b>
+<b class="fc"><i>61</i>&nbsp;            UserAccountsDAO.add(new UserAccount(email, UserAccount.AccountType.STUFF));</b>
+<i>62</i>&nbsp;
+<b class="fc"><i>63</i>&nbsp;            cleaningStuffView.navigateToCleaningStuffActivity();</b>
+<b class="nc"><i>64</i>&nbsp;        } catch (IllegalArgumentException e) {</b>
+<b class="nc"><i>65</i>&nbsp;            cleaningStuffView.wrongData();</b>
+<b class="fc"><i>66</i>&nbsp;        }</b>
+<i>67</i>&nbsp;
+<b class="fc"><i>68</i>&nbsp;    }</b>
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>71</i>&nbsp;    public static void updateHours(String stringmail, LocalTime startHours, LocalTime finishHours, int day) {
+<b class="nc"><i>72</i>&nbsp;        CustomersViewEdit customersViewEdit = new CustomersViewEdit();</b>
+<i>73</i>&nbsp;
+<b class="nc"><i>74</i>&nbsp;        EmailAddress email = new EmailAddress(stringmail);</b>
+<b class="nc"><i>75</i>&nbsp;        CleaningStuffMember cleaner = CleaningStuffDAO.find(email);</b>
+<b class="nc"><i>76</i>&nbsp;        WorkHours workHours = cleaner.getWorkHours();</b>
+<b class="nc"><i>77</i>&nbsp;        DailyTimePeriod dtp = new DailyTimePeriod(startHours, finishHours);</b>
+<b class="nc"><i>78</i>&nbsp;        LocalTime testTime = LocalTime.of(0,0,0);</b>
+<b class="nc"><i>79</i>&nbsp;        if (!(startHours.compareTo(testTime)==0 &amp;&amp; (finishHours.compareTo(testTime)==0))) {</b>
+<b class="nc"><i>80</i>&nbsp;            workHours.getWorkHoursMap().put(DayOfWeek.of(day), dtp);</b>
+<i>81</i>&nbsp;        }else{
+<b class="nc"><i>82</i>&nbsp;            workHours.getWorkHoursMap().remove(DayOfWeek.of(day));</b>
+<i>83</i>&nbsp;        }
+<b class="nc"><i>84</i>&nbsp;    }</b>
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    public void deleteCleaner(String stringmail) {
+<b class="fc"><i>87</i>&nbsp;        EmailAddress email = new EmailAddress(stringmail);</b>
+<b class="fc"><i>88</i>&nbsp;        CleaningStuffMember cleaner = CleaningStuffDAO.find(email);</b>
+<b class="fc"><i>89</i>&nbsp;        cleaner.fire();</b>
+<b class="fc"><i>90</i>&nbsp;    }</b>
+<i>91</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:45</div>
+</div>
+</body>
+</html>

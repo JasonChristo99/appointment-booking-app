@@ -1,0 +1,161 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomersPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.carlaundry.view.Customers</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomersPresenter (com.example.carlaundry.view.Customers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CustomersPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (28/ 32)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.carlaundry.view.Customers;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.graphics.Color;
+<i>4</i>&nbsp;import android.os.Build;
+<i>5</i>&nbsp;import android.view.View;
+<i>6</i>&nbsp;import android.widget.Button;
+<i>7</i>&nbsp;import android.widget.EditText;
+<i>8</i>&nbsp;import android.widget.LinearLayout;
+<i>9</i>&nbsp;import android.widget.Toast;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import com.example.carlaundry.R;
+<i>14</i>&nbsp;import com.example.carlaundry.dao.CustomersDAO;
+<i>15</i>&nbsp;import com.example.carlaundry.dao.Initializer;
+<i>16</i>&nbsp;import com.example.carlaundry.dao.UserAccountsDAO;
+<i>17</i>&nbsp;import com.example.carlaundry.domain.Customer;
+<i>18</i>&nbsp;import com.example.carlaundry.util.EmailAddress;
+<i>19</i>&nbsp;import com.example.carlaundry.util.TelephoneNumber;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;import java.io.Serializable;
+<i>22</i>&nbsp;import java.time.LocalDate;
+<i>23</i>&nbsp;import java.util.HashSet;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;public class CustomersPresenter implements Serializable {
+<i>26</i>&nbsp;    private CustomersView customersView;
+<i>27</i>&nbsp;    private CustomersViewEdit customersViewEdit;
+<i>28</i>&nbsp;
+<b class="fc"><i>29</i>&nbsp;    public CustomersPresenter(CustomersView customersView) {</b>
+<b class="fc"><i>30</i>&nbsp;        this.customersView = customersView;</b>
+<b class="fc"><i>31</i>&nbsp;    }</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public void deleteCustomer(String stringmail) {
+<b class="fc"><i>35</i>&nbsp;        EmailAddress email = new EmailAddress(stringmail);</b>
+<b class="fc"><i>36</i>&nbsp;        Customer customer = CustomersDAO.find(email);</b>
+<b class="fc"><i>37</i>&nbsp;        customer.delete();</b>
+<b class="fc"><i>38</i>&nbsp;    }</b>
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>41</i>&nbsp;    public void addCustomer(String name, String sirname, String stringmail, String stringtelephone) {
+<i>42</i>&nbsp;        try {
+<b class="fc"><i>43</i>&nbsp;            EmailAddress email = new EmailAddress(stringmail);</b>
+<b class="fc"><i>44</i>&nbsp;            TelephoneNumber telephoneNumber = new TelephoneNumber(stringtelephone);</b>
+<b class="fc"><i>45</i>&nbsp;            Customer customer = new Customer(name, sirname, telephoneNumber, email, LocalDate.now());</b>
+<b class="fc"><i>46</i>&nbsp;            customer.setFirstName(name);</b>
+<b class="fc"><i>47</i>&nbsp;            customer.setLastName(sirname);</b>
+<b class="fc"><i>48</i>&nbsp;            customer.setEmailAddress(email);</b>
+<b class="fc"><i>49</i>&nbsp;            customer.setTelNo(telephoneNumber);</b>
+<b class="fc"><i>50</i>&nbsp;            CustomersDAO.add(customer);</b>
+<b class="fc"><i>51</i>&nbsp;            customersView.navigateToCustomer();</b>
+<b class="nc"><i>52</i>&nbsp;        } catch (IllegalArgumentException e) {</b>
+<b class="nc"><i>53</i>&nbsp;            customersView.wrongTypeOfData();</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;        }</b>
+<i>56</i>&nbsp;
+<b class="fc"><i>57</i>&nbsp;    }</b>
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    public void updateCustomer(Customer customer, String name, String sirname, String stringmail, String oldTelephone) {
+<b class="fc"><i>60</i>&nbsp;        customersViewEdit = new CustomersViewEdit();</b>
+<i>61</i>&nbsp;        try {
+<b class="fc"><i>62</i>&nbsp;            EmailAddress email = new EmailAddress(stringmail);</b>
+<b class="fc"><i>63</i>&nbsp;            TelephoneNumber telephoneNumber = new TelephoneNumber(oldTelephone);</b>
+<b class="fc"><i>64</i>&nbsp;            customer.setFirstName(name);</b>
+<b class="fc"><i>65</i>&nbsp;            customer.setLastName(sirname);</b>
+<b class="fc"><i>66</i>&nbsp;            customer.setEmailAddress(email);</b>
+<b class="fc"><i>67</i>&nbsp;            customer.setTelNo(telephoneNumber);</b>
+<b class="fc"><i>68</i>&nbsp;            customersView.navigateToCustomer();</b>
+<i>69</i>&nbsp;
+<b class="nc"><i>70</i>&nbsp;        } catch (IllegalArgumentException e) {</b>
+<b class="nc"><i>71</i>&nbsp;            customersView.wrongTypeOfData();</b>
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;        }</b>
+<i>74</i>&nbsp;
+<b class="fc"><i>75</i>&nbsp;    }</b>
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:45</div>
+</div>
+</body>
+</html>
