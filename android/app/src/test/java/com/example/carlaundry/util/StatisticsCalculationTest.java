@@ -1,6 +1,8 @@
-package com.example.carlaundry.domain;
+package com.example.carlaundry.util;
 
 import com.example.carlaundry.dao.Initializer;
+import com.example.carlaundry.domain.Appointment;
+import com.example.carlaundry.domain.AppointmentState;
 import com.example.carlaundry.services.CancelRateCalculator;
 import com.example.carlaundry.services.StatisticsCalculatorService;
 import com.example.carlaundry.services.TotalAppointmentsCalculator;
@@ -19,6 +21,9 @@ public class StatisticsCalculationTest {
         Initializer.resetAll();
     }
 
+    /**
+     * Tests the service of total appointments calculation.
+     */
     @Test
     public void calculateTotalAppointmentsComplete() {
         // create 5 appointments
@@ -43,6 +48,9 @@ public class StatisticsCalculationTest {
         Assert.assertEquals(statValue, 5, 0.00001);
     }
 
+    /**
+     * Tests the service of total sales calculation.
+     */
     @Test
     public void calculateTotalSales() {
         // create 5 dummy appointments
@@ -68,6 +76,9 @@ public class StatisticsCalculationTest {
 
     }
 
+    /**
+     * Tests the service of cancel rate calculation.
+     */
     @Test
     public void calculateCancelRate() {
         // create 3 appointments of type complete

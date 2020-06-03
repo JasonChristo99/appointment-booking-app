@@ -59,7 +59,7 @@ public class CleaningStuffHomeActivity extends AppCompatActivity implements Clea
     }
 
     @Override
-    public void onAppointmentCompleted(int aptId) {
+    public void onAppointmentCompleted(final int aptId) {
 
         // show comments dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -74,21 +74,25 @@ public class CleaningStuffHomeActivity extends AppCompatActivity implements Clea
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 comments = input.getText().toString();
-                Toast.makeText(CleaningStuffHomeActivity.this, "Το σχόλιο καταχωρήθηκε", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CleaningStuffHomeActivity.this, "Το σχόλιο καταχωρήθηκε", Toast.LENGTH_SHORT).show();
+                cleaningStuffHomePresenter.completeAppointment(aptId, comments);
+                initRecyclerAdapter();
             }
         });
         builder.setNegativeButton("Ακύρωση", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
+                cleaningStuffHomePresenter.completeAppointment(aptId, comments);
+                initRecyclerAdapter();
             }
         });
 
         builder.show();
 
         // call presenter
-        cleaningStuffHomePresenter.completeAppointment(aptId, comments);
-        initRecyclerAdapter();
+//        cleaningStuffHomePresenter.completeAppointment(aptId, comments);
+//        initRecyclerAdapter();
     }
 
     @Override

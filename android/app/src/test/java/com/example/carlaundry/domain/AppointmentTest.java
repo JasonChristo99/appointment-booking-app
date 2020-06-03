@@ -15,6 +15,11 @@ public class AppointmentTest {
         Initializer.resetAll();
     }
 
+    /**
+     * Tests the appointment scheduling operation,
+     * in the case when a cleaning stuff member is available
+     * on the requested date.
+     */
     @Test
     public void scheduleAppointmentWhichStuffIsAvailableOnDate() {
         // create available stuffMember
@@ -33,6 +38,10 @@ public class AppointmentTest {
         Assert.assertTrue(result);
     }
 
+    /**
+     * Tests the case of scheduling many appointments for the same
+     * cleaning stuff member, on the same date, one after another.
+     */
     @Test
     public void scheduleConsecutiveAppointmentsInSameDay() {
         // create available stuffMember
@@ -66,6 +75,12 @@ public class AppointmentTest {
         System.out.println(AppointmentsDAO.getAppointments());
     }
 
+    /**
+     * Tests the case of scheduling an appointments,
+     * in the case when the specified cleaner is not available
+     * on the requested date, and so the schedule operation
+     * should return false.
+     */
     @Test
     public void scheduleAppointmentWhichStuffIsNotAvailableOnDate() {
         // create available stuffMember
@@ -96,6 +111,10 @@ public class AppointmentTest {
         Assert.assertFalse(result);
     }
 
+    /**
+     * Tests the case in which the specified cleaner of the appointment
+     * does not work on the requested date. The schedule operation should return false.
+     */
     @Test
     public void scheduleAppointmentWhichStuffIsNotWorkingOnDate() {
         // create available stuff
@@ -114,6 +133,9 @@ public class AppointmentTest {
         Assert.assertFalse(result);
     }
 
+    /**
+     * Tests the cancel operation on a scheduled appointment.
+     */
     @Test
     public void cancelPendingAppointment() {
         // create available stuffMember
@@ -136,6 +158,9 @@ public class AppointmentTest {
         Assert.assertTrue(result);
     }
 
+    /**
+     * Tests the canceling of a complete appointment, which should be prohibited.
+     */
     @Test
     public void cancelNonPendingAppointment() {
         // create available stuffMember
@@ -149,7 +174,7 @@ public class AppointmentTest {
                 Initializer.getDummyCleaningType(),
                 Initializer.getDummyCar()
         );
-        // schedule appointemnt
+        // schedule appointment
         boolean result = appointment.schedule();
         Assert.assertTrue(result);
         // complete appointment
@@ -160,6 +185,9 @@ public class AppointmentTest {
         Assert.assertFalse(result);
     }
 
+    /**
+     * Tests the completion operation of a pending appointment.
+     */
     @Test
     public void completePendingAppointment() {
         // create an appointment
@@ -181,6 +209,10 @@ public class AppointmentTest {
         Assert.assertTrue(result);
     }
 
+    /**
+     * Tests the canceling operation on an already completed appointment,
+     * which should be prohibited.
+     */
     @Test
     public void completeCanceledAppointment() {
         // create an appointment

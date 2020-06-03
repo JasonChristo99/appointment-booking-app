@@ -15,6 +15,9 @@ public class UserAccountTest {
         Initializer.resetAll();
     }
 
+    /**
+     * Tests the registration operation on a new user.
+     */
     @Test
     public void signUpNonExistingUser() {
         // sign up an admin account
@@ -23,6 +26,10 @@ public class UserAccountTest {
         Assert.assertNotNull(UserAccountsDAO.find(userEmail));
     }
 
+    /**
+     * Tests the registration operation on an already
+     * registered user, which should be prohibited.
+     */
     @Test
     public void signUpExistingUser() {
         // sign up an admin account
@@ -31,6 +38,9 @@ public class UserAccountTest {
         Assert.assertFalse(result);
     }
 
+    /**
+     * Tests the verification operation on a registered user.
+     */
     @Test
     public void verifyExistingUser() {
         // sign up an admin account
@@ -40,6 +50,9 @@ public class UserAccountTest {
         Assert.assertTrue(result);
     }
 
+    /**
+     * Tests the verification operation on an unregistered user, which should be prohibited.
+     */
     @Test
     public void verifyNonExistingUser() {
         // create an account that registered and then deleted

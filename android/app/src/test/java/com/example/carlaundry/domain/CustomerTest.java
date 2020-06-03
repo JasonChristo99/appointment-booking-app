@@ -7,6 +7,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CustomerTest {
+
+    /**
+     * Tests the delete operation on a registered customer.
+     */
     @Test
     public void delete() {
         //create a customer
