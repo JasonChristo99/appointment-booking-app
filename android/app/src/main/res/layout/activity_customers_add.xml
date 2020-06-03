@@ -78,7 +78,7 @@
         tools:textSize="24sp" />
 
     <TextView
-        android:id="@+id/RegDate"
+        android:id="@+id/hireData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="424dp"
@@ -159,8 +159,8 @@
         android:layout_height="wrap_content"
         android:text="Αυτόματη Καταχώρηση"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/RegDate"
-        app:layout_constraintStart_toStartOf="@+id/RegDate"
-        app:layout_constraintTop_toBottomOf="@+id/RegDate" />
+        app:layout_constraintEnd_toEndOf="@+id/hireData"
+        app:layout_constraintStart_toStartOf="@+id/hireData"
+        app:layout_constraintTop_toBottomOf="@+id/hireData" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

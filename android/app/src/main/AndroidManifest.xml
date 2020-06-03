@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.example.carlaundry">
+    package="com.example.carlaundry">
 
-<application
-    android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
-    android:label="@string/app_name"
-    android:roundIcon="@mipmap/ic_launcher_round"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme">
-    <activity android:name=".view.Appointments.AddEditAppointment.AddEditAppointmentActivity"></activity>
-    <activity android:name=".view.CleaningStuffHome.CleaningStuffHomeActivity" />
-    <activity android:name=".view.Statistics.StatisticsActivity" />
-    <activity android:name=".view.Customers.CustomersAdd"
-        android:noHistory="true"
-        />
-    <activity android:name=".view.Customers.CustomersViewEdit"
-        android:noHistory="true"/>
-    <activity android:name=".view.Customers.CustomersActivity"
-        android:noHistory="true"/>
-    <activity android:name=".view.CleaningStuff.CleaningStuffActivity" />
-    <activity android:name=".view.Appointments.ManageAppointments.ManageAppointmentsActivity" />
-    <activity android:name=".view.AdminHome.AdminHomeActivity" />
-    <activity android:name=".view.Login.LoginActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.CleaningStuff.CleaningStuffAdd"
+            android:windowSoftInputMode="adjustPan"
+            android:noHistory="true"
+            />
+        <activity
+            android:name=".view.CleaningStuff.CleaningStuffAddHours"
+            android:noHistory="true" />
+        <activity
+            android:name=".view.CleaningStuff.CleaningStuffEditWorkHours"
+            android:noHistory="true" />
+        <activity
+            android:name=".view.CleaningStuff.CleaningStuffViewEdit"
+            android:noHistory="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".view.Appointments.AddEditAppointment.AddEditAppointmentActivity" />
+        <activity
+            android:name=".view.CleaningStuffHome.CleaningStuffHomeActivity"
+            android:noHistory="true" />
+        <activity android:name=".view.Statistics.StatisticsActivity" />
+        <activity
+            android:name=".view.Customers.CustomersAdd"
+            android:noHistory="true" />
+        <activity
+            android:name=".view.Customers.CustomersViewEdit"
+            android:noHistory="true" />
+        <activity
+            android:name=".view.Customers.CustomersActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".view.CleaningStuff.CleaningStuffActivity"
+            android:noHistory="true" />
+        <activity android:name=".view.Appointments.ManageAppointments.ManageAppointmentsActivity" />
+        <activity android:name=".view.AdminHome.AdminHomeActivity" />
+        <activity android:name=".view.Login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-</application>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 
 </manifest>

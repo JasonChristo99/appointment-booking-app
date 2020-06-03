@@ -33,11 +33,7 @@ public  class CustomersViewEdit extends AppCompatActivity implements CustomersVi
 
         // Get email from Intent Extras
         final String stringmail = getIntent().getStringExtra("email");
-        if (stringmail.equals("new")){
 
-        }else{
-
-        }
         // Initialize customer details
         EmailAddress mail = new EmailAddress(stringmail);
         final Customer customer = CustomersDAO.find(mail);
@@ -64,7 +60,7 @@ public  class CustomersViewEdit extends AppCompatActivity implements CustomersVi
         Button cancelButton = findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                CustomersViewEdit.this.finish();
+                navigateToCustomer();
             }
         });
 
@@ -116,4 +112,6 @@ public  class CustomersViewEdit extends AppCompatActivity implements CustomersVi
         Intent intent = new Intent(this, CustomersAdd.class);
         startActivity(intent);
     }
+
+
 }

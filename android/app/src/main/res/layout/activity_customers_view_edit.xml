@@ -78,7 +78,7 @@
         tools:textSize="24sp" />
 
     <TextView
-        android:id="@+id/RegDate"
+        android:id="@+id/hireData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="424dp"
@@ -131,10 +131,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/RegDate"
+        app:layout_constraintEnd_toEndOf="@+id/hireData"
         app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="@+id/RegDate"
-        app:layout_constraintTop_toBottomOf="@+id/RegDate" />
+        app:layout_constraintStart_toStartOf="@+id/hireData"
+        app:layout_constraintTop_toBottomOf="@+id/hireData" />
 
     <Button
         android:id="@+id/cancelButton"

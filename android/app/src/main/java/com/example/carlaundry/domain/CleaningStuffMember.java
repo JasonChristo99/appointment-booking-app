@@ -38,6 +38,10 @@ public class CleaningStuffMember extends Person {
         return afm;
     }
 
+    public void setAfm(AFM afm) {
+        this.afm = afm;
+    }
+
     public LocalDate getDateHired() {
         return dateHired;
     }

@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi;
 import com.example.carlaundry.R;
 import com.example.carlaundry.dao.CustomersDAO;
 import com.example.carlaundry.dao.Initializer;
+import com.example.carlaundry.dao.UserAccountsDAO;
 import com.example.carlaundry.domain.Customer;
 import com.example.carlaundry.util.EmailAddress;
 import com.example.carlaundry.util.TelephoneNumber;
@@ -27,19 +28,7 @@ public class CustomersPresenter implements Serializable {
     public CustomersPresenter(CustomersView customersView) {
         this.customersView = customersView;
     }
-    public void showCustomerDetails(String stringmail){
-        EmailAddress email = new EmailAddress(stringmail);
-        Customer customer =  CustomersDAO.find(email);
-        String firstName = customer.getFirstName();
-        String lastName = customer.getLastName();
-        String telNo = customer.getTelNoAsString();
-        LocalDate regDate = customer.getRegistrationDate();
 
-
-        System.out.println(firstName + lastName + email + telNo + regDate);
-
-
-    }
 
     public void deleteCustomer(String stringmail){
         EmailAddress email = new EmailAddress(stringmail);
@@ -57,27 +46,28 @@ public class CustomersPresenter implements Serializable {
             customer.setEmailAddress(email);
             customer.setTelNo(telephoneNumber);
             CustomersDAO.add(customer);
+            customersView.navigateToCustomer();
         } catch (IllegalArgumentException e){
             customersView.wrongTypeOfData();
-            customersView.navigateToCustomerAdd();
 
         }
-        customersView.navigateToCustomer();
+
     }
-    public void updateCustomer(Customer customer, String name, String sirname, String oldEmail, String oldTelephone){
+    public void updateCustomer(Customer customer, String name, String sirname, String stringmail, String oldTelephone){
         customersViewEdit = new CustomersViewEdit();
         try {
-            EmailAddress email = new EmailAddress(oldEmail);
+            EmailAddress email = new EmailAddress(stringmail);
             TelephoneNumber telephoneNumber = new TelephoneNumber(oldTelephone);
             customer.setFirstName(name);
             customer.setLastName(sirname);
             customer.setEmailAddress(email);
             customer.setTelNo(telephoneNumber);
+            customersView.navigateToCustomer();
+
         } catch (IllegalArgumentException e){
             customersView.wrongTypeOfData();
-            customersView.navigateToCustomerDetails(oldEmail);
+
         }
-        customersView.navigateToCustomer();
 
     }
 

@@ -9,4 +9,6 @@ public interface CustomersView {
 
     void wrongTypeOfData();
 
+
+
 }
