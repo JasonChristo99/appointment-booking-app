@@ -25,7 +25,8 @@ public class TelephoneNumber {
     public int intValue() {
         return Integer.parseInt(telNo);
     }
-    public String stringTelephone(){
+
+    public String stringTelephone() {
         return telNo;
     }
 

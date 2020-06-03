@@ -60,6 +60,10 @@ public class CleaningStuffMember extends Person {
         return "Cleaner " + getEmailAddress() + "(" + getWorkHours().getWorkHoursMap() + ")";
     }
 
+    /**
+     * Gathers the pending appointments for this cleaner and returns it as a set.
+     * @return the appointment set
+     */
     public Set<Appointment> getAssignedPendingAppointments() {
         Set<Appointment> aptSet = new HashSet<>();
         for (Appointment apt : AppointmentsDAO.getAppointments()) {
@@ -70,6 +74,13 @@ public class CleaningStuffMember extends Person {
         return aptSet;
     }
 
+    /**
+     * Considering a given date, this method checks whether the cleaner is available,
+     * meaning it is on their working hours and they have no other appointment on the same date.
+     * Based on this answer, an appointment can be scheduled with this cleaner.
+     * @param aptDate the date to check availability for
+     * @return true if cleaner is available on date
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean isAvailableOn(LocalDateTime aptDate) {
         // works on date
@@ -96,10 +107,18 @@ public class CleaningStuffMember extends Person {
         return true;
     }
 
+    /**
+     * Adds the cleaner to the DAO.
+     * @return true if added successfully
+     */
     public boolean hire() {
         return CleaningStuffDAO.add(this);
     }
 
+    /**
+     * Removes the cleaner from the DAO.
+     * @return true if removed successfully
+     */
     public boolean fire() {
         if (CleaningStuffDAO.remove(this)) {
             return userAccount.delete();

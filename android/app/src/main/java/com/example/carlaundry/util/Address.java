@@ -1,7 +1,5 @@
 package com.example.carlaundry.util;
 
-import java.util.regex.Pattern;
-
 public class Address {
     private String street;
     private int streetNo;

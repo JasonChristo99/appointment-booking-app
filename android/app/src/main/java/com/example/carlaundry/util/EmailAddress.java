@@ -14,6 +14,10 @@ public class EmailAddress {
         }
     }
 
+    /**
+     * Checks if the email address is valid, by using a regular expression pattern.
+     * @return true if address is valid
+     */
     private boolean isValid() {
         if (this.address == null) {
             return false;

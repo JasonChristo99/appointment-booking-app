@@ -52,14 +52,26 @@ public class UserAccount {
         return emailAddress.hashCode();
     }
 
+    /**
+     * Adds the user to the respective DAO.
+     * @return true if added successfully
+     */
     public boolean register() {
         return UserAccountsDAO.add(this);
     }
 
+    /**
+     * Checks if the user is already registered.
+     * @return true if the user is found in the DAO
+     */
     public boolean verify() {
         return UserAccountsDAO.verify(this.emailAddress);
     }
 
+    /**
+     * Removes the user to the respective DAO.
+     * @return true if removed successfully
+     */
     public boolean delete() {
         return UserAccountsDAO.remove(this);
     }

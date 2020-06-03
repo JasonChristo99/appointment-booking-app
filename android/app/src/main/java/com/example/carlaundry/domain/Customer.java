@@ -29,6 +29,10 @@ public class Customer extends Person implements Serializable {
         this.registrationDate = registrationDate;
     }
 
+    /**
+     * Gathers the pending appointments for this customer and returns it as a set.
+     * @return the appointment set
+     */
     public Set<Appointment> getAppointmentsBooked() {
         Set<Appointment> aptSet = new HashSet<>();
         for (Appointment apt : AppointmentsDAO.getAppointments()) {

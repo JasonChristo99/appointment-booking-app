@@ -19,10 +19,13 @@ public class CleaningStuffHomePresenter {
         return aptsList;
     }
 
-    public void completeAppointment(int aptId) {
+    public void completeAppointment(int aptId, String comments) {
         Appointment apt = AppointmentsDAO.find(aptId);
         if (apt != null) {
             apt.complete();
+            if (comments != null) {
+                apt.setComments(comments);
+            }
             cleaningStuffHomeView.showMessage("Ο καθαρισμός πραγματοποιήθηκε επιτυχώς");
         } else {
             cleaningStuffHomeView.showMessage("Ο καθαρισμός δεν μπόρεσε να ολοκληρωθεί");

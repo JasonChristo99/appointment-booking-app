@@ -42,6 +42,10 @@ public class Appointment {
         this.car = car;
     }
 
+    /**
+     * Fetches a new id for the appointment being currently created.
+     * @return the next id
+     */
     private static int nextId() {
         next_id++;
         return next_id - 1;
@@ -79,14 +83,6 @@ public class Appointment {
         return car;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setAptCompletionDate(LocalDateTime aptCompletionDate) {
-        this.aptCompletionDate = aptCompletionDate;
-    }
-
     public void setAptDate(LocalDateTime aptDate) {
         this.aptDate = aptDate;
     }
@@ -118,6 +114,13 @@ public class Appointment {
         return "Appointment on " + getAptDate().toString() + " served by " + getStuffMember().toString();
     }
 
+
+    /**
+     * Schedules a created appointment, checking whether
+     * the selected cleaner is available on the selected date.
+     * Also adds the new appointment to the DAO.
+     * @return true if the appointment was scheduled successfully
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean schedule() {
         if (this.getStuffMember().isAvailableOn(this.getAptDate())) {
@@ -130,6 +133,13 @@ public class Appointment {
         return false;
     }
 
+    /**
+     * Reschedules a created appointment, after the admin has chosen
+     * to edit its details, checking whether the selected cleaner
+     * is available on the selected date. This method does not add
+     * the appointment to the DAO.
+     * @return true if the appointment was rescheduled successfully
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean reschedule() {
         if (this.getStuffMember().isAvailableOn(this.getAptDate())) {
@@ -140,6 +150,11 @@ public class Appointment {
         return false;
     }
 
+    /**
+     * Checks the appointment's state and if it is pending,
+     * the method sets the appointment's state to canceled.
+     * @return true if the appointment was canceled successfully
+     */
     public boolean cancel() {
         if (!this.getAptState().equals(AppointmentState.PENDING)) {
             return false;
@@ -151,6 +166,11 @@ public class Appointment {
         return false;
     }
 
+    /**
+     * Checks the appointment's state and if it is pending,
+     * the method sets the appointment's state to complete.
+     * @return true if the appointment was completed successfully
+     */
     public boolean complete() {
         if (aptState.equals(AppointmentState.PENDING)) {
             aptState = AppointmentState.COMPLETE;

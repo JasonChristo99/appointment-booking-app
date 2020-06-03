@@ -1,12 +1,16 @@
 package com.example.carlaundry.view.CleaningStuffHome;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.carlaundry.R;
@@ -26,6 +30,8 @@ public class CleaningStuffHomeActivity extends AppCompatActivity implements Clea
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private StuffManageAppointmentAdapter manageAppointmentAdapter;
+
+    String comments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +60,34 @@ public class CleaningStuffHomeActivity extends AppCompatActivity implements Clea
 
     @Override
     public void onAppointmentCompleted(int aptId) {
-        cleaningStuffHomePresenter.completeAppointment(aptId);
+
+        // show comments dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Θα θέλατε να προσθέσετε κάποιο σχόλιο;");
+
+        final EditText input = new EditText(this);
+
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                comments = input.getText().toString();
+                Toast.makeText(CleaningStuffHomeActivity.this, "Το σχόλιο καταχωρήθηκε", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Ακύρωση", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+        // call presenter
+        cleaningStuffHomePresenter.completeAppointment(aptId, comments);
         initRecyclerAdapter();
     }
 
